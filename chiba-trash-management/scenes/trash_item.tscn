@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://dwu8w5ihi8elj"]
 
+[ext_resource type="Script" uid="uid://bwwg04l8a85l8" path="res://scenes/trash_item.gd" id="1_a56e1"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whxsk"]
 
 [node name="TrashItem" type="Area2D" unique_id=1427579114]
+script = ExtResource("1_a56e1")
+MAX_SIZE = 300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2045410212]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1576889550]
+unique_name_in_owner = true
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_whxsk")

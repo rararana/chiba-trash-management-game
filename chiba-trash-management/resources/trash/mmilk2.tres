@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://dt3iqeuh38wrn"]
+
+[ext_resource type="Script" uid="uid://bgsobymilpwpg" path="res://resources/trash_data.gd" id="1_8725d"]
+[ext_resource type="Texture2D" uid="uid://dvu5kgbc16od7" path="res://assets/visual/trash/milk-2.PNG" id="1_eo2sq"]
+
+[resource]
+script = ExtResource("1_8725d")
+item_name = "Mmilk"
+item_texture = ExtResource("1_eo2sq")
+tools_needed = Array[String](["Scissors", "Sponge"])
+metadata/_custom_type_script = "uid://bgsobymilpwpg"

@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://43gw27543sk2"]
 
 [ext_resource type="Texture2D" uid="uid://dlya5lv1qrmii" path="res://assets/visual/morning-bg.png" id="1_dbkse"]
+[ext_resource type="Script" uid="uid://bbs5ag2wm52dl" path="res://scenes/base_level.gd" id="1_oox4p"]
 [ext_resource type="Texture2D" uid="uid://552xe1kjs07h" path="res://assets/visual/placement-box.PNG" id="2_0n1tn"]
+[ext_resource type="PackedScene" uid="uid://dwu8w5ihi8elj" path="res://scenes/trash_item.tscn" id="2_3aqo6"]
+[ext_resource type="Resource" uid="uid://b5kavqx3pshp7" path="res://resources/trash/mmilk1.tres" id="2_k2uud"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1660347800]
+script = ExtResource("1_oox4p")
+trash_scene = ExtResource("2_3aqo6")
+trash_data_list = Array[Resource]([ExtResource("2_k2uud"), ExtResource("2_k2uud")])
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1792557259]
+layer = -1
 
 [node name="SkyBackground" type="TextureRect" parent="BackgroundLayer" unique_id=427897275]
 anchors_preset = 15
@@ -19,6 +26,7 @@ texture = ExtResource("1_dbkse")
 expand_mode = 2
 
 [node name="PlacementLayer" type="CanvasLayer" parent="." unique_id=424172995]
+layer = -1
 
 [node name="PlacementBackground" type="TextureRect" parent="PlacementLayer" unique_id=351141693]
 anchors_preset = 15
@@ -36,3 +44,5 @@ expand_mode = 2
 [node name="Tools" type="Node2D" parent="." unique_id=54998351]
 
 [node name="SpawnerArea" type="Marker2D" parent="." unique_id=1834674229]
+unique_name_in_owner = true
+position = Vector2(726, 586)
