@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://43gw27543sk2"]
+
+[ext_resource type="Texture2D" uid="uid://dlya5lv1qrmii" path="res://assets/visual/morning-bg.png" id="1_dbkse"]
+[ext_resource type="Texture2D" uid="uid://552xe1kjs07h" path="res://assets/visual/placement-box.PNG" id="2_0n1tn"]
+
+[node name="BaseLevel" type="Node2D" unique_id=1660347800]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1792557259]
+
+[node name="SkyBackground" type="TextureRect" parent="BackgroundLayer" unique_id=427897275]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dbkse")
+expand_mode = 2
+
+[node name="PlacementLayer" type="CanvasLayer" parent="." unique_id=424172995]
+
+[node name="PlacementBackground" type="TextureRect" parent="PlacementLayer" unique_id=351141693]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0n1tn")
+expand_mode = 2
+
+[node name="StorageAreas" type="Node2D" parent="." unique_id=1645964234]
+
+[node name="CategoryBags" type="Node2D" parent="." unique_id=1220121683]
+
+[node name="Tools" type="Node2D" parent="." unique_id=54998351]
+
+[node name="SpawnerArea" type="Marker2D" parent="." unique_id=1834674229]
