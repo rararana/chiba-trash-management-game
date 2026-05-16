@@ -61,3 +61,23 @@ func apply_tool():
 		item_data = item_data.next_state
 		sprite.texture = item_data.item_texture
 		_update_hitbox()
+
+
+func receive_tool(incoming_tool_id: String) -> bool:
+	var can_process = false
+	
+	match incoming_tool_id:
+		"scissor":
+			can_process = item_data.need_scissor
+		"sponge":
+			can_process = item_data.need_sponge
+		"tie":
+			can_process = item_data.need_tie
+			
+	if can_process and item_data.next_state:
+		item_data = item_data.next_state
+		sprite.texture = item_data.item_texture
+		_update_hitbox()
+		return true
+		
+	return false

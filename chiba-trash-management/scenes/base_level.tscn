@@ -4,7 +4,10 @@
 [ext_resource type="Script" uid="uid://bbs5ag2wm52dl" path="res://scripts/base_level.gd" id="1_oox4p"]
 [ext_resource type="Texture2D" uid="uid://552xe1kjs07h" path="res://assets/visual/placement-box.PNG" id="2_0n1tn"]
 [ext_resource type="PackedScene" uid="uid://dwu8w5ihi8elj" path="res://scenes/trash_item.tscn" id="2_3aqo6"]
-[ext_resource type="Resource" uid="uid://b5kavqx3pshp7" path="res://resources/trash/mmilk1.tres" id="2_k2uud"]
+[ext_resource type="Resource" uid="uid://bw4120wl5nequ" path="res://resources/trash/mmilk1.tres" id="2_k2uud"]
+[ext_resource type="PackedScene" uid="uid://j0koflvvo0vk" path="res://scenes/scissor_tool.tscn" id="6_earhg"]
+[ext_resource type="PackedScene" uid="uid://bsv52a0au17lb" path="res://scenes/tie_tool.tscn" id="7_u6ue0"]
+[ext_resource type="PackedScene" uid="uid://cmxnlsdcesqob" path="res://scenes/sponge_tool.tscn" id="8_fal5o"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1660347800]
 script = ExtResource("1_oox4p")
@@ -22,6 +25,7 @@ offset_left = -2.0
 offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_dbkse")
 expand_mode = 2
 
@@ -34,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_0n1tn")
 expand_mode = 2
 
@@ -42,6 +47,20 @@ expand_mode = 2
 [node name="CategoryBags" type="Node2D" parent="." unique_id=1220121683]
 
 [node name="Tools" type="Node2D" parent="." unique_id=54998351]
+
+[node name="ScissorTool" parent="Tools" unique_id=384508719 instance=ExtResource("6_earhg")]
+position = Vector2(1435, 769.99994)
+scale = Vector2(0.25, 0.25)
+
+[node name="TieTool" parent="Tools" unique_id=1947184718 instance=ExtResource("7_u6ue0")]
+position = Vector2(1415, 598)
+rotation = 1.4137167
+scale = Vector2(0.23, 0.23)
+
+[node name="SpongeTool" parent="Tools" unique_id=106498173 instance=ExtResource("8_fal5o")]
+position = Vector2(1417, 436)
+rotation = 1.3962634
+scale = Vector2(0.23, 0.23)
 
 [node name="SpawnerArea" type="Marker2D" parent="." unique_id=1834674229]
 unique_name_in_owner = true

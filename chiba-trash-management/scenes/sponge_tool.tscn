@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cmxnlsdcesqob"]
+
+[ext_resource type="Script" uid="uid://cjtuas842ti0m" path="res://scripts/sponge_tool.gd" id="1_8qfvg"]
+[ext_resource type="Texture2D" uid="uid://brqd7p4iuo7qq" path="res://assets/visual/tools/sponge.PNG" id="2_rmsyl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsyl"]
+size = Vector2(535, 781)
+
+[node name="SpongeTool" type="Area2D" unique_id=106498173]
+script = ExtResource("1_8qfvg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1508663763]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_rmsyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2107134614]
+position = Vector2(-26.5, 1.5)
+shape = SubResource("RectangleShape2D_rmsyl")
