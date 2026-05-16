@@ -50,12 +50,10 @@ func check_apply_tool():
 		if area.has_method("receive_tool"): 
 			var success = area.receive_tool(tool_id)
 			if success:
-				applied = true
-				queue_free() 
+				applied = true 
 				break
 				
-	if not applied:
-		_return_to_start()
+	_return_to_start()
 
 func _return_to_start():
 	drop_tween = create_tween()

@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bgsobymilpwpg" path="res://resources/trash_data.gd" id="1_8725d"]
 [ext_resource type="Texture2D" uid="uid://dvu5kgbc16od7" path="res://assets/visual/trash/milk-2.PNG" id="1_eo2sq"]
+[ext_resource type="Resource" uid="uid://b4d6s50s33ngm" path="res://resources/trash/mmilk3.tres" id="2_1nacq"]
 
 [resource]
 script = ExtResource("1_8725d")
 item_name = "Mmilk"
 item_texture = ExtResource("1_eo2sq")
-need_scissors = true
-need_sponge = true
+required_tool = "sponge"
+next_state = ExtResource("2_1nacq")
 metadata/_custom_type_script = "uid://bgsobymilpwpg"

@@ -62,22 +62,28 @@ func apply_tool():
 		sprite.texture = item_data.item_texture
 		_update_hitbox()
 
-
 func receive_tool(incoming_tool_id: String) -> bool:
-	var can_process = false
+	if not item_data:
+		print("Debug: item_data kosong!")
+		return false
 	
-	match incoming_tool_id:
-		"scissor":
-			can_process = item_data.need_scissor
-		"sponge":
-			can_process = item_data.need_sponge
-		"tie":
-			can_process = item_data.need_tie
-			
-	if can_process and item_data.next_state:
-		item_data = item_data.next_state
-		sprite.texture = item_data.item_texture
-		_update_hitbox()
-		return true
+	var req_tool = item_data.get("required_tool")
+	
+	if req_tool == "none" or req_tool == null:
+		print("Debug: Item ini tidak membutuhkan tool.")
+		return false
 		
-	return false
+	if incoming_tool_id == req_tool:
+		var next = item_data.get("next_state")
+		if next:
+			item_data = next
+			sprite.texture = item_data.get("item_texture")
+			_update_hitbox()
+			print("Debug: [SUKSES] Berhasil menggunakan ", incoming_tool_id, ".")
+			return true
+		else:
+			print("Debug: [WARNING] Tool benar, tapi next_state kosong.")
+			return false
+	else:
+		print("Debug: [SALAH ALAT] Item ini butuh '", req_tool, "', bukan '", incoming_tool_id, "'.")
+		return false

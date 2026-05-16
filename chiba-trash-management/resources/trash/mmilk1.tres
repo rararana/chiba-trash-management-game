@@ -8,7 +8,6 @@
 script = ExtResource("2_5bfq2")
 item_name = "Mmilk"
 item_texture = ExtResource("1_w7vvw")
-need_scissor = true
-need_sponge = true
+required_tool = "scissor"
 next_state = ExtResource("2_oye3u")
 metadata/_custom_type_script = "uid://bgsobymilpwpg"
