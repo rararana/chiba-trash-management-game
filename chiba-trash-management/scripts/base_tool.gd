@@ -57,6 +57,6 @@ func check_apply_tool():
 
 func _return_to_start():
 	drop_tween = create_tween()
-	drop_tween.tween_property(self, "global_position", start_position, 0.2) \
+	drop_tween.tween_property(self, "global_position", start_position, 0.3) \
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(Tween.EASE_OUT)

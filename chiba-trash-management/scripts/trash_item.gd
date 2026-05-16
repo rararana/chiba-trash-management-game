@@ -2,6 +2,7 @@ extends Area2D
 
 @export var item_data: Resource
 @export var MAX_SIZE = 150.0
+@export var min_y_boundary: float = 320.0
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var collision: CollisionShape2D = %CollisionShape2D
 var is_dragging: bool = false
@@ -33,9 +34,13 @@ func _on_input_event(viewport, event, shape_idx):
 			is_dragging = true
 			z_index = 10
 			get_viewport().set_input_as_handled()
+			
 			if drop_tween and drop_tween.is_valid():
 				drop_tween.kill()
-		else:
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if not event.pressed and is_dragging:
 			is_dragging = false
 			z_index = 0
 			_animate_drop()
@@ -52,9 +57,12 @@ func check_drop_zone():
 	pass		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(delta: float):
 	if is_dragging:
-		global_position = get_global_mouse_position()
+		var mouse_pos = get_global_mouse_position()
+		if mouse_pos.y < min_y_boundary: 
+			mouse_pos.y = min_y_boundary
+		global_position = mouse_pos
 		
 func apply_tool():
 	if item_data.next_state:
