@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://ddv30b52ub7rm"]
+
+[ext_resource type="Texture2D" uid="uid://d1sqi0nrkphdp" path="res://assets/trash_combustible/kalcer.PNG" id="1_7gmaf"]
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_7h0bv"]
+
+[resource]
+script = ExtResource("1_7h0bv")
+item_name = "kalcer"
+item_texture = ExtResource("1_7gmaf")
+category = "Combustible"
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

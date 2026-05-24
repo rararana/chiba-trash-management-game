@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://bvyqgammhed20"]
+
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_4oa38"]
+[ext_resource type="Texture2D" uid="uid://cu3s2usa337qu" path="res://assets/trash_combustible/apel.PNG" id="1_usvpq"]
+
+[resource]
+script = ExtResource("1_4oa38")
+item_name = "apel"
+item_texture = ExtResource("1_usvpq")
+category = "Combustible"
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

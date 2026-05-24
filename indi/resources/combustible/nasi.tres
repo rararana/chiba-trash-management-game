@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://xkn13qr8xl1y"]
+
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_ndeeo"]
+[ext_resource type="Texture2D" uid="uid://d1nsd2sms32ti" path="res://assets/trash_combustible/nasi.PNG" id="1_qv43f"]
+
+[resource]
+script = ExtResource("1_ndeeo")
+item_name = "nasi"
+item_texture = ExtResource("1_qv43f")
+category = "Combustible"
+metadata/_custom_type_script = "uid://62hy3c2dcngb"
