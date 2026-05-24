@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://8fd4uwfstpp6"]
 
-[ext_resource type="Script" uid="uid://ct35glvea1hsd" path="res://loading_screen.gd" id="1_h0dus"]
-[ext_resource type="Texture2D" uid="uid://bp3856n4upx6l" path="res://assets/loading_ui/texture.PNG" id="2_h0dus"]
-[ext_resource type="Texture2D" uid="uid://d4f65bhcx2hu8" path="res://assets/loading_ui/under.PNG" id="3_p1mo3"]
-[ext_resource type="Texture2D" uid="uid://dlym6eipmdmtp" path="res://assets/loading_ui/over.PNG" id="4_x74xp"]
-[ext_resource type="Texture2D" uid="uid://dp4sy3a2s4lev" path="res://assets/loading_ui/progress.PNG" id="5_v4uo1"]
+[ext_resource type="Script" uid="uid://brwhmqnm0rl78" path="res://loading_screen.gd" id="1_h0dus"]
+[ext_resource type="Texture2D" uid="uid://bp3856n4upx6l" path="res://assets/visual/loading_ui/texture.PNG" id="2_h0dus"]
+[ext_resource type="Texture2D" uid="uid://d4f65bhcx2hu8" path="res://assets/visual/loading_ui/under.PNG" id="3_p1mo3"]
+[ext_resource type="Texture2D" uid="uid://dlym6eipmdmtp" path="res://assets/visual/loading_ui/over.PNG" id="4_x74xp"]
+[ext_resource type="Texture2D" uid="uid://dp4sy3a2s4lev" path="res://assets/visual/loading_ui/progress.PNG" id="5_v4uo1"]
 
 [node name="LoadingScreen" type="Control" unique_id=1724734615]
 layout_mode = 3

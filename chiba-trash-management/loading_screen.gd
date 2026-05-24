@@ -22,3 +22,5 @@ func _process(delta):
 		
 		set_process(false) 
 		print("LOADING SELESAI")
+		#await get_tree().create_timer(0.5).timeout
+		get_tree().change_scene_to_file("res://scenes/base_level.tscn")

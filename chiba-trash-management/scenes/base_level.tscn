@@ -7,9 +7,9 @@
 [ext_resource type="Resource" uid="uid://bvrxijj843wp1" path="res://resources/level/level_1.tres" id="2_u6ue0"]
 [ext_resource type="PackedScene" uid="uid://c54uolws7vg3d" path="res://scenes/combustible_bag.tscn" id="5_earhg"]
 [ext_resource type="PackedScene" uid="uid://j0koflvvo0vk" path="res://scenes/scissor_tool.tscn" id="6_earhg"]
-[ext_resource type="PackedScene" uid="uid://bj41qvd18soa2" path="res://scenes/incombustible_bag.tscn" id="7_fal5o"]
 [ext_resource type="PackedScene" uid="uid://bsv52a0au17lb" path="res://scenes/tie_tool.tscn" id="7_u6ue0"]
 [ext_resource type="PackedScene" uid="uid://cmxnlsdcesqob" path="res://scenes/sponge_tool.tscn" id="8_fal5o"]
+[ext_resource type="PackedScene" uid="uid://cnfv8ypgics5p" path="res://scenes/UI/main_ui.tscn" id="10_fal5o"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1660347800]
 script = ExtResource("1_oox4p")
@@ -54,11 +54,6 @@ scale = Vector2(0.2, 0.2)
 scale_increase = 0.2
 extra_sprite_offset = 30.0
 
-[node name="IncombustibleBag" parent="CategoryBags" unique_id=646670223 instance=ExtResource("7_fal5o")]
-visible = false
-position = Vector2(-2.9999998, 587.99994)
-scale = Vector2(0.2, 0.2)
-
 [node name="TrashCan" type="Node2D" parent="CategoryBags" unique_id=942750738]
 
 [node name="Tools" type="Node2D" parent="." unique_id=54998351]
@@ -80,3 +75,5 @@ scale = Vector2(0.23, 0.23)
 [node name="SpawnerArea" type="Marker2D" parent="." unique_id=1834674229]
 unique_name_in_owner = true
 position = Vector2(726, 586)
+
+[node name="MainUI" parent="." unique_id=1200674765 instance=ExtResource("10_fal5o")]
