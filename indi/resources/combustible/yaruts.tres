@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://du3g7mm82vvoi"]
+
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_2ykrw"]
+[ext_resource type="Texture2D" uid="uid://bcauft2gxwfg8" path="res://assets/trash_combustible/yaruts.PNG" id="1_c8yer"]
+
+[resource]
+script = ExtResource("1_2ykrw")
+item_name = "yaruts"
+item_texture = ExtResource("1_c8yer")
+category = "Combustible"
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://dcchwg0mtgp7u"]
+
+[ext_resource type="Texture2D" uid="uid://chbtdultwky2k" path="res://assets/trash_combustible/bento.PNG" id="1_2yr16"]
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_xlutj"]
+
+[resource]
+script = ExtResource("1_xlutj")
+item_name = "bento"
+item_texture = ExtResource("1_2yr16")
+category = "Combustible"
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

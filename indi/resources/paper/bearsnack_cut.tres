@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://bx4xvi1vf27ir"]
+
+[ext_resource type="Texture2D" uid="uid://bnymch0j6ssqu" path="res://assets/trash_paper/bearsnack_cut.PNG" id="1_8r2t6"]
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_81hf8"]
+
+[resource]
+script = ExtResource("1_81hf8")
+item_name = "bearsnack_cut"
+item_texture = ExtResource("1_8r2t6")
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

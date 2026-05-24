@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://ch48qttuvxaig"]
+
+[ext_resource type="Texture2D" uid="uid://cwx5lnu1k3ud2" path="res://assets/trash_paper/applepie_cut.PNG" id="1_8my7j"]
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_k8syi"]
+
+[resource]
+script = ExtResource("1_k8syi")
+item_name = "applepie_cut"
+item_texture = ExtResource("1_8my7j")
+metadata/_custom_type_script = "uid://62hy3c2dcngb"
