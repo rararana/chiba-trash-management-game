@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c54uolws7vg3d"]
+
+[ext_resource type="PackedScene" uid="uid://dmtdfcij1nuwm" path="res://scenes/base_bag.tscn" id="1_y00nf"]
+[ext_resource type="Texture2D" uid="uid://34207emyw2ag" path="res://assets/visual/category/bar.png" id="2_odiku"]
+[ext_resource type="Texture2D" uid="uid://cw8nsvehn8rrh" path="res://assets/visual/category/combustible-1.PNG" id="3_a2fb2"]
+[ext_resource type="Texture2D" uid="uid://c657o7hjg2rem" path="res://assets/visual/category/combustible-2.PNG" id="3_vppl3"]
+[ext_resource type="Texture2D" uid="uid://qxlp36xpuo0g" path="res://assets/visual/category/combustible-3.PNG" id="4_gmq3q"]
+
+[node name="CombustibleBag" unique_id=847283451 instance=ExtResource("1_y00nf")]
+texture_normal = ExtResource("3_a2fb2")
+texture_sedang = ExtResource("3_vppl3")
+texture_full = ExtResource("4_gmq3q")
+
+[node name="BarSprite" parent="." index="0" unique_id=602615515]
+texture = ExtResource("2_odiku")
+
+[node name="BagSprite" parent="." index="1" unique_id=1718815255]
+position = Vector2(220.99998, -8.999999)
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=846810227]
+position = Vector2(-9.5, -12)

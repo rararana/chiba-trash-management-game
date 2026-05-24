@@ -95,3 +95,6 @@ func receive_tool(incoming_tool_id: String) -> bool:
 	else:
 		print("Debug: [SALAH ALAT] Item ini butuh '", req_tool, "', bukan '", incoming_tool_id, "'.")
 		return false
+		
+func is_trash() -> bool:
+	return true

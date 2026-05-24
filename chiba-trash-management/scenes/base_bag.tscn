@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dmtdfcij1nuwm"]
+
+[ext_resource type="Script" uid="uid://23ifnavk8m8n" path="res://scenes/base_bag.gd" id="1_j7bao"]
+[ext_resource type="Texture2D" uid="uid://34207emyw2ag" path="res://assets/visual/category/bar.png" id="2_pkhfu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ww25b"]
+size = Vector2(1029, 539)
+
+[node name="BaseBag" type="Area2D" unique_id=847283451]
+script = ExtResource("1_j7bao")
+scale_increase = 0.5
+target_x_offset = 80.0
+extra_sprite_offset = 100.0
+
+[node name="BarSprite" type="Sprite2D" parent="." unique_id=602615515]
+texture = ExtResource("2_pkhfu")
+
+[node name="BagSprite" type="Sprite2D" parent="." unique_id=1718815255]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=846810227]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_ww25b")

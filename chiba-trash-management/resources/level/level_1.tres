@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://bvrxijj843wp1"]
+
+[ext_resource type="Script" uid="uid://8dgo7ntu5ilb" path="res://resources/level_data.gd" id="1_mgrjq"]
+[ext_resource type="Resource" uid="uid://bw4120wl5nequ" path="res://resources/trash/mmilk1.tres" id="2_et6yg"]
+
+[resource]
+script = ExtResource("1_mgrjq")
+trash_data_list = Array[Resource]([ExtResource("2_et6yg"), ExtResource("2_et6yg")])
+metadata/_custom_type_script = "uid://8dgo7ntu5ilb"
