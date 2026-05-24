@@ -51,7 +51,6 @@ expand_mode = 2
 [node name="CombustibleBag" parent="CategoryBags" unique_id=847283451 instance=ExtResource("5_earhg")]
 position = Vector2(2.3841858e-07, 423)
 scale = Vector2(0.2, 0.2)
-scale_increase = 0.2
 extra_sprite_offset = 30.0
 
 [node name="TrashCan" type="Node2D" parent="CategoryBags" unique_id=942750738]

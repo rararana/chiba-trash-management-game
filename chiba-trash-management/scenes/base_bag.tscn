@@ -8,7 +8,6 @@ size = Vector2(1029, 539)
 
 [node name="BaseBag" type="Area2D" unique_id=847283451]
 script = ExtResource("1_j7bao")
-scale_increase = 0.5
 target_x_offset = 80.0
 extra_sprite_offset = 100.0
 

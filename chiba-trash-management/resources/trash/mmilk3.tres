@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://b4d6s50s33ngm"]
 
-[ext_resource type="Script" uid="uid://bgsobymilpwpg" path="res://resources/trash_data.gd" id="1_d1w7a"]
+[ext_resource type="Script" uid="uid://bgsobymilpwpg" path="res://resources/scripts/trash_data.gd" id="1_d1w7a"]
 [ext_resource type="Texture2D" uid="uid://dvu5kgbc16od7" path="res://assets/visual/trash/milk-2.PNG" id="1_eiui1"]
 
 [resource]

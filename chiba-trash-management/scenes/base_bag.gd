@@ -6,7 +6,7 @@ class_name BaseBag
 @export var texture_sedang: Texture2D
 @export var texture_full: Texture2D
 
-@export var scale_increase: float = 0.2 # Isi angka kecil (misal 0.1 atau 0.2) untuk seberapa besar nambahnya
+@export var scale_increase: float = 2.0
 @export var target_x_offset: float = 100.0
 @export var extra_sprite_offset: float = 30.0
 
@@ -26,13 +26,14 @@ func _ready():
 	_update_visual()
 
 func _on_area_entered(area: Area2D):
-	if area.has_method("is_trash"):
+	if is_instance_valid(area) and area.has_method("is_trash"):
 		if area.get("is_dragging") == true:
 			var calc_target_scale = default_bag_scale + Vector2(scale_increase, scale_increase)
 			_animate(calc_target_scale, default_x + target_x_offset, default_sprite_x + extra_sprite_offset)
 
 func _on_area_exited(area: Area2D):
-	if area.has_method("is_trash"):
+	# cek is_instance_valid dulu biar nggak crash saat sampah dihapus
+	if not is_instance_valid(area) or area.has_method("is_trash"):
 		_animate(default_bag_scale, default_x, default_sprite_x)
 
 func _animate(to_scale: Vector2, to_self_x: float, to_sprite_x: float):
