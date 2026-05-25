@@ -10,9 +10,19 @@ config_version=5
 
 [application]
 
-config/name="Chiba Trash Management"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/name="1"
+run/main_scene="uid://8fd4uwfstpp6"
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://drxm75noisp7e"
+
+[display]
+
+window/size/viewport_width=1440
+window/size/viewport_height=1024
 
 [physics]
 

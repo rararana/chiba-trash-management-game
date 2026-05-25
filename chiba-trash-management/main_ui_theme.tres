@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://i1emxmom66wt"]
+
+[ext_resource type="FontFile" uid="uid://sj2d3amqno08" path="res://assets/PoetsenOne-Regular.ttf" id="1_kncyg"]
+
+[resource]
+default_font = ExtResource("1_kncyg")

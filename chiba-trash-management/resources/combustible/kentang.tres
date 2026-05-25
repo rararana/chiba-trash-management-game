@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://ci6i2jm8c0yha"]
+
+[ext_resource type="Texture2D" uid="uid://cad6rqvfpr8m0" path="res://assets/trash_combustible/kentang.PNG" id="1_7tw7t"]
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_ecp37"]
+
+[resource]
+script = ExtResource("1_ecp37")
+item_name = "kentang"
+item_texture = ExtResource("1_7tw7t")
+category = "Combustible"
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

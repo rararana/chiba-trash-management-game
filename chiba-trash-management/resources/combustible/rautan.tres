@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://dd5as8ew07aui"]
+
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_51rje"]
+[ext_resource type="Texture2D" uid="uid://c2nsljbnj125q" path="res://assets/trash_combustible/rautan.PNG" id="1_qoybu"]
+
+[resource]
+script = ExtResource("1_51rje")
+item_name = "rautan"
+item_texture = ExtResource("1_qoybu")
+category = "Combustible"
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

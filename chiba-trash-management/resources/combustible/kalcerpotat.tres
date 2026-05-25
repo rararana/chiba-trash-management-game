@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://bms7cfrv07okb"]
+
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_3u8vv"]
+[ext_resource type="Texture2D" uid="uid://cx5y7cdfq20sw" path="res://assets/trash_combustible/kalcerpotat.PNG" id="1_aafif"]
+
+[resource]
+script = ExtResource("1_3u8vv")
+item_name = "kalcerpotat"
+item_texture = ExtResource("1_aafif")
+category = "Combustible"
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

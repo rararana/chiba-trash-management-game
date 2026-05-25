@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://bfh7has82mh5e"]
+
+[ext_resource type="Texture2D" uid="uid://bup3xakuv7ywj" path="res://assets/trash_combustible/kyupiramen2.PNG" id="1_s7mc3"]
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_slo2a"]
+
+[resource]
+script = ExtResource("1_slo2a")
+item_name = "kyupiramen2"
+item_texture = ExtResource("1_s7mc3")
+category = "Combustible"
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

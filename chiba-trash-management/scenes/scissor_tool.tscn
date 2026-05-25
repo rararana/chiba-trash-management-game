@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://j0koflvvo0vk"]
+
+[ext_resource type="Script" uid="uid://bvgu7xq54k083" path="res://scripts/scissor_tool.gd" id="1_rbwvi"]
+[ext_resource type="Texture2D" uid="uid://oor30oq6m5dq" path="res://assets/visual/tools/scissor-1.PNG" id="2_oappv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1fff"]
+size = Vector2(1005, 484)
+
+[node name="ScissorTool" type="Area2D" unique_id=384508719]
+script = ExtResource("1_rbwvi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1626036708]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oappv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=879955789]
+position = Vector2(-3.5, 6)
+shape = SubResource("RectangleShape2D_r1fff")

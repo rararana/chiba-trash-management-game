@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://cquq10ehgo7b5"]
+
+[ext_resource type="Texture2D" uid="uid://dr2p5dh1jfy32" path="res://assets/trash_paper/strawmilk_cut.PNG" id="1_2p43y"]
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_ntgik"]
+
+[resource]
+script = ExtResource("1_ntgik")
+item_name = "strawmilk_clean"
+item_texture = ExtResource("1_2p43y")
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

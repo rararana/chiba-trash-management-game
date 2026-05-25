@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bj41qvd18soa2"]
+
+[ext_resource type="PackedScene" uid="uid://dmtdfcij1nuwm" path="res://scenes/base_bag.tscn" id="1_yot8c"]
+[ext_resource type="Texture2D" uid="uid://dknm4uehiijww" path="res://assets/visual/category/incombustible-1.PNG" id="2_1s1wa"]
+[ext_resource type="Texture2D" uid="uid://c657o7hjg2rem" path="res://assets/visual/category/combustible-2.PNG" id="3_sc6qt"]
+[ext_resource type="Texture2D" uid="uid://qxlp36xpuo0g" path="res://assets/visual/category/combustible-3.PNG" id="4_3ptg3"]
+
+[node name="IncombustibleBag" unique_id=847283451 instance=ExtResource("1_yot8c")]
+texture_normal = ExtResource("2_1s1wa")
+texture_sedang = ExtResource("3_sc6qt")
+texture_full = ExtResource("4_3ptg3")
+
+[node name="BagSprite" parent="." index="1" unique_id=1718815255]
+position = Vector2(221, -9)
+scale = Vector2(0.2, 0.2)

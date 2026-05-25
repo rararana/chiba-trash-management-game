@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://bqvaoohhlx51n"]
+
+[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_2gwr6"]
+[ext_resource type="Texture2D" uid="uid://cvtl0bsq5yy5h" path="res://assets/trash_paper/bearsnack.PNG" id="1_21e1m"]
+[ext_resource type="Resource" uid="uid://bx4xvi1vf27ir" path="res://resources/paper/bearsnack_cut.tres" id="2_6fk4u"]
+
+[resource]
+script = ExtResource("1_2gwr6")
+item_name = "bearsnack"
+item_texture = ExtResource("1_21e1m")
+required_tool = "scissor"
+next_state = ExtResource("2_6fk4u")
+metadata/_custom_type_script = "uid://62hy3c2dcngb"

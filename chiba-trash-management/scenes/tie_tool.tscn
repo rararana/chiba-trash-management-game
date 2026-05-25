@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bsv52a0au17lb"]
+
+[ext_resource type="Script" uid="uid://8duxcostyunt" path="res://scripts/tie_tool.gd" id="1_auhhp"]
+[ext_resource type="Texture2D" uid="uid://be4bg8p0df33c" path="res://assets/visual/tools/tie.PNG" id="2_sfd41"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfd41"]
+size = Vector2(604, 784)
+
+[node name="TieTool" type="Area2D" unique_id=1947184718]
+script = ExtResource("1_auhhp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1985828418]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_sfd41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=318281333]
+position = Vector2(26, -8)
+shape = SubResource("RectangleShape2D_sfd41")
