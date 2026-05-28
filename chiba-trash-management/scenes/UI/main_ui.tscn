@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cnfv8ypgics5p"]
 
-[ext_resource type="Script" uid="uid://kcwrnxet0uuy" path="res://scenes/UI/main_ui.gd" id="1_hvcg1"]
-[ext_resource type="Texture2D" uid="uid://dr8ljfn7vxmhy" path="res://assets/visual/book/cover.png" id="2_gjj8c"]
+[ext_resource type="Script" uid="uid://co4gg4jprsxd2" path="res://scenes/UI/main_ui.gd" id="1_hvcg1"]
+[ext_resource type="Texture2D" uid="uid://4eqf8fh3y0r0" path="res://assets/visual/book/cover.png" id="2_gjj8c"]
 [ext_resource type="Texture2D" uid="uid://dn424pftq2kro" path="res://assets/visual/uibookopen.png" id="2_pdhop"]
 [ext_resource type="Texture2D" uid="uid://e4ugsx24g75b" path="res://assets/visual/Group 36.png" id="3_c3pkt"]
-[ext_resource type="Texture2D" uid="uid://byr02hh1kfbp0" path="res://assets/visual/book/opensched.png" id="3_gjj8c"]
+[ext_resource type="Texture2D" uid="uid://pdy1jo01236s" path="res://assets/visual/book/opensched.png" id="3_gjj8c"]
 [ext_resource type="FontFile" uid="uid://c52umg5w0skd5" path="res://assets/visual/PoetsenOne-Regular.ttf" id="4_pdhop"]
-[ext_resource type="Texture2D" uid="uid://bbpqi0xt7kulo" path="res://assets/visual/book/open2.png" id="4_s2xo5"]
+[ext_resource type="Texture2D" uid="uid://dfnh7ebtdm1hj" path="res://assets/visual/book/open2.png" id="4_s2xo5"]
 [ext_resource type="Texture2D" uid="uid://b1w6l4n7lrmwf" path="res://assets/visual/Book.png" id="5_8occa"]
 [ext_resource type="Texture2D" uid="uid://oidj862icr5i" path="res://assets/visual/IMG_6303 1.png" id="6_c3pkt"]
 

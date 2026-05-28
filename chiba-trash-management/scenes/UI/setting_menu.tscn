@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://duwoof2c1wwcf"]
+
+[ext_resource type="Texture2D" uid="uid://ck4ovtu4hibmg" path="res://assets/visual/Setting.png" id="1_3pxrf"]
+[ext_resource type="Texture2D" uid="uid://dbbk8rgexymwr" path="res://assets/visual/settingasset.png" id="2_qvvka"]
+[ext_resource type="FontFile" uid="uid://bqks0up2ulp8h" path="res://assets/visual/Nunito-Regular.ttf" id="3_yfshn"]
+[ext_resource type="Texture2D" uid="uid://dk7uq0ly1r15p" path="res://assets/visual/isislider.png" id="4_tl0ui"]
+[ext_resource type="Texture2D" uid="uid://dmskaka4gtgxg" path="res://assets/visual/sliderkosong.png" id="5_2nt72"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vbl7"]
+texture = ExtResource("5_2nt72")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dca21"]
+texture = ExtResource("4_tl0ui")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vqm6y"]
+texture = ExtResource("4_tl0ui")
+
+[node name="SettingMenu" type="Control" unique_id=1607295974]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="uimockup" type="TextureRect" parent="." unique_id=1625043217]
+self_modulate = Color(1, 1, 1, 0.41568628)
+layout_mode = 1
+offset_right = 7869.0
+offset_bottom = 5596.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("1_3pxrf")
+
+[node name="SettingOverlay" type="ColorRect" parent="." unique_id=1308362840]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5294118)
+
+[node name="TextureRect" type="TextureRect" parent="SettingOverlay" unique_id=1580947043]
+visible = false
+layout_mode = 1
+offset_left = 336.0
+offset_top = 128.0
+offset_right = 2384.0
+offset_bottom = 2176.0
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_qvvka")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingOverlay" unique_id=1800983212]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -77.0
+offset_right = 506.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -25
+
+[node name="HBoxMusic" type="HBoxContainer" parent="SettingOverlay/VBoxContainer" unique_id=73891560]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="SettingOverlay/VBoxContainer/HBoxMusic" unique_id=261360401]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_yfshn")
+theme_override_font_sizes/font_size = 78
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="SettingOverlay/VBoxContainer/HBoxMusic" unique_id=1659633511]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("4_tl0ui")
+theme_override_icons/grabber_highlight = ExtResource("4_tl0ui")
+theme_override_styles/slider = SubResource("StyleBoxTexture_0vbl7")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_dca21")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_vqm6y")
+
+[node name="HBoxSound" type="HBoxContainer" parent="SettingOverlay/VBoxContainer" unique_id=144037531]
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="SettingOverlay/VBoxContainer/HBoxSound" unique_id=225660843]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_yfshn")
+theme_override_font_sizes/font_size = 78
+text = "Sound"
+
+[node name="HBoxLang" type="HBoxContainer" parent="SettingOverlay/VBoxContainer" unique_id=83044807]
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="SettingOverlay/VBoxContainer/HBoxLang" unique_id=1419149271]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_yfshn")
+theme_override_font_sizes/font_size = 78
+text = "Language"

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://43gw27543sk2"]
 
-[ext_resource type="Texture2D" uid="uid://dlya5lv1qrmii" path="res://assets/visual/morning-bg.png" id="1_dbkse"]
-[ext_resource type="Script" uid="uid://bbs5ag2wm52dl" path="res://scripts/base_level.gd" id="1_oox4p"]
-[ext_resource type="Texture2D" uid="uid://552xe1kjs07h" path="res://assets/visual/placement-box.PNG" id="2_0n1tn"]
+[ext_resource type="Texture2D" uid="uid://ernw5bqvp3it" path="res://assets/visual/morning-bg.png" id="1_dbkse"]
+[ext_resource type="Script" uid="uid://f8pr86kv8u6o" path="res://scripts/base_level.gd" id="1_oox4p"]
+[ext_resource type="Texture2D" uid="uid://q84rmdpe20cs" path="res://assets/visual/placement-box.PNG" id="2_0n1tn"]
 [ext_resource type="PackedScene" uid="uid://dwu8w5ihi8elj" path="res://scenes/trash_item.tscn" id="2_3aqo6"]
 [ext_resource type="Resource" uid="uid://bvrxijj843wp1" path="res://resources/level/level_1.tres" id="2_u6ue0"]
 [ext_resource type="PackedScene" uid="uid://c54uolws7vg3d" path="res://scenes/combustible_bag.tscn" id="5_earhg"]

@@ -3,8 +3,6 @@ extends Control
 var progress_speed: float = 13.0
 var current_value: float = 0.0
 
-var next_scene_path: String = "res://BaseLevel.tscn" 
-
 func _ready():
 	current_value = 12.0
 	$TextureProgressBar.value = current_value
@@ -23,4 +21,4 @@ func _process(delta):
 		set_process(false) 
 		print("LOADING SELESAI")
 		#await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://scenes/base_level.tscn")
+		get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
