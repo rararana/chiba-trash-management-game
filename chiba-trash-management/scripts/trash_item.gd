@@ -65,17 +65,10 @@ func check_drop_zone():
 				break
 				
 		elif area.has_method("receive_trash"):
-			var category = ""
-			if item_data and "category" in item_data:
-				category = item_data.get("category")
-			
-			if area.receive_trash(category):
+			if area.receive_trash(item_data): 
 				dropped_successfully = true
 				_shrink_and_free()
 				break
-				
-	if not dropped_successfully:
-		pass # Biarkan logika kembali ke posisi awal kalau ada
 
 func _shrink_and_free():
 	input_pickable = false 

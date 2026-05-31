@@ -6,25 +6,46 @@ class_name TrashCan
 var bounce_tween: Tween
 
 func receive_dropped_object(obj: Area2D) -> bool:
+	var total_denda: int = 0
+	
 	if obj.has_method("is_trash_bag"):
-		if obj.get("current_amount") > 0:
-			print("BENAR: Kantong berhasil dibuang!")
-			_bounce()
-			return true
-		else:
+		if obj.get("current_amount") == 0:
 			return false
 			
-	elif obj.has_method("is_trash"):
-		var category = obj.item_data.get("category")
-		if category == "Paper":
-			print("BENAR: Kertas dibuang aman.")
-			_bounce()
-			return true
-		else:
-			print("DENDA: Kategori ", category, " harus dibungkus plastik!")
-			_bounce()
-			return true 
+		var bag_cat = obj.get("bag_category")
+		var items_inside = obj.get("stored_items")
+		
+		for item in items_inside:
+			var item_cat = item.get("category")
+			var needs_processing = item.get("next_state") != null
 			
+			if item_cat == "Paper":
+				total_denda += 1
+			elif item_cat != bag_cat:
+				total_denda += 1
+			
+			if needs_processing:
+				total_denda += 1
+				
+		print("KANTONG MASUK! Total denda dari kantong ini: ", total_denda)
+		_bounce()
+		return true
+		
+	elif obj.has_method("is_trash"):
+		var item = obj.item_data
+		var item_cat = item.get("category")
+		var needs_processing = item.get("next_state") != null
+		
+		if item_cat != "Paper":
+			total_denda += 1
+			
+		if needs_processing:
+			total_denda += 1
+			
+		print("SAMPAH LANGSUNG MASUK! Total denda: ", total_denda)
+		_bounce()
+		return true 
+		
 	return false
 
 func _bounce():

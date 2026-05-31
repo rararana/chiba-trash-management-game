@@ -26,6 +26,7 @@ var is_dragging: bool = false
 @onready var start_global_pos: Vector2 = global_position
 @onready var default_bar_pos: Vector2 = bar_sprite.position
 var current_ratio: Vector2 = Vector2(1.0, 1.0)
+var stored_items: Array[Resource] = []
 
 func _ready():
 	area_entered.connect(_on_area_entered)
@@ -51,15 +52,12 @@ func _animate(to_scale: Vector2, to_self_x: float, to_sprite_x: float):
 	tween.tween_property(self, "position:x", to_self_x, 0.15).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(sprite, "position:x", to_sprite_x, 0.15).set_trans(Tween.TRANS_SINE)
 
-func receive_trash(incoming_category: String) -> bool:
-	if incoming_category != bag_category:
-		_animate(default_bag_scale, default_x, default_sprite_x)
-		#return true
-		
+func receive_trash(incoming_data: Resource) -> bool:
 	if current_amount >= max_capacity:
 		_animate(default_bag_scale, default_x, default_sprite_x)
 		return false
 		
+	stored_items.append(incoming_data)
 	current_amount += 1
 	_update_visual()
 	_animate(default_bag_scale, default_x, default_sprite_x)
@@ -122,6 +120,7 @@ func check_bag_drop_zone():
 			if area.receive_dropped_object(self):
 				dropped_successfully = true
 				current_amount = 0
+				stored_items.clear()
 				_update_visual()
 				
 				global_position = start_global_pos
