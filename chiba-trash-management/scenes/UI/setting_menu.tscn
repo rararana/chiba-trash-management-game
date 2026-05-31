@@ -1,19 +1,39 @@
 [gd_scene format=3 uid="uid://duwoof2c1wwcf"]
 
-[ext_resource type="Texture2D" uid="uid://ck4ovtu4hibmg" path="res://assets/visual/Setting.png" id="1_3pxrf"]
+[ext_resource type="Script" uid="uid://x2ql43bbdt8w" path="res://scenes/UI/setting_menu.gd" id="1_yfshn"]
 [ext_resource type="Texture2D" uid="uid://dbbk8rgexymwr" path="res://assets/visual/settingasset.png" id="2_qvvka"]
+[ext_resource type="Texture2D" uid="uid://cpkhwdmtx2ooh" path="res://assets/visual/Setting language.png" id="2_tl0ui"]
 [ext_resource type="FontFile" uid="uid://bqks0up2ulp8h" path="res://assets/visual/Nunito-Regular.ttf" id="3_yfshn"]
-[ext_resource type="Texture2D" uid="uid://dk7uq0ly1r15p" path="res://assets/visual/isislider.png" id="4_tl0ui"]
-[ext_resource type="Texture2D" uid="uid://dmskaka4gtgxg" path="res://assets/visual/sliderkosong.png" id="5_2nt72"]
+[ext_resource type="Texture2D" uid="uid://bkadtcb268501" path="res://assets/visual/sliderkosong.png" id="5_2nt72"]
+[ext_resource type="Texture2D" uid="uid://bgkcn8jk6rkhf" path="res://assets/visual/setlang_normal.png" id="6_2nt72"]
+[ext_resource type="Texture2D" uid="uid://bjmj74gkmoi7q" path="res://assets/visual/setlang_hovernpress.png" id="7_0vbl7"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vbl7"]
-texture = ExtResource("5_2nt72")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3pxrf"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dca21"]
-texture = ExtResource("4_tl0ui")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qvvka"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vqm6y"]
-texture = ExtResource("4_tl0ui")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfshn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_top = 29.0
+expand_margin_bottom = 29.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dca21"]
+bg_color = Color(0.9647059, 0.9137255, 0.8, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 29.0
+expand_margin_bottom = 29.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqm6y"]
+bg_color = Color(0.9647059, 0.9137255, 0.8, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 29.0
+expand_margin_bottom = 29.0
 
 [node name="SettingMenu" type="Control" unique_id=1607295974]
 layout_mode = 3
@@ -22,14 +42,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yfshn")
 
 [node name="uimockup" type="TextureRect" parent="." unique_id=1625043217]
+visible = false
 self_modulate = Color(1, 1, 1, 0.41568628)
 layout_mode = 1
 offset_right = 7869.0
 offset_bottom = 5596.0
 scale = Vector2(0.183, 0.183)
-texture = ExtResource("1_3pxrf")
+texture = ExtResource("2_tl0ui")
 
 [node name="SettingOverlay" type="ColorRect" parent="." unique_id=1308362840]
 layout_mode = 1
@@ -44,17 +66,24 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5294118)
 
-[node name="TextureRect" type="TextureRect" parent="SettingOverlay" unique_id=1580947043]
-visible = false
+[node name="SettingBox" type="TextureRect" parent="SettingOverlay" unique_id=1580947043]
 layout_mode = 1
 offset_left = 336.0
 offset_top = 128.0
 offset_right = 2384.0
 offset_bottom = 2176.0
 scale = Vector2(0.375, 0.375)
+mouse_filter = 2
 texture = ExtResource("2_qvvka")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingOverlay" unique_id=1800983212]
+[node name="BlockingArea" type="Control" parent="SettingOverlay/SettingBox" unique_id=1273386933]
+anchors_preset = 0
+offset_left = 282.6667
+offset_top = 714.66675
+offset_right = 1853.3333
+offset_bottom = 1632.0001
+
+[node name="MenuAudio" type="VBoxContainer" parent="SettingOverlay" unique_id=1800983212]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,40 +96,134 @@ offset_right = 506.0
 offset_bottom = 316.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 theme_override_constants/separation = -25
 
-[node name="HBoxMusic" type="HBoxContainer" parent="SettingOverlay/VBoxContainer" unique_id=73891560]
+[node name="HBoxMusic" type="HBoxContainer" parent="SettingOverlay/MenuAudio" unique_id=73891560]
 layout_mode = 2
+theme_override_constants/separation = 62
 
-[node name="MusicLabel" type="Label" parent="SettingOverlay/VBoxContainer/HBoxMusic" unique_id=261360401]
+[node name="MusicLabel" type="Label" parent="SettingOverlay/MenuAudio/HBoxMusic" unique_id=261360401]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_yfshn")
 theme_override_font_sizes/font_size = 78
 text = "Music"
 
-[node name="HSlider" type="HSlider" parent="SettingOverlay/VBoxContainer/HBoxMusic" unique_id=1659633511]
+[node name="TextureRect" type="TextureRect" parent="SettingOverlay/MenuAudio/HBoxMusic" unique_id=811258254]
+custom_minimum_size = Vector2(271, 62)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_icons/grabber = ExtResource("4_tl0ui")
-theme_override_icons/grabber_highlight = ExtResource("4_tl0ui")
-theme_override_styles/slider = SubResource("StyleBoxTexture_0vbl7")
-theme_override_styles/grabber_area = SubResource("StyleBoxTexture_dca21")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_vqm6y")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_2nt72")
+expand_mode = 1
 
-[node name="HBoxSound" type="HBoxContainer" parent="SettingOverlay/VBoxContainer" unique_id=144037531]
+[node name="HSlider" type="HSlider" parent="SettingOverlay/MenuAudio/HBoxMusic/TextureRect" unique_id=1253535975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_3pxrf")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_qvvka")
+theme_override_styles/slider = SubResource("StyleBoxFlat_yfshn")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_dca21")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vqm6y")
+value = 50.0
+
+[node name="HBoxSound" type="HBoxContainer" parent="SettingOverlay/MenuAudio" unique_id=144037531]
 layout_mode = 2
+theme_override_constants/separation = 39
 
-[node name="SoundLabel" type="Label" parent="SettingOverlay/VBoxContainer/HBoxSound" unique_id=225660843]
+[node name="SoundLabel" type="Label" parent="SettingOverlay/MenuAudio/HBoxSound" unique_id=225660843]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_yfshn")
 theme_override_font_sizes/font_size = 78
 text = "Sound"
 
-[node name="HBoxLang" type="HBoxContainer" parent="SettingOverlay/VBoxContainer" unique_id=83044807]
+[node name="TextureRect" type="TextureRect" parent="SettingOverlay/MenuAudio/HBoxSound" unique_id=324462234]
+custom_minimum_size = Vector2(271, 62)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_2nt72")
+expand_mode = 1
 
-[node name="LanguageLabel" type="Label" parent="SettingOverlay/VBoxContainer/HBoxLang" unique_id=1419149271]
+[node name="HSlider" type="HSlider" parent="SettingOverlay/MenuAudio/HBoxSound/TextureRect" unique_id=1621892425]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_3pxrf")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_qvvka")
+theme_override_styles/slider = SubResource("StyleBoxFlat_yfshn")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_dca21")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vqm6y")
+value = 50.0
+
+[node name="HBoxLang" type="HBoxContainer" parent="SettingOverlay/MenuAudio" unique_id=83044807]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/separation = 125
+
+[node name="LanguageLabel" type="Label" parent="SettingOverlay/MenuAudio/HBoxLang" unique_id=1419149271]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_yfshn")
 theme_override_font_sizes/font_size = 78
 text = "Language"
+
+[node name="TextureButton" type="TextureButton" parent="SettingOverlay/MenuAudio/HBoxLang" unique_id=693306947]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+texture_normal = ExtResource("6_2nt72")
+texture_pressed = ExtResource("7_0vbl7")
+texture_hover = ExtResource("7_0vbl7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MenuLanguage" type="VBoxContainer" parent="SettingOverlay" unique_id=2078262642]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -86.0
+offset_right = 182.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Eng" type="Button" parent="SettingOverlay/MenuLanguage" unique_id=318394178]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.5411765, 0.43529412, 0.09803922, 1)
+theme_override_colors/font_hover_color = Color(0.5411765, 0.43529412, 0.09803922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.5411765, 0.43529412, 0.09803922, 1)
+theme_override_fonts/font = ExtResource("3_yfshn")
+theme_override_font_sizes/font_size = 78
+text = "English"
+flat = true
+
+[node name="Ind" type="Button" parent="SettingOverlay/MenuLanguage" unique_id=301646807]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.5411765, 0.43529412, 0.09803922, 1)
+theme_override_colors/font_hover_color = Color(0.5411765, 0.43529412, 0.09803922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.5411765, 0.43529412, 0.09803922, 1)
+theme_override_fonts/font = ExtResource("3_yfshn")
+theme_override_font_sizes/font_size = 78
+text = "Indonesia
+"
+flat = true
+
+[connection signal="gui_input" from="SettingOverlay" to="." method="_on_setting_overlay_gui_input"]
+[connection signal="pressed" from="SettingOverlay/MenuAudio/HBoxLang/TextureButton" to="." method="_on_tombol_garis_3_pressed"]
+[connection signal="pressed" from="SettingOverlay/MenuLanguage/Eng" to="." method="_on_tombol_english_pressed"]
+[connection signal="pressed" from="SettingOverlay/MenuLanguage/Ind" to="." method="_on_tombol_indonesia_pressed"]

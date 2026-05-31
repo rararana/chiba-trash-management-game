@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkadtcb268501"
-path="res://.godot/imported/sliderkosong.png-ce12d3095b40c0806cf69719f084dc64.ctex"
+uid="uid://cpkhwdmtx2ooh"
+path="res://.godot/imported/Setting language.png-4d7bc44a8726e5ecfd117e868a409051.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/visual/sliderkosong.png"
-dest_files=["res://.godot/imported/sliderkosong.png-ce12d3095b40c0806cf69719f084dc64.ctex"]
+source_file="res://assets/visual/Setting language.png"
+dest_files=["res://.godot/imported/Setting language.png-4d7bc44a8726e5ecfd117e868a409051.ctex"]
 
 [params]
 

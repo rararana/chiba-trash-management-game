@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://hgign4dnsm5i" path="res://assets/visual/main_menu/Start scene.png" id="1_yonvy"]
 [ext_resource type="Texture2D" uid="uid://ct43wdnnk15mh" path="res://assets/visual/main_menu/start asset.png" id="2_5jstl"]
 [ext_resource type="FontFile" uid="uid://c52umg5w0skd5" path="res://assets/visual/PoetsenOne-Regular.ttf" id="3_5jstl"]
+[ext_resource type="PackedScene" uid="uid://duwoof2c1wwcf" path="res://scenes/UI/setting_menu.tscn" id="5_e2p27"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5jstl"]
 
@@ -97,5 +98,9 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ngj32")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bm8t2")
 text = "Quit"
 
+[node name="SettingMenu" parent="." unique_id=1607295974 instance=ExtResource("5_e2p27")]
+layout_mode = 1
+
 [connection signal="pressed" from="MenuContainer/BtnNewGame" to="." method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="MenuContainer/BtnSetting" to="." method="_on_btn_setting_pressed"]
 [connection signal="pressed" from="MenuContainer/BtnQuit" to="." method="_on_btn_quit_pressed"]

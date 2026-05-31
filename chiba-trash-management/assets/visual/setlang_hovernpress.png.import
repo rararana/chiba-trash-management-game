@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk7uq0ly1r15p"
-path="res://.godot/imported/isislider.png-e4253d89224942882d87c6e58a065480.ctex"
+uid="uid://bjmj74gkmoi7q"
+path="res://.godot/imported/setlang_hovernpress.png-097275dfe62992d15c1988dba440ab94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/visual/isislider.png"
-dest_files=["res://.godot/imported/isislider.png-e4253d89224942882d87c6e58a065480.ctex"]
+source_file="res://assets/visual/setlang_hovernpress.png"
+dest_files=["res://.godot/imported/setlang_hovernpress.png-097275dfe62992d15c1988dba440ab94.ctex"]
 
 [params]
 
