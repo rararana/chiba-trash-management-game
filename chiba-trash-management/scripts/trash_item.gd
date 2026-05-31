@@ -54,7 +54,37 @@ func _animate_drop():
 		.set_ease(Tween.EASE_OUT)
 	
 func check_drop_zone():
-	pass		
+	var overlapping_areas = get_overlapping_areas()
+	var dropped_successfully = false
+	
+	for area in overlapping_areas:
+		if area.has_method("receive_dropped_object"):
+			if area.receive_dropped_object(self):
+				dropped_successfully = true
+				_shrink_and_free()
+				break
+				
+		elif area.has_method("receive_trash"):
+			var category = ""
+			if item_data and "category" in item_data:
+				category = item_data.get("category")
+			
+			if area.receive_trash(category):
+				dropped_successfully = true
+				_shrink_and_free()
+				break
+				
+	if not dropped_successfully:
+		pass # Biarkan logika kembali ke posisi awal kalau ada
+
+func _shrink_and_free():
+	input_pickable = false 
+	if drop_tween and drop_tween.is_valid():
+		drop_tween.kill()
+		
+	var tween = create_tween()
+	tween.tween_property(sprite, "scale", Vector2.ZERO, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_callback(queue_free)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
