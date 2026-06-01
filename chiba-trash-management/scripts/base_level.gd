@@ -13,11 +13,13 @@ extends Node2D
 @onready var morning_sky: TextureRect = $BackgroundLayer/MorningSky
 @onready var afternoon_sky: TextureRect = $BackgroundLayer/AfternoonSky
 @onready var evening_sky: TextureRect = $BackgroundLayer/EveningSky
+@onready var BGM = $BGM
 
 var time_passed: float = 0.0
 var is_level_ended: bool = false
 
 func _ready():
+	BGM.play()
 	morning_sky.modulate.a = 1.0
 	afternoon_sky.modulate.a = 0.0
 	evening_sky.modulate.a = 0.0

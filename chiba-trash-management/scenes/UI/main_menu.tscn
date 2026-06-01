@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ct43wdnnk15mh" path="res://assets/visual/main_menu/start asset.png" id="2_5jstl"]
 [ext_resource type="FontFile" uid="uid://c52umg5w0skd5" path="res://assets/visual/PoetsenOne-Regular.ttf" id="3_5jstl"]
 [ext_resource type="PackedScene" uid="uid://duwoof2c1wwcf" path="res://scenes/UI/setting_menu.tscn" id="5_e2p27"]
+[ext_resource type="AudioStream" uid="uid://bygvqpwappy82" path="res://assets/audio/hitslab-game-gaming-music-295075.mp3" id="6_ngj32"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5jstl"]
 
@@ -100,6 +101,10 @@ text = "Quit"
 
 [node name="SettingMenu" parent="." unique_id=1607295974 instance=ExtResource("5_e2p27")]
 layout_mode = 1
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=1448907208]
+stream = ExtResource("6_ngj32")
+volume_db = -3.0
 
 [connection signal="pressed" from="MenuContainer/BtnNewGame" to="." method="_on_btn_new_game_pressed"]
 [connection signal="pressed" from="MenuContainer/BtnSetting" to="." method="_on_btn_setting_pressed"]
