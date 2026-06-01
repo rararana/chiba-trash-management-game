@@ -27,6 +27,7 @@ var is_dragging: bool = false
 @onready var default_bar_pos: Vector2 = bar_sprite.position
 var current_ratio: Vector2 = Vector2(1.0, 1.0)
 var stored_items: Array[Resource] = []
+var is_stored_clone: bool = false
 
 func _ready():
 	area_entered.connect(_on_area_entered)
@@ -53,6 +54,9 @@ func _animate(to_scale: Vector2, to_self_x: float, to_sprite_x: float):
 	tween.tween_property(sprite, "position:x", to_sprite_x, 0.15).set_trans(Tween.TRANS_SINE)
 
 func receive_trash(incoming_data: Resource) -> bool:
+	if is_stored_clone: 
+		return false
+		
 	if current_amount >= max_capacity:
 		_animate(default_bag_scale, default_x, default_sprite_x)
 		return false
@@ -82,16 +86,18 @@ func is_trash_bag() -> bool:
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			if current_amount > 0:
+			if current_amount > 0 or is_stored_clone:
+				start_global_pos = global_position
 				is_dragging = true
 				z_index = 10
 				get_viewport().set_input_as_handled()
 				
-				var drag_scale = default_bag_scale + (Vector2(scale_increase, scale_increase) * current_ratio)
-				if tween and tween.is_valid():
-					tween.kill()
-				tween = create_tween()
-				tween.tween_property(sprite, "scale", drag_scale, 0.15).set_trans(Tween.TRANS_SINE)
+				if not is_stored_clone:
+					var drag_scale = default_bag_scale + (Vector2(scale_increase, scale_increase) * current_ratio)
+					if tween and tween.is_valid():
+						tween.kill()
+					tween = create_tween()
+					tween.tween_property(sprite, "scale", drag_scale, 0.15).set_trans(Tween.TRANS_SINE)
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -100,15 +106,16 @@ func _input(event):
 			z_index = 0
 			check_bag_drop_zone()
 			
-			if tween and tween.is_valid():
-				tween.kill()
-			tween = create_tween()
-			tween.tween_property(sprite, "scale", default_bag_scale, 0.15).set_trans(Tween.TRANS_SINE)
+			if not is_stored_clone:
+				if tween and tween.is_valid():
+					tween.kill()
+				tween = create_tween()
+				tween.tween_property(sprite, "scale", default_bag_scale, 0.15).set_trans(Tween.TRANS_SINE)
 
 func _process(delta: float):
 	if is_dragging:
 		global_position = get_global_mouse_position()
-		if bar_sprite:
+		if is_instance_valid(bar_sprite):
 			bar_sprite.global_position = start_global_pos
 
 func check_bag_drop_zone():
@@ -119,16 +126,29 @@ func check_bag_drop_zone():
 		if area.has_method("receive_dropped_object"):
 			if area.receive_dropped_object(self):
 				dropped_successfully = true
+				if is_stored_clone:
+					queue_free()
+				else:
+					current_amount = 0
+					stored_items.clear()
+					_update_visual()
+					global_position = start_global_pos
+					if is_instance_valid(bar_sprite):
+						bar_sprite.position = default_bar_pos
+				break
+				
+		elif area.has_method("store_object") and not is_stored_clone:
+			if area.store_object(self):
+				dropped_successfully = true
 				current_amount = 0
 				stored_items.clear()
 				_update_visual()
-				
 				global_position = start_global_pos
-				if bar_sprite:
+				if is_instance_valid(bar_sprite):
 					bar_sprite.position = default_bar_pos
 				break
 				
 	if not dropped_successfully:
 		global_position = start_global_pos
-		if bar_sprite:
+		if is_instance_valid(bar_sprite):
 			bar_sprite.position = default_bar_pos

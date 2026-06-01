@@ -2,7 +2,7 @@ extends Node2D
 
 @export var current_level: LevelData
 @export var trash_scene: PackedScene
-@export var min_scatter_radius: float = 100.0
+@export var min_scatter_radius: float = 180.0
 @export var max_scatter_radius: float = 200.0
 @export var min_y_boundary: float = 320.0
 

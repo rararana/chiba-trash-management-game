@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwu8w5ihi8elj" path="res://scenes/trash_item.tscn" id="2_3aqo6"]
 [ext_resource type="Resource" uid="uid://bvrxijj843wp1" path="res://resources/level/level_1.tres" id="2_u6ue0"]
 [ext_resource type="PackedScene" uid="uid://c54uolws7vg3d" path="res://scenes/combustible_bag.tscn" id="5_earhg"]
+[ext_resource type="PackedScene" uid="uid://b1dry7nyc1p10" path="res://scenes/storage_area.tscn" id="6_3rj88"]
 [ext_resource type="PackedScene" uid="uid://j0koflvvo0vk" path="res://scenes/scissor_tool.tscn" id="6_earhg"]
 [ext_resource type="PackedScene" uid="uid://by4websjjh2us" path="res://scenes/trash_can.tscn" id="7_b0lsh"]
 [ext_resource type="PackedScene" uid="uid://bsv52a0au17lb" path="res://scenes/tie_tool.tscn" id="7_u6ue0"]
@@ -45,7 +46,9 @@ mouse_filter = 2
 texture = ExtResource("2_0n1tn")
 expand_mode = 2
 
-[node name="StorageAreas" type="Node2D" parent="." unique_id=1645964234]
+[node name="StorageArea" parent="." unique_id=886221401 instance=ExtResource("6_3rj88")]
+position = Vector2(902, 1129)
+scale = Vector2(0.3, 0.3)
 
 [node name="CategoryBags" type="Node2D" parent="." unique_id=1220121683]
 

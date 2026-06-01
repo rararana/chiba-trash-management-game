@@ -1,12 +1,14 @@
 extends Area2D
 class_name TrashCan
 
+@export var money_per_item: int = 5
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var default_scale: Vector2 = sprite.scale
 var bounce_tween: Tween
 
 func receive_dropped_object(obj: Area2D) -> bool:
-	var total_denda: int = 0
+	var total_money_change: int = 0
 	
 	if obj.has_method("is_trash_bag"):
 		if obj.get("current_amount") == 0:
@@ -19,15 +21,21 @@ func receive_dropped_object(obj: Area2D) -> bool:
 			var item_cat = item.get("category")
 			var needs_processing = item.get("next_state") != null
 			
-			if item_cat == "Paper":
-				total_denda += 1
-			elif item_cat != bag_cat:
-				total_denda += 1
+			var is_wrong: bool = false
 			
-			if needs_processing:
-				total_denda += 1
+			if item_cat == "Paper":
+				is_wrong = true
+			elif item_cat != bag_cat:
+				is_wrong = true
+			elif needs_processing:
+				is_wrong = true
 				
-		print("KANTONG MASUK! Total denda dari kantong ini: ", total_denda)
+			if is_wrong:
+				total_money_change -= money_per_item
+			else:
+				total_money_change += money_per_item
+				
+		GameManager.money += total_money_change
 		_bounce()
 		return true
 		
@@ -36,13 +44,19 @@ func receive_dropped_object(obj: Area2D) -> bool:
 		var item_cat = item.get("category")
 		var needs_processing = item.get("next_state") != null
 		
+		var is_wrong: bool = false
+		
 		if item_cat != "Paper":
-			total_denda += 1
+			is_wrong = true
+		elif needs_processing:
+			is_wrong = true
 			
-		if needs_processing:
-			total_denda += 1
+		if is_wrong:
+			total_money_change -= money_per_item
+		else:
+			total_money_change += money_per_item
 			
-		print("SAMPAH LANGSUNG MASUK! Total denda: ", total_denda)
+		GameManager.money += total_money_change
 		_bounce()
 		return true 
 		

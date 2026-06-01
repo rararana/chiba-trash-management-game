@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b1dry7nyc1p10"]
+
+[ext_resource type="Script" uid="uid://ttun1yorr5ph" path="res://scenes/storage_area.gd" id="1_cu06b"]
+[ext_resource type="Texture2D" uid="uid://6miu4exfkfok" path="res://assets/visual/Storage Tray.png" id="1_qrcar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu06b"]
+size = Vector2(1927, 1895)
+
+[node name="StorageArea" type="Area2D" unique_id=886221401]
+script = ExtResource("1_cu06b")
+
+[node name="Mover" type="Node2D" parent="." unique_id=352485353]
+z_index = 5
+
+[node name="TraySprite" type="Sprite2D" parent="Mover" unique_id=1844103621]
+texture = ExtResource("1_qrcar")
+
+[node name="ItemsContainer" type="Node2D" parent="Mover" unique_id=858554179]
+z_index = 10
+position = Vector2(0, -457)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=834930689]
+position = Vector2(-4.5, -105.5)
+shape = SubResource("RectangleShape2D_cu06b")

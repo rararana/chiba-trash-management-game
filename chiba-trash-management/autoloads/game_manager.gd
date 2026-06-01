@@ -16,6 +16,8 @@ var schedule = {
 	"Sunday": []
 }
 
+var saved_items: Array[Dictionary] = []
+
 func add_money(amount: int):
 	money += amount
 	print("Uang nambah! Total: ¥", money)
