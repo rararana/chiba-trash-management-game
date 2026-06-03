@@ -6,7 +6,7 @@
 
 [node name="TrashItem" type="Area2D" unique_id=1427579114]
 script = ExtResource("1_a56e1")
-MAX_SIZE = 300.0
+MAX_SIZE = 250.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2045410212]
 unique_name_in_owner = true

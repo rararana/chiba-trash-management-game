@@ -10,14 +10,14 @@ config_version=5
 
 [application]
 
-config/name="1"
-run/main_scene="uid://8fd4uwfstpp6"
+config/name="KUBUN"
+run/main_scene="uid://chyd34fpp2f6n"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*uid://drxm75noisp7e"
+GameManager="*uid://nig882vg4v33"
 
 [display]
 

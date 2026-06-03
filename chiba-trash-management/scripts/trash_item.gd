@@ -5,14 +5,14 @@ extends Area2D
 @export var min_y_boundary: float = 320.0
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var collision: CollisionShape2D = %CollisionShape2D
+@onready var start_global_pos: Vector2 = global_position
 var is_dragging: bool = false
 var drop_tween: Tween
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	input_event.connect(_on_input_event)
 	if item_data:
-		sprite.texture = item_data.item_texture # ini ntar buat dulu 
+		sprite.texture = item_data.item_texture 
 		_resize_item()
 		_update_hitbox()
 		
@@ -31,6 +31,7 @@ func _update_hitbox():
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			start_global_pos = global_position
 			is_dragging = true
 			z_index = 10
 			get_viewport().set_input_as_handled()
@@ -43,7 +44,6 @@ func _input(event):
 		if not event.pressed and is_dragging:
 			is_dragging = false
 			z_index = 0
-			_animate_drop()
 			check_drop_zone()
 			
 func _animate_drop():
@@ -54,9 +54,48 @@ func _animate_drop():
 		.set_ease(Tween.EASE_OUT)
 	
 func check_drop_zone():
-	pass		
+	var overlapping_areas = get_overlapping_areas()
+	var success = false
+	var rejected_by_tray = false
+	
+	for area in overlapping_areas:
+		if area.has_method("receive_dropped_object"):
+			if area.receive_dropped_object(self):
+				success = true
+				_shrink_and_free()
+				break
+				
+		elif area.has_method("receive_trash"):
+			if area.receive_trash(item_data): 
+				success = true
+				_shrink_and_free()
+				break
+				
+		elif area.has_method("store_object"):
+			if area.store_object(self):
+				success = true
+				break
+			else:
+				rejected_by_tray = true
+				break
+				
+	if not success:
+		if rejected_by_tray:
+			if drop_tween and drop_tween.is_valid():
+				drop_tween.kill()
+			global_position = start_global_pos
+		else:
+			_animate_drop()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _shrink_and_free():
+	input_pickable = false 
+	if drop_tween and drop_tween.is_valid():
+		drop_tween.kill()
+		
+	var tween = create_tween()
+	tween.tween_property(sprite, "scale", Vector2.ZERO, 0.125).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_callback(queue_free)
+
 func _process(delta: float):
 	if is_dragging:
 		var mouse_pos = get_global_mouse_position()
@@ -72,13 +111,11 @@ func apply_tool():
 
 func receive_tool(incoming_tool_id: String) -> bool:
 	if not item_data:
-		print("Debug: item_data kosong!")
 		return false
 	
 	var req_tool = item_data.get("required_tool")
 	
 	if req_tool == "none" or req_tool == null:
-		print("Debug: Item ini tidak membutuhkan tool.")
 		return false
 		
 	if incoming_tool_id == req_tool:
@@ -87,13 +124,10 @@ func receive_tool(incoming_tool_id: String) -> bool:
 			item_data = next
 			sprite.texture = item_data.get("item_texture")
 			_update_hitbox()
-			print("Debug: [SUKSES] Berhasil menggunakan ", incoming_tool_id, ".")
 			return true
 		else:
-			print("Debug: [WARNING] Tool benar, tapi next_state kosong.")
 			return false
 	else:
-		print("Debug: [SALAH ALAT] Item ini butuh '", req_tool, "', bukan '", incoming_tool_id, "'.")
 		return false
 		
 func is_trash() -> bool:

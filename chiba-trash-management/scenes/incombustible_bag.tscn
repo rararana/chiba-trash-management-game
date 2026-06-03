@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dmtdfcij1nuwm" path="res://scenes/base_bag.tscn" id="1_yot8c"]
 [ext_resource type="Texture2D" uid="uid://dknm4uehiijww" path="res://assets/visual/category/incombustible-1.PNG" id="2_1s1wa"]
-[ext_resource type="Texture2D" uid="uid://c657o7hjg2rem" path="res://assets/visual/category/combustible-2.PNG" id="3_sc6qt"]
-[ext_resource type="Texture2D" uid="uid://qxlp36xpuo0g" path="res://assets/visual/category/combustible-3.PNG" id="4_3ptg3"]
+[ext_resource type="Texture2D" uid="uid://bsj1mgifuwh1u" path="res://assets/visual/category/combustible-2.PNG" id="3_sc6qt"]
+[ext_resource type="Texture2D" uid="uid://dscxsi3dc6cks" path="res://assets/visual/category/combustible-3.PNG" id="4_3ptg3"]
 
 [node name="IncombustibleBag" unique_id=847283451 instance=ExtResource("1_yot8c")]
 texture_normal = ExtResource("2_1s1wa")

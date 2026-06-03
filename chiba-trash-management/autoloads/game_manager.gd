@@ -4,17 +4,14 @@ signal on_game_over
 
 var money: int = 100
 var current_day_index: int = 0 
-var days_list = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+var days_list = ["Monday", "Tuesday"]
 
 var schedule = {
 	"Monday": ["Combustible"],
-	"Tuesday": ["Used Paper"],
-	"Wednesday": [],
-	"Thursday": [],
-	"Friday": [],
-	"Saturday": [],
-	"Sunday": []
+	"Tuesday": ["Used Paper"]
 }
+
+var saved_items: Array[Dictionary] = []
 
 func add_money(amount: int):
 	money += amount

@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://c34ion8wcf0dy"]
 
-[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_8cimq"]
-[ext_resource type="Texture2D" uid="uid://duwpwka1sv7lb" path="res://assets/trash_combustible/dirtypaper1.png" id="1_slrbx"]
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_8cimq"]
+[ext_resource type="Texture2D" uid="uid://icof5yxvl2sw" path="res://assets/visual/trash_combustible/dirtypaper1.png" id="1_slrbx"]
 
 [resource]
 script = ExtResource("1_8cimq")
 item_name = "dirtypaper1"
 item_texture = ExtResource("1_slrbx")
 category = "Combustible"
-metadata/_custom_type_script = "uid://62hy3c2dcngb"

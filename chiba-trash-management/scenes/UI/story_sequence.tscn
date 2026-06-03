@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://7530ancg2mvt"]
+
+[ext_resource type="VideoStream" uid="uid://bgcbvsq03vfhx" path="res://assets/visual/story.ogv" id="1_jblqq"]
+[ext_resource type="Script" uid="uid://dncq1wtqbs8gd" path="res://scenes/UI/story_sequence.gd" id="2_p12lv"]
+
+[node name="StorySequence" type="VideoStreamPlayer" unique_id=904770047]
+offset_top = 107.0
+offset_right = 3840.0
+offset_bottom = 2267.0
+scale = Vector2(0.375, 0.375)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stream = ExtResource("1_jblqq")
+autoplay = true
+script = ExtResource("2_p12lv")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

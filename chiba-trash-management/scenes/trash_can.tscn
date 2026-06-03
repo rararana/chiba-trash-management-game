@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://by4websjjh2us"]
+
+[ext_resource type="Script" uid="uid://bkrug1sfgx5vh" path="res://scenes/trash_can.gd" id="1_5w0rd"]
+[ext_resource type="Texture2D" uid="uid://cn5ld213kytwg" path="res://assets/visual/Trash Can.png" id="2_o1d5n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbgun"]
+size = Vector2(1363, 824)
+
+[node name="TrashCan" type="Area2D" unique_id=636544793]
+script = ExtResource("1_5w0rd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035419915]
+texture = ExtResource("2_o1d5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1473050147]
+position = Vector2(3.5, 98)
+shape = SubResource("RectangleShape2D_kbgun")

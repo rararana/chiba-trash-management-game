@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://dqojyawg4bis5"]
 
-[ext_resource type="Texture2D" uid="uid://bqqodl7lydtgl" path="res://assets/trash_combustible/eggshells.PNG" id="1_0w3p5"]
-[ext_resource type="Script" uid="uid://62hy3c2dcngb" path="res://resources/scripts/trash_data.gd" id="1_6fn5m"]
+[ext_resource type="Texture2D" uid="uid://c1yucuyvjb5c2" path="res://assets/visual/trash_combustible/eggshells.PNG" id="1_0w3p5"]
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_6fn5m"]
 
 [resource]
 script = ExtResource("1_6fn5m")
 item_name = "eggshells"
 item_texture = ExtResource("1_0w3p5")
 category = "Combustible"
-metadata/_custom_type_script = "uid://62hy3c2dcngb"
