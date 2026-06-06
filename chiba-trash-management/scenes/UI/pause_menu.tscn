@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://dl2sl68634nky"]
+
+[ext_resource type="Texture2D" uid="uid://x7j8chsjr70u" path="res://assets/visual/pausedmockup.jpg" id="1_feath"]
+[ext_resource type="Script" uid="uid://bb1q72xah5rqn" path="res://scenes/UI/pause_menu.gd" id="1_sipkl"]
+[ext_resource type="PackedScene" uid="uid://duwoof2c1wwcf" path="res://scenes/UI/setting_menu.tscn" id="2_eir0s"]
+[ext_resource type="Texture2D" uid="uid://bi7fmirl04r83" path="res://assets/visual/papanpaused.png" id="2_w67w4"]
+[ext_resource type="FontFile" uid="uid://c52umg5w0skd5" path="res://assets/visual/PoetsenOne-Regular.ttf" id="3_sipkl"]
+[ext_resource type="Texture2D" uid="uid://djte3hdik1iq2" path="res://assets/visual/pausedbutton.png" id="4_eir0s"]
+[ext_resource type="Script" uid="uid://3w7bqq5xp7qa" path="res://scenes/UI/btn_effect.gd" id="5_w67w4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3pfkw"]
+content_margin_left = 173.0
+content_margin_right = 173.0
+content_margin_bottom = 67.0
+texture = ExtResource("4_eir0s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xovtl"]
+content_margin_left = 173.0
+content_margin_right = 173.0
+content_margin_bottom = 67.0
+texture = ExtResource("4_eir0s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_feba6"]
+content_margin_left = 173.0
+content_margin_right = 173.0
+content_margin_bottom = 67.0
+texture = ExtResource("4_eir0s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uduj"]
+content_margin_left = 231.0
+content_margin_right = 231.0
+content_margin_bottom = 67.0
+texture = ExtResource("4_eir0s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w67w4"]
+content_margin_left = 231.0
+content_margin_right = 231.0
+content_margin_bottom = 67.0
+texture = ExtResource("4_eir0s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sipkl"]
+content_margin_left = 231.0
+content_margin_right = 231.0
+content_margin_bottom = 67.0
+texture = ExtResource("4_eir0s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m20o5"]
+content_margin_left = 452.0
+content_margin_right = 452.0
+content_margin_bottom = 67.0
+texture = ExtResource("4_eir0s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eir0s"]
+content_margin_left = 452.0
+content_margin_right = 452.0
+content_margin_bottom = 67.0
+texture = ExtResource("4_eir0s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exhq3"]
+content_margin_left = 452.0
+content_margin_right = 452.0
+content_margin_bottom = 67.0
+texture = ExtResource("4_eir0s")
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=799539979]
+process_mode = 3
+script = ExtResource("1_sipkl")
+setting_menu = ExtResource("2_eir0s")
+
+[node name="Mockup" type="TextureRect" parent="." unique_id=1522857880]
+visible = false
+modulate = Color(1, 1, 1, 0.30588236)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("1_feath")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=652923241]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5294118)
+
+[node name="PapanPaused" type="TextureRect" parent="Overlay" unique_id=1879760888]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 141.2
+offset_right = 6352.0
+offset_bottom = 4549.2
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("2_w67w4")
+
+[node name="PausedText" type="Label" parent="Overlay" unique_id=2109747643]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 316.0
+offset_right = 1016.0
+offset_bottom = 520.0
+theme_override_colors/font_color = Color(0.9647059, 0.9137255, 0.8, 1)
+theme_override_fonts/font = ExtResource("3_sipkl")
+theme_override_font_sizes/font_size = 165
+text = "PAUSED"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay" unique_id=1439815423]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 593.0
+offset_right = 4891.0
+offset_bottom = 1248.0
+scale = Vector2(0.183, 0.183)
+theme_override_constants/separation = 50
+
+[node name="ResumeBtn" type="Button" parent="Overlay/HBoxContainer" unique_id=1661059659]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sipkl")
+theme_override_font_sizes/font_size = 310
+theme_override_styles/normal = SubResource("StyleBoxTexture_3pfkw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xovtl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_feba6")
+text = "Resume"
+script = ExtResource("5_w67w4")
+
+[node name="SettingBtn" type="Button" parent="Overlay/HBoxContainer" unique_id=1859299287]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sipkl")
+theme_override_font_sizes/font_size = 310
+theme_override_styles/normal = SubResource("StyleBoxTexture_2uduj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w67w4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sipkl")
+text = "Setting"
+script = ExtResource("5_w67w4")
+
+[node name="QuitBtn" type="Button" parent="Overlay/HBoxContainer" unique_id=1065772888]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sipkl")
+theme_override_font_sizes/font_size = 310
+theme_override_styles/normal = SubResource("StyleBoxTexture_m20o5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_eir0s")
+theme_override_styles/hover = SubResource("StyleBoxTexture_exhq3")
+text = "Quit"
+script = ExtResource("5_w67w4")
+
+[connection signal="button_down" from="Overlay/HBoxContainer/ResumeBtn" to="Overlay/HBoxContainer/ResumeBtn" method="_on_button_down"]
+[connection signal="button_up" from="Overlay/HBoxContainer/ResumeBtn" to="Overlay/HBoxContainer/ResumeBtn" method="_on_button_up"]
+[connection signal="mouse_entered" from="Overlay/HBoxContainer/ResumeBtn" to="Overlay/HBoxContainer/ResumeBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Overlay/HBoxContainer/ResumeBtn" to="Overlay/HBoxContainer/ResumeBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Overlay/HBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="button_down" from="Overlay/HBoxContainer/SettingBtn" to="Overlay/HBoxContainer/SettingBtn" method="_on_button_down"]
+[connection signal="button_up" from="Overlay/HBoxContainer/SettingBtn" to="Overlay/HBoxContainer/SettingBtn" method="_on_button_up"]
+[connection signal="mouse_entered" from="Overlay/HBoxContainer/SettingBtn" to="Overlay/HBoxContainer/SettingBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Overlay/HBoxContainer/SettingBtn" to="Overlay/HBoxContainer/SettingBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Overlay/HBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
+[connection signal="button_down" from="Overlay/HBoxContainer/QuitBtn" to="Overlay/HBoxContainer/QuitBtn" method="_on_button_down"]
+[connection signal="button_up" from="Overlay/HBoxContainer/QuitBtn" to="Overlay/HBoxContainer/QuitBtn" method="_on_button_up"]
+[connection signal="mouse_entered" from="Overlay/HBoxContainer/QuitBtn" to="Overlay/HBoxContainer/QuitBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Overlay/HBoxContainer/QuitBtn" to="Overlay/HBoxContainer/QuitBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="Overlay/HBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
