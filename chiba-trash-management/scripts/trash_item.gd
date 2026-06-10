@@ -31,6 +31,11 @@ func _update_hitbox():
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			var overlapping = get_overlapping_areas()
+			for other in overlapping:
+				if other.has_method("is_trash") and other.z_index > z_index:
+					return
+			
 			start_global_pos = global_position
 			is_dragging = true
 			z_index = 10
@@ -109,26 +114,52 @@ func apply_tool():
 		sprite.texture = item_data.item_texture
 		_update_hitbox()
 
-func receive_tool(incoming_tool_id: String) -> bool:
+func receive_tool(incoming_tool_id: String, drop_pos: Vector2 = global_position) -> bool:
+	print("[TrashItem] receive_tool dipanggil dengan tool: ", incoming_tool_id)
+	
 	if not item_data:
+		print("[TrashItem] GAGAL — item_data null")
 		return false
 	
 	var req_tool = item_data.get("required_tool")
+	print("[TrashItem] required_tool item ini: ", req_tool)
 	
 	if req_tool == "none" or req_tool == null:
+		print("[TrashItem] GAGAL — item ini tidak butuh tool")
 		return false
-		
-	if incoming_tool_id == req_tool:
-		var next = item_data.get("next_state")
-		if next:
-			item_data = next
-			sprite.texture = item_data.get("item_texture")
-			_update_hitbox()
-			return true
-		else:
+	
+	if incoming_tool_id != req_tool:
+		print("[TrashItem] GAGAL — tool tidak cocok (butuh: ", req_tool, ", dapat: ", incoming_tool_id, ")")
+		return false
+	
+	if incoming_tool_id == "tie":
+		var level = get_tree().get_first_node_in_group("level")
+		if not level:
+			print("[TrashItem] GAGAL — level tidak ditemukan")
 			return false
-	else:
-		return false
+		print("[TrashItem] Trigger tie di posisi tool: ", drop_pos)
+		level.try_tie_at_position(drop_pos, 300.0)
+		return true
+	
+	var next = item_data.get("next_state")
+	if next:
+		print("[TrashItem] Tool berhasil, transform ke next_state")
+		item_data = next
+		print("[TrashItem] next_state required_tool: ", item_data.get("required_tool"))
+		print("[TrashItem] next_state is_stackable: ", item_data.get("is_stackable"))
+		print("[TrashItem] next_state item_name: ", item_data.get("item_name"))
+		sprite.texture = item_data.get("item_texture")
+		_update_hitbox()
+		# flash biru tanda berhasil di-sponge
+		# TODO: adjust efek kalo kena
+		modulate = Color(0.6, 0.8, 1.0)
+		var tween = create_tween()
+		tween.tween_interval(0.5)
+		tween.tween_property(self, "modulate", Color.WHITE, 0.3)
+		return true
+	
+	print("[TrashItem] GAGAL — next_state null")
+	return false
 		
 func is_trash() -> bool:
 	return true
