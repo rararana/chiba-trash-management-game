@@ -9,3 +9,13 @@ class_name TrashData
 @export_enum("none", "scissor", "sponge", "tie") var required_tool: String = "none"
 @export var next_state: Resource
 @export var is_tied: bool = false
+
+func needs_tying() -> bool:
+	return category == "Paper" and not is_tied
+
+func try_to_tie(other_trash: TrashData) -> Resource:
+	if needs_tying() and other_trash.family_name == self.family_name:
+		if next_state:
+			return next_state
+	
+	return null

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://bg25lte0rcw5f"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_c3066"]
+[ext_resource type="Texture2D" uid="uid://d2lb8qvaxcas7" path="res://assets/visual/trash_paper/milk_tied.PNG" id="1_tueld"]
+
+[resource]
+script = ExtResource("1_c3066")
+family_name = "milk"
+item_name = "milk_tied"
+item_texture = ExtResource("1_tueld")
+is_tied = true
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

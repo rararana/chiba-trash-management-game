@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://w43ct0mtot8k"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_qow7x"]
+[ext_resource type="Texture2D" uid="uid://bdaxgo3cg3d45" path="res://assets/visual/trash_paper/poppy.PNG" id="1_r8mex"]
+[ext_resource type="Resource" uid="uid://b1ckv7htud5db" path="res://resources/paper/paperbag/pb_tied.tres" id="2_o1jpg"]
+
+[resource]
+script = ExtResource("1_qow7x")
+family_name = "paperbag"
+is_stackable = true
+item_name = "poppy"
+item_texture = ExtResource("1_r8mex")
+required_tool = "tie"
+next_state = ExtResource("2_o1jpg")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

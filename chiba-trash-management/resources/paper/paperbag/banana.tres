@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://cmubfhm128t51"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_5b6n2"]
+[ext_resource type="Texture2D" uid="uid://b7n3aby0yao04" path="res://assets/visual/trash_paper/banana.PNG" id="1_aiidd"]
+[ext_resource type="Resource" uid="uid://b1ckv7htud5db" path="res://resources/paper/paperbag/pb_tied.tres" id="2_vkj6k"]
+
+[resource]
+script = ExtResource("1_5b6n2")
+family_name = "paperbag"
+is_stackable = true
+item_name = "banana"
+item_texture = ExtResource("1_aiidd")
+required_tool = "tie"
+next_state = ExtResource("2_vkj6k")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

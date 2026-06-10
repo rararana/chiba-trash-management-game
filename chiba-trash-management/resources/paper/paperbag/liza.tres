@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://c8kcfcb44k3mt"]
+
+[ext_resource type="Texture2D" uid="uid://bxjxfhyljpar2" path="res://assets/visual/trash_paper/liza.PNG" id="1_5wcda"]
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_tm3tj"]
+[ext_resource type="Resource" uid="uid://b1ckv7htud5db" path="res://resources/paper/paperbag/pb_tied.tres" id="2_5yc0g"]
+
+[resource]
+script = ExtResource("1_tm3tj")
+family_name = "paperbag"
+is_stackable = true
+item_name = "liza"
+item_texture = ExtResource("1_5wcda")
+required_tool = "tie"
+next_state = ExtResource("2_5yc0g")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

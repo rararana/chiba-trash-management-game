@@ -21,11 +21,13 @@ func _on_tombol_garis_3_pressed():
 	menu_language.show()
 
 func _on_tombol_english_pressed():
+	TranslationServer.set_locale("en") 
 	print("Bahasa berubah jadi English")
 	menu_language.hide()
 	menu_audio.show()
 
 func _on_tombol_indonesia_pressed():
+	TranslationServer.set_locale("id") 
 	print("Bahasa berubah jadi Indonesia")
 	menu_language.hide()
 	menu_audio.show()

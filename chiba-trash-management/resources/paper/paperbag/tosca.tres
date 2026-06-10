@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://gsc7c2jc625g"]
+
+[ext_resource type="Texture2D" uid="uid://duah8tg0l16cj" path="res://assets/visual/trash_paper/tosca.png" id="1_a8lcd"]
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_r4v52"]
+[ext_resource type="Resource" uid="uid://b1ckv7htud5db" path="res://resources/paper/paperbag/pb_tied.tres" id="2_qhlcm"]
+
+[resource]
+script = ExtResource("1_r4v52")
+family_name = "paperbag"
+is_stackable = true
+item_name = "tosca"
+item_texture = ExtResource("1_a8lcd")
+required_tool = "tie"
+next_state = ExtResource("2_qhlcm")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

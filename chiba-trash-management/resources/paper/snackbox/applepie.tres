@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://bw5raepgc6blv"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_2vyj3"]
+[ext_resource type="Texture2D" uid="uid://c7s73mf55tywt" path="res://assets/visual/trash_paper/applepie.PNG" id="1_be0iq"]
+[ext_resource type="Resource" uid="uid://cnnpudtjrrbwb" path="res://resources/paper/snackbox/applepie_cut.tres" id="2_p8vg5"]
+
+[resource]
+script = ExtResource("1_2vyj3")
+family_name = "snackbox"
+item_name = "applepie"
+item_texture = ExtResource("1_be0iq")
+required_tool = "scissor"
+next_state = ExtResource("2_p8vg5")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

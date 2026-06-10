@@ -93,15 +93,23 @@ scale = Vector2(0.183, 0.183)
 texture = ExtResource("2_w67w4")
 
 [node name="PausedText" type="Label" parent="Overlay" unique_id=2109747643]
-layout_mode = 0
-offset_left = 413.0
-offset_top = 316.0
-offset_right = 1016.0
-offset_bottom = 520.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -449.5
+offset_top = -182.0
+offset_right = 449.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.9647059, 0.9137255, 0.8, 1)
 theme_override_fonts/font = ExtResource("3_sipkl")
-theme_override_font_sizes/font_size = 165
-text = "PAUSED"
+theme_override_font_sizes/font_size = 140
+text = "PAUSED_TITLE"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Overlay" unique_id=1439815423]
 layout_mode = 0
@@ -119,7 +127,7 @@ theme_override_font_sizes/font_size = 310
 theme_override_styles/normal = SubResource("StyleBoxTexture_3pfkw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_xovtl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_feba6")
-text = "Resume"
+text = "BTN_RESUME"
 script = ExtResource("5_w67w4")
 
 [node name="SettingBtn" type="Button" parent="Overlay/HBoxContainer" unique_id=1859299287]
@@ -139,7 +147,7 @@ theme_override_font_sizes/font_size = 310
 theme_override_styles/normal = SubResource("StyleBoxTexture_m20o5")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_eir0s")
 theme_override_styles/hover = SubResource("StyleBoxTexture_exhq3")
-text = "Quit"
+text = "BTN_QUIT"
 script = ExtResource("5_w67w4")
 
 [connection signal="button_down" from="Overlay/HBoxContainer/ResumeBtn" to="Overlay/HBoxContainer/ResumeBtn" method="_on_button_down"]

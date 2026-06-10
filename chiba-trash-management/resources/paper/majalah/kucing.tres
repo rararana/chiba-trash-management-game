@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://uwtwd7e4blj"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_4btlv"]
+[ext_resource type="Texture2D" uid="uid://c2mc3h2bk5kik" path="res://assets/visual/trash_paper/kucing.PNG" id="1_d2fxk"]
+[ext_resource type="Resource" uid="uid://44tpx1gam2vu" path="res://resources/paper/majalah/majalah_tied.tres" id="2_r0in6"]
+
+[resource]
+script = ExtResource("1_4btlv")
+family_name = "majalah"
+is_stackable = true
+item_name = "kucing"
+item_texture = ExtResource("1_d2fxk")
+required_tool = "tie"
+next_state = ExtResource("2_r0in6")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://puypoujssrku"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_2a4v3"]
+[ext_resource type="Texture2D" uid="uid://d30iyxpluiswm" path="res://assets/visual/trash_paper/hellobear_cut.PNG" id="1_hr5p4"]
+[ext_resource type="Resource" uid="uid://b3wrkv1dm0s7u" path="res://resources/paper/snackbox/snack_tied.tres" id="2_s6c0l"]
+
+[resource]
+script = ExtResource("1_2a4v3")
+family_name = "snackbox"
+is_stackable = true
+item_name = "hellobear_cut"
+item_texture = ExtResource("1_hr5p4")
+required_tool = "tie"
+next_state = ExtResource("2_s6c0l")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"
