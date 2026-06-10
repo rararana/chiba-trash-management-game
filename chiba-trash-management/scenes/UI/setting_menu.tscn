@@ -107,7 +107,7 @@ theme_override_constants/separation = 62
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_yfshn")
 theme_override_font_sizes/font_size = 78
-text = "Music"
+text = "SETTING_MUSIC"
 
 [node name="TextureRect" type="TextureRect" parent="SettingOverlay/MenuAudio/HBoxMusic" unique_id=811258254]
 custom_minimum_size = Vector2(271, 62)
@@ -131,7 +131,9 @@ theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_qvvka
 theme_override_styles/slider = SubResource("StyleBoxFlat_yfshn")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_dca21")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vqm6y")
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="HBoxSound" type="HBoxContainer" parent="SettingOverlay/MenuAudio" unique_id=144037531]
 layout_mode = 2
@@ -176,7 +178,7 @@ theme_override_constants/separation = 125
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_yfshn")
 theme_override_font_sizes/font_size = 78
-text = "Language"
+text = "SETTING_LANG"
 
 [node name="TextureButton" type="TextureButton" parent="SettingOverlay/MenuAudio/HBoxLang" unique_id=693306947]
 custom_minimum_size = Vector2(62, 62)
@@ -209,7 +211,7 @@ theme_override_colors/font_hover_color = Color(0.5411765, 0.43529412, 0.09803922
 theme_override_colors/font_hover_pressed_color = Color(0.5411765, 0.43529412, 0.09803922, 1)
 theme_override_fonts/font = ExtResource("3_yfshn")
 theme_override_font_sizes/font_size = 78
-text = "English"
+text = "ENG_LANG"
 flat = true
 
 [node name="Ind" type="Button" parent="SettingOverlay/MenuLanguage" unique_id=301646807]
@@ -224,6 +226,7 @@ text = "Indonesia
 flat = true
 
 [connection signal="gui_input" from="SettingOverlay" to="." method="_on_setting_overlay_gui_input"]
+[connection signal="value_changed" from="SettingOverlay/MenuAudio/HBoxMusic/TextureRect/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="SettingOverlay/MenuAudio/HBoxLang/TextureButton" to="." method="_on_tombol_garis_3_pressed"]
 [connection signal="pressed" from="SettingOverlay/MenuLanguage/Eng" to="." method="_on_tombol_english_pressed"]
 [connection signal="pressed" from="SettingOverlay/MenuLanguage/Ind" to="." method="_on_tombol_indonesia_pressed"]

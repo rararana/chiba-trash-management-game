@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://b0rtbwahrels3"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_1w2or"]
+[ext_resource type="Texture2D" uid="uid://7d18doegt5yh" path="res://assets/visual/trash_paper/mmilk_cut.PNG" id="1_msad5"]
+[ext_resource type="Resource" uid="uid://bg25lte0rcw5f" path="res://resources/paper/milk/milk_tied.tres" id="2_7y2oo"]
+
+[resource]
+script = ExtResource("1_1w2or")
+family_name = "milk"
+is_stackable = true
+item_name = "mmilk_clean"
+item_texture = ExtResource("1_msad5")
+required_tool = "tie"
+next_state = ExtResource("2_7y2oo")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

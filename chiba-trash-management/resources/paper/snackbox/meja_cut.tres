@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://dfkkxgamgnve4"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_6afji"]
+[ext_resource type="Texture2D" uid="uid://bnpjv4a4f3k4o" path="res://assets/visual/trash_paper/meja_cut.PNG" id="1_eneke"]
+[ext_resource type="Resource" uid="uid://b3wrkv1dm0s7u" path="res://resources/paper/snackbox/snack_tied.tres" id="2_wbukp"]
+
+[resource]
+script = ExtResource("1_6afji")
+family_name = "snackbox"
+is_stackable = true
+item_name = "meja_cut"
+item_texture = ExtResource("1_eneke")
+required_tool = "tie"
+next_state = ExtResource("2_wbukp")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

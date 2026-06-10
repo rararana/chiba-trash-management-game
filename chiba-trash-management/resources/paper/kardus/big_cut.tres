@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://dnqhhhf15l35b"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_ekbxu"]
+[ext_resource type="Texture2D" uid="uid://cwlvj75wunokl" path="res://assets/visual/trash_paper/big_cut.PNG" id="1_xtxfr"]
+[ext_resource type="Resource" uid="uid://ckx6e05wyyj1u" path="res://resources/paper/kardus/kardus_tied.tres" id="2_l6b27"]
+
+[resource]
+script = ExtResource("1_ekbxu")
+family_name = "kardus"
+is_stackable = true
+item_name = "big_cut"
+item_texture = ExtResource("1_xtxfr")
+required_tool = "tie"
+next_state = ExtResource("2_l6b27")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

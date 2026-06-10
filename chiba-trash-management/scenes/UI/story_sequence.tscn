@@ -11,7 +11,6 @@ scale = Vector2(0.375, 0.375)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 stream = ExtResource("1_jblqq")
-autoplay = true
 script = ExtResource("2_p12lv")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

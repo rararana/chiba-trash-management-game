@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://b1ckv7htud5db"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_r5412"]
+[ext_resource type="Texture2D" uid="uid://motu505vev2p" path="res://assets/visual/trash_paper/pb_tied.PNG" id="1_yg5g6"]
+
+[resource]
+script = ExtResource("1_r5412")
+family_name = "paperbag"
+item_name = "pb_tied"
+item_texture = ExtResource("1_yg5g6")
+is_tied = true
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

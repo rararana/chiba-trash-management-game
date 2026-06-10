@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://cgebd41t5636x"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_30fj8"]
+[ext_resource type="Texture2D" uid="uid://cmo0njhdq40f3" path="res://assets/visual/trash_paper/mmilk.PNG" id="1_a08e6"]
+[ext_resource type="Resource" uid="uid://c2173jaoikhsj" path="res://resources/paper/milk/mmilk_cut.tres" id="2_aoous"]
+
+[resource]
+script = ExtResource("1_30fj8")
+family_name = "milk"
+item_name = "mmilk"
+item_texture = ExtResource("1_a08e6")
+required_tool = "scissor"
+next_state = ExtResource("2_aoous")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"
