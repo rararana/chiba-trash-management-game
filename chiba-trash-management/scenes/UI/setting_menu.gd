@@ -12,6 +12,9 @@ func _ready():
 	
 	master_bus_index = AudioServer.get_bus_index("Master")
 	
+	var volume_sekarang_db = AudioServer.get_bus_volume_db(master_bus_index)
+	$SettingOverlay/MenuAudio/HBoxMusic/TextureRect/HSlider.value = db_to_linear(volume_sekarang_db)
+	
 func _on_h_slider_value_changed(value: float) -> void:
 	var volume_db = linear_to_db(value)
 	AudioServer.set_bus_volume_db(master_bus_index, volume_db)

@@ -58,10 +58,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 1.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5294118)
@@ -133,7 +129,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_dca21")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vqm6y")
 max_value = 1.0
 step = 0.01
-value = 1.0
+value = 0.5
 
 [node name="HBoxSound" type="HBoxContainer" parent="SettingOverlay/MenuAudio" unique_id=144037531]
 layout_mode = 2
