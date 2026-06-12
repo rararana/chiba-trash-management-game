@@ -8,4 +8,3 @@ script = ExtResource("1_4oa38")
 item_name = "apel"
 item_texture = ExtResource("1_usvpq")
 category = "Combustible"
-metadata/_custom_type_script = "uid://62hy3c2dcngb"

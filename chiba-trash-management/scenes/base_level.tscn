@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://q84rmdpe20cs" path="res://assets/visual/placement-box.PNG" id="2_0n1tn"]
 [ext_resource type="PackedScene" uid="uid://dwu8w5ihi8elj" path="res://scenes/trash_item.tscn" id="2_3aqo6"]
 [ext_resource type="Resource" uid="uid://bvrxijj843wp1" path="res://resources/level/level_1.tres" id="2_u6ue0"]
+[ext_resource type="PackedScene" uid="uid://de2nq4glukw6j" path="res://scenes/day_summary.tscn" id="4_4rhdl"]
 [ext_resource type="PackedScene" uid="uid://c54uolws7vg3d" path="res://scenes/combustible_bag.tscn" id="5_earhg"]
 [ext_resource type="Texture2D" uid="uid://82noyouq8nkw" path="res://assets/visual/afternoon - bg.PNG" id="5_i8j8g"]
 [ext_resource type="PackedScene" uid="uid://b1dry7nyc1p10" path="res://scenes/storage_area.tscn" id="6_3rj88"]
@@ -21,7 +22,8 @@
 script = ExtResource("1_oox4p")
 current_level = ExtResource("2_u6ue0")
 trash_scene = ExtResource("2_3aqo6")
-level_duration = 60.0
+day_summary_scene = ExtResource("4_4rhdl")
+level_duration = 120.0
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1792557259]
 layer = -1

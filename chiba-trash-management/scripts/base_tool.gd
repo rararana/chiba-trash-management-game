@@ -48,7 +48,7 @@ func check_apply_tool():
 	
 	for area in areas:
 		if area.has_method("receive_tool"): 
-			var success = area.receive_tool(tool_id)
+			var success = area.receive_tool(tool_id, global_position)
 			if success:
 				applied = true 
 				break

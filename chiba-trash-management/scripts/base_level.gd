@@ -2,10 +2,12 @@ extends Node2D
 
 @export var current_level: LevelData
 @export var trash_scene: PackedScene
+@export var day_summary_scene: PackedScene
 @export var min_scatter_radius: float = 180.0
 @export var max_scatter_radius: float = 200.0
 @export var min_y_boundary: float = 320.0
 @export var level_duration: float = 300.0 
+@export var STACK_SIZE: int = 3
 
 @onready var spawner = %SpawnerArea
 @onready var category_bags = $CategoryBags
@@ -17,29 +19,38 @@ extends Node2D
 
 var time_passed: float = 0.0
 var is_level_ended: bool = false
+var tying_buffer: Array[Node] = []
+var end_reason: String = ""
+const MAIN_MENU_PATH = "res://scenes/UI/main_menu.tscn"
 
 func _ready():
+	add_to_group("level")
 	BGM.play()
 	morning_sky.modulate.a = 1.0
 	afternoon_sky.modulate.a = 0.0
 	evening_sky.modulate.a = 0.0
-	
+	GameManager.start_day()
 	if current_level:
 		setup_bags()
 		spawn_trash()
 
 func _process(delta: float):
 	if is_level_ended:
-		return 
-		
+		return
+	
 	time_passed += delta
 	if time_passed >= level_duration:
 		time_passed = level_duration
-		is_level_ended = true
+		end_reason = "time_up"
 		_on_level_ended()
-		
+		return
+	
+	if time_passed > 1.0 and _all_trash_cleared():
+		end_reason = "trash_empty"
+		_on_level_ended()
+		return
+	
 	var progress = time_passed / level_duration
-
 	if progress <= 0.5:
 		var t = progress / 0.5
 		morning_sky.modulate.a = 1.0 - t
@@ -50,9 +61,51 @@ func _process(delta: float):
 		morning_sky.modulate.a = 0.0
 		afternoon_sky.modulate.a = 1.0 - t
 		evening_sky.modulate.a = t
+		
+func _all_trash_cleared() -> bool:
+	# Cek masih ada trash node di scene
+	if not get_tree().get_nodes_in_group("trash").is_empty():
+		return false
+	
+	# Cek semua bag sudah kosong (tidak ada yang masih nampung sampah)
+	for bag in category_bags.get_children():
+		if bag.has_method("is_trash_bag") and bag.current_amount > 0:
+			return false
+	
+	return true
 
 func _on_level_ended():
-	print("Waktu Habis! Level Selesai.")
+	is_level_ended = true
+	print("Level Selesai. Alasan: ", end_reason)
+	await get_tree().create_timer(1.5).timeout
+	var summary = day_summary_scene.instantiate()
+	add_child(summary)
+	summary.show_summary(current_level.level_name)
+	summary.on_continue.connect(_on_summary_continued)
+	
+func _on_summary_continued():
+	if GameManager.money < 0 or end_reason == "time_up":
+		get_tree().change_scene_to_file(MAIN_MENU_PATH)
+	else:
+		GameManager.next_day()
+		if current_level.next_level_data:
+			is_level_ended = false
+			end_reason = ""
+			time_passed = 0.0
+			current_level = current_level.next_level_data
+			
+			morning_sky.modulate.a = 1.0
+			afternoon_sky.modulate.a = 0.0
+			evening_sky.modulate.a = 0.0
+			
+			for trash in get_tree().get_nodes_in_group("trash"):
+				trash.queue_free()
+			
+			setup_bags()
+			spawn_trash()
+			BGM.play()
+		else:
+			get_tree().change_scene_to_file(MAIN_MENU_PATH)
 
 func setup_bags():
 	for bag in category_bags.get_children():
@@ -80,3 +133,43 @@ func spawn_trash():
 		
 		new_trash.global_position = target_pos
 		add_child(new_trash)
+
+func try_tie_at_position(drop_pos: Vector2, radius: float = 80.0) -> void:
+	var candidates: Array[Node] = []
+	for child in get_children():
+		if not child.has_method("is_trash"):
+			continue
+		var dist = child.global_position.distance_to(drop_pos)
+		print("[TyingBuffer] ", child.name, " jarak: ", dist, " | can_be_tied: ", (child.item_data as TrashData).can_be_tied() if child.item_data else "null")
+		if dist > radius:
+			continue
+		var data = child.item_data as TrashData
+		if data and data.can_be_tied():
+			candidates.append(child)
+	
+	print("[TyingBuffer] Kandidat di sekitar drop: ", candidates.size())
+	
+	if candidates.is_empty():
+		return
+	
+	var groups: Dictionary = {}
+	for node in candidates:
+		var fname = (node.item_data as TrashData).family_name
+		if not groups.has(fname):
+			groups[fname] = []
+		groups[fname].append(node)
+	
+	for fname in groups:
+		var group: Array = groups[fname]
+		print("[TyingBuffer] Family '", fname, "' punya ", group.size(), " item")
+		if group.size() >= STACK_SIZE:
+			var result_data = (group[0].item_data as TrashData).next_state
+			print("[TyingBuffer] Berhasil tie! Transform ke: ", result_data.item_name)
+			group[0].item_data = result_data
+			group[0].sprite.texture = result_data.item_texture
+			group[0]._update_hitbox()
+			group[0].modulate = Color.WHITE
+			for i in range(1, group.size()):
+				group[i]._shrink_and_free()
+		else:
+			print("[TyingBuffer] GAGAL — kurang item, butuh ", STACK_SIZE, " punya ", group.size())

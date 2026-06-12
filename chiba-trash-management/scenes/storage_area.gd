@@ -2,11 +2,9 @@ extends Area2D
 class_name StorageArea
 
 @export var open_y_offset: float = -100.0 
-
 @onready var items_container: Node2D = $Mover/ItemsContainer
 @onready var main_ui = $"../MainUI"
 @onready var default_y: float = position.y 
-
 var tween: Tween
 var is_mouse_inside: bool = false
 
@@ -31,32 +29,62 @@ func _update_tray_state():
 	tween.tween_property(self, "position:y", target_y, 0.2).set_trans(Tween.TRANS_SINE)
 
 func store_object(obj: Area2D) -> bool:
-	if not obj.has_method("is_trash_bag"):
-		return false
+	if obj.has_method("is_trash_bag"):
+		var bag_data = {
+			"type": "bag",
+			"category": obj.get("bag_category"),
+			"contents": obj.get("stored_items").duplicate()
+		}
+		GameManager.saved_items.append(bag_data)
 		
-	var bag_data = {
-		"type": "bag",
-		"category": obj.get("bag_category"),
-		"contents": obj.get("stored_items").duplicate()
-	}
-	GameManager.saved_items.append(bag_data)
-	
-	# Load ulang file scene asli agar kloningan bersih dari sisa animasi drag
-	var bag_scene = load(obj.scene_file_path)
-	var item_to_store = bag_scene.instantiate()
-	
-	items_container.add_child(item_to_store)
-	
-	item_to_store.is_stored_clone = true
-	item_to_store.current_amount = obj.current_amount
-	item_to_store.stored_items = obj.stored_items.duplicate()
-	
-	if item_to_store.has_node("BarSprite"):
-		item_to_store.get_node("BarSprite").queue_free()
+		var bag_scene = load(obj.scene_file_path)
+		var item_to_store = bag_scene.instantiate()
 		
-	item_to_store._update_visual()
-	item_to_store.position = Vector2(0, 0)
-	item_to_store.scale = Vector2(2.0, 2.0)
-	item_to_store.z_index = 5
+		var item_count = items_container.get_child_count()
+		items_container.add_child(item_to_store)
+		
+		item_to_store.is_stored_clone = true
+		item_to_store.current_amount = obj.current_amount
+		item_to_store.stored_items = obj.stored_items.duplicate()
+		
+		if item_to_store.has_node("BarSprite"):
+			item_to_store.get_node("BarSprite").queue_free()
+			
+		item_to_store._update_visual()
+		item_to_store.position = Vector2(item_count * 80, 0)
+		item_to_store.scale = Vector2(2.0, 2.0)
+		item_to_store.z_index = 5
+		
+		return true
 	
-	return true
+	if obj.has_method("is_trash"):
+		var item_data = obj.item_data as TrashData
+		if item_data == null:
+			return false
+		if not item_data.get("is_tied"):
+			return false
+		
+		GameManager.saved_items.append({
+			"type": "tied_paper",
+			"family": item_data.family_name,
+			"item_name": item_data.item_name
+		})
+		
+		var trash_scene = load(obj.scene_file_path)
+		var item_clone = trash_scene.instantiate()
+		item_clone.item_data = item_data 
+		var item_count = items_container.get_child_count()
+		items_container.add_child(item_clone)
+		item_clone.item_data = item_data
+		item_clone.scale = Vector2(4.0, 4.0)
+		item_clone.position = Vector2(item_count * 80, -80)
+		item_clone.z_index = 5
+		item_clone.set_meta("is_storage_clone", true)
+		item_clone.set_meta("original_node", obj)
+		
+		obj.hide()
+		obj.set_deferred("input_pickable", false)
+		
+		return true
+	
+	return false
