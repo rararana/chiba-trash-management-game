@@ -2,7 +2,6 @@ extends Node2D
 
 @export var current_level: LevelData
 @export var trash_scene: PackedScene
-@export var level_scene: PackedScene 
 @export var day_summary_scene: PackedScene
 @export var min_scatter_radius: float = 180.0
 @export var max_scatter_radius: float = 200.0
@@ -90,11 +89,21 @@ func _on_summary_continued():
 	else:
 		GameManager.next_day()
 		if current_level.next_level_data:
-			var new_level = level_scene.instantiate()
-			new_level.current_level = current_level.next_level_data
-			get_tree().root.add_child(new_level)
-			get_tree().current_scene.queue_free()
-			get_tree().current_scene = new_level
+			is_level_ended = false
+			end_reason = ""
+			time_passed = 0.0
+			current_level = current_level.next_level_data
+			
+			morning_sky.modulate.a = 1.0
+			afternoon_sky.modulate.a = 0.0
+			evening_sky.modulate.a = 0.0
+			
+			for trash in get_tree().get_nodes_in_group("trash"):
+				trash.queue_free()
+			
+			setup_bags()
+			spawn_trash()
+			BGM.play()
 		else:
 			get_tree().change_scene_to_file(MAIN_MENU_PATH)
 

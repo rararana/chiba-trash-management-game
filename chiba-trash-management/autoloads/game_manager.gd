@@ -60,6 +60,6 @@ func try_throw_bag(bag_category: String, wrong_items_count: int = 0, right_items
 
 func next_day():
 	current_day_index += 1
-	if current_day_index > 6:
+	if current_day_index >= days_list.size():
 		current_day_index = 0
-	print("Hari berganti menjadi: ", days_list[current_day_index])
+	#print("Hari berganti menjadi: ", days_list[current_day_index])

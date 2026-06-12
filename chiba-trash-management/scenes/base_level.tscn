@@ -22,7 +22,6 @@
 script = ExtResource("1_oox4p")
 current_level = ExtResource("2_u6ue0")
 trash_scene = ExtResource("2_3aqo6")
-level_scene = null
 day_summary_scene = ExtResource("4_4rhdl")
 level_duration = 120.0
 

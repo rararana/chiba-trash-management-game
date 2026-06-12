@@ -68,8 +68,14 @@ func check_drop_zone():
 		if area.has_method("receive_dropped_object"):
 			if area.receive_dropped_object(self):
 				success = true
-				_shrink_and_free()
-				break
+				if get_meta("is_storage_clone", false):
+					var original = get_meta("original_node", null)
+					if original and is_instance_valid(original):
+						original.queue_free()
+					queue_free()
+				else:
+					_shrink_and_free()
+					break
 				
 		elif area.has_method("receive_trash"):
 			if area.receive_trash(item_data): 

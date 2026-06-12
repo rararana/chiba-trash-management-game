@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://bvrxijj843wp1"]
 
 [ext_resource type="Script" uid="uid://bcj2quaif8gsq" path="res://resources/level_data.gd" id="1_mgrjq"]
+[ext_resource type="Resource" uid="uid://bjix83l0i6qqk" path="res://resources/level/level_2.tres" id="1_uruj2"]
 [ext_resource type="Resource" uid="uid://bvyqgammhed20" path="res://resources/combustible/apel.tres" id="3_oljre"]
 [ext_resource type="Resource" uid="uid://cn0ciuuo1wmv2" path="res://resources/combustible/chips.tres" id="4_x24fx"]
 [ext_resource type="Resource" uid="uid://dqojyawg4bis5" path="res://resources/combustible/eggshells.tres" id="5_0a5nm"]
@@ -21,4 +22,6 @@
 [resource]
 script = ExtResource("1_mgrjq")
 level_name = "Day 1"
+active_categories = Array[String](["Combustible"])
 trash_data_list = Array[Resource]([ExtResource("3_oljre"), ExtResource("10_c8msl"), ExtResource("4_x24fx"), ExtResource("11_t55xi"), ExtResource("5_0a5nm"), ExtResource("7_uruj2"), ExtResource("6_y0vtd"), ExtResource("9_2asrf"), ExtResource("10_32xle"), ExtResource("11_xgfla"), ExtResource("7_q24mo"), ExtResource("13_61sgx"), ExtResource("14_igi2s"), ExtResource("15_drxao"), ExtResource("16_wfls8"), ExtResource("17_o3alc")])
+next_level_data = ExtResource("1_uruj2")

@@ -21,7 +21,7 @@ func _process(delta):
 func update_day_ui():
 	var day_index = GameManager.current_day_index
 	var current_day_name = GameManager.days_list[day_index]
-	$DayBox/DayLabel.text = "Day 1 : " + current_day_name
+	$DayBox/DayLabel.text = "Day " + str(day_index + 1) + " : " + current_day_name
 
 func update_money_ui():
 	var current_money = GameManager.money
