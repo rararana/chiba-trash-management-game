@@ -10,6 +10,7 @@ var is_dragging: bool = false
 var drop_tween: Tween
 
 func _ready() -> void:
+	add_to_group("trash")
 	input_event.connect(_on_input_event)
 	if item_data:
 		sprite.texture = item_data.item_texture 

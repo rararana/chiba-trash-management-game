@@ -2,6 +2,8 @@ extends Node2D
 
 @export var current_level: LevelData
 @export var trash_scene: PackedScene
+@export var level_scene: PackedScene 
+@export var day_summary_scene: PackedScene
 @export var min_scatter_radius: float = 180.0
 @export var max_scatter_radius: float = 200.0
 @export var min_y_boundary: float = 320.0
@@ -19,6 +21,8 @@ extends Node2D
 var time_passed: float = 0.0
 var is_level_ended: bool = false
 var tying_buffer: Array[Node] = []
+var end_reason: String = ""
+const MAIN_MENU_PATH = "res://scenes/UI/main_menu.tscn"
 
 func _ready():
 	add_to_group("level")
@@ -26,23 +30,28 @@ func _ready():
 	morning_sky.modulate.a = 1.0
 	afternoon_sky.modulate.a = 0.0
 	evening_sky.modulate.a = 0.0
-	
+	GameManager.start_day()
 	if current_level:
 		setup_bags()
 		spawn_trash()
 
 func _process(delta: float):
 	if is_level_ended:
-		return 
-		
+		return
+	
 	time_passed += delta
 	if time_passed >= level_duration:
 		time_passed = level_duration
-		is_level_ended = true
+		end_reason = "time_up"
 		_on_level_ended()
-		
+		return
+	
+	if time_passed > 1.0 and _all_trash_cleared():
+		end_reason = "trash_empty"
+		_on_level_ended()
+		return
+	
 	var progress = time_passed / level_duration
-
 	if progress <= 0.5:
 		var t = progress / 0.5
 		morning_sky.modulate.a = 1.0 - t
@@ -53,9 +62,41 @@ func _process(delta: float):
 		morning_sky.modulate.a = 0.0
 		afternoon_sky.modulate.a = 1.0 - t
 		evening_sky.modulate.a = t
+		
+func _all_trash_cleared() -> bool:
+	# Cek masih ada trash node di scene
+	if not get_tree().get_nodes_in_group("trash").is_empty():
+		return false
+	
+	# Cek semua bag sudah kosong (tidak ada yang masih nampung sampah)
+	for bag in category_bags.get_children():
+		if bag.has_method("is_trash_bag") and bag.current_amount > 0:
+			return false
+	
+	return true
 
 func _on_level_ended():
-	print("Waktu Habis! Level Selesai.")
+	is_level_ended = true
+	print("Level Selesai. Alasan: ", end_reason)
+	await get_tree().create_timer(1.5).timeout
+	var summary = day_summary_scene.instantiate()
+	add_child(summary)
+	summary.show_summary(current_level.level_name)
+	summary.on_continue.connect(_on_summary_continued)
+	
+func _on_summary_continued():
+	if GameManager.money < 0 or end_reason == "time_up":
+		get_tree().change_scene_to_file(MAIN_MENU_PATH)
+	else:
+		GameManager.next_day()
+		if current_level.next_level_data:
+			var new_level = level_scene.instantiate()
+			new_level.current_level = current_level.next_level_data
+			get_tree().root.add_child(new_level)
+			get_tree().current_scene.queue_free()
+			get_tree().current_scene = new_level
+		else:
+			get_tree().change_scene_to_file(MAIN_MENU_PATH)
 
 func setup_bags():
 	for bag in category_bags.get_children():

@@ -2,7 +2,6 @@ extends Area2D
 class_name TrashCan
 
 @export var money_per_item: int = 5
-
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var default_scale: Vector2 = sprite.scale
 var bounce_tween: Tween
@@ -20,12 +19,11 @@ func receive_dropped_object(obj: Area2D) -> bool:
 		for item in items_inside:
 			var item_cat = item.get("category")
 			var needs_processing = item.get("next_state") != null
+			print("[TrashCan] item: ", item.get("item_name"), " | cat: ", item_cat, " | bag_cat: ", bag_cat, " | needs_processing: ", needs_processing)
 			
 			var is_wrong: bool = false
 			
-			if item_cat == "Paper":
-				is_wrong = true
-			elif item_cat != bag_cat:
+			if item_cat != bag_cat:
 				is_wrong = true
 			elif needs_processing:
 				is_wrong = true
@@ -34,8 +32,11 @@ func receive_dropped_object(obj: Area2D) -> bool:
 				total_money_change -= money_per_item
 			else:
 				total_money_change += money_per_item
-				
-		GameManager.money += total_money_change
+		
+		if total_money_change >= 0:
+			GameManager.add_money(total_money_change)
+		else:
+			GameManager.deduct_money(-total_money_change)
 		_bounce()
 		return true
 		
@@ -50,15 +51,18 @@ func receive_dropped_object(obj: Area2D) -> bool:
 			is_wrong = true
 		elif needs_processing:
 			is_wrong = true
-			
+		
 		if is_wrong:
 			total_money_change -= money_per_item
 		else:
 			total_money_change += money_per_item
-			
-		GameManager.money += total_money_change
+		
+		if total_money_change >= 0:
+			GameManager.add_money(total_money_change)
+		else:
+			GameManager.deduct_money(-total_money_change)
 		_bounce()
-		return true 
+		return true
 		
 	return false
 
