@@ -21,7 +21,7 @@
 
 [resource]
 script = ExtResource("1_mgrjq")
-level_name = "Day 1"
+level_name = "1"
 active_categories = Array[String](["Combustible"])
 trash_data_list = Array[Resource]([ExtResource("3_oljre"), ExtResource("10_c8msl"), ExtResource("4_x24fx"), ExtResource("11_t55xi"), ExtResource("5_0a5nm"), ExtResource("7_uruj2"), ExtResource("6_y0vtd"), ExtResource("9_2asrf"), ExtResource("10_32xle"), ExtResource("11_xgfla"), ExtResource("7_q24mo"), ExtResource("13_61sgx"), ExtResource("14_igi2s"), ExtResource("15_drxao"), ExtResource("16_wfls8"), ExtResource("17_o3alc")])
 next_level_data = ExtResource("1_uruj2")

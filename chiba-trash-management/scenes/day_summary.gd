@@ -40,7 +40,7 @@ func show_summary(day_name: String):
 	var fined   = GameManager.fines_incurred
 	var total   = GameManager.money
 
-	day_label.text      = day_name
+	day_label.text      = tr("DAY") + " " + day_name
 	savings_value.text  = "¥%d" % savings
 	salary_value.text   = "¥%d" % salary
 	fined_value.text    = "-¥%d" % fined

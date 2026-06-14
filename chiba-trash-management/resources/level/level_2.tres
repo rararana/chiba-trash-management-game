@@ -19,6 +19,6 @@
 
 [resource]
 script = ExtResource("1_11txx")
-level_name = "Day 2"
+level_name = "2"
 trash_data_list = Array[Resource]([ExtResource("2_4ik7l"), ExtResource("3_46jtu"), ExtResource("4_1k37o"), ExtResource("5_pv52f"), ExtResource("6_q4jco"), ExtResource("7_q4jco"), ExtResource("6_q4jco"), ExtResource("7_nt5x8"), ExtResource("8_jh3mh"), ExtResource("9_is6pr"), ExtResource("10_ic7k3"), ExtResource("11_g7ks6"), ExtResource("12_42q1p"), ExtResource("14_nt5x8"), ExtResource("15_jh3mh"), ExtResource("16_is6pr")])
 metadata/_custom_type_script = "uid://bcj2quaif8gsq"
