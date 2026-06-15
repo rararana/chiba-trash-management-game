@@ -30,6 +30,7 @@ func _ready():
 	afternoon_sky.modulate.a = 0.0
 	evening_sky.modulate.a = 0.0
 	GameManager.start_day()
+	GameManager.on_game_over.connect(_on_bankrupt)
 	if current_level:
 		setup_bags()
 		spawn_trash()
@@ -77,11 +78,22 @@ func _all_trash_cleared() -> bool:
 func _on_level_ended():
 	is_level_ended = true
 	print("Level Selesai. Alasan: ", end_reason)
-	await get_tree().create_timer(1.5).timeout
+	for bag in category_bags.get_children():
+		bag.process_mode = Node.PROCESS_MODE_DISABLED
+	if end_reason == "bankrupt":
+		await get_tree().create_timer(0.5).timeout
+	else:
+		await get_tree().create_timer(1.5).timeout
 	var summary = day_summary_scene.instantiate()
 	add_child(summary)
 	summary.show_summary(current_level.level_name)
 	summary.on_continue.connect(_on_summary_continued)
+
+func _on_bankrupt():
+	if is_level_ended:
+		return
+	end_reason = "bankrupt"
+	_on_level_ended()
 	
 func _on_summary_continued():
 	if GameManager.money < 0 or end_reason == "time_up":

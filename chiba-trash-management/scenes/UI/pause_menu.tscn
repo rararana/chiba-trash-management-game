@@ -5,62 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://duwoof2c1wwcf" path="res://scenes/UI/setting_menu.tscn" id="2_eir0s"]
 [ext_resource type="Texture2D" uid="uid://bi7fmirl04r83" path="res://assets/visual/papanpaused.png" id="2_w67w4"]
 [ext_resource type="FontFile" uid="uid://c52umg5w0skd5" path="res://assets/visual/PoetsenOne-Regular.ttf" id="3_sipkl"]
-[ext_resource type="Texture2D" uid="uid://djte3hdik1iq2" path="res://assets/visual/pausedbutton.png" id="4_eir0s"]
-[ext_resource type="Script" uid="uid://3w7bqq5xp7qa" path="res://scenes/UI/btn_effect.gd" id="5_w67w4"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3pfkw"]
-content_margin_left = 173.0
-content_margin_right = 173.0
-content_margin_bottom = 67.0
-texture = ExtResource("4_eir0s")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xovtl"]
-content_margin_left = 173.0
-content_margin_right = 173.0
-content_margin_bottom = 67.0
-texture = ExtResource("4_eir0s")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_feba6"]
-content_margin_left = 173.0
-content_margin_right = 173.0
-content_margin_bottom = 67.0
-texture = ExtResource("4_eir0s")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uduj"]
-content_margin_left = 231.0
-content_margin_right = 231.0
-content_margin_bottom = 67.0
-texture = ExtResource("4_eir0s")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w67w4"]
-content_margin_left = 231.0
-content_margin_right = 231.0
-content_margin_bottom = 67.0
-texture = ExtResource("4_eir0s")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sipkl"]
-content_margin_left = 231.0
-content_margin_right = 231.0
-content_margin_bottom = 67.0
-texture = ExtResource("4_eir0s")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m20o5"]
-content_margin_left = 452.0
-content_margin_right = 452.0
-content_margin_bottom = 67.0
-texture = ExtResource("4_eir0s")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eir0s"]
-content_margin_left = 452.0
-content_margin_right = 452.0
-content_margin_bottom = 67.0
-texture = ExtResource("4_eir0s")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exhq3"]
-content_margin_left = 452.0
-content_margin_right = 452.0
-content_margin_bottom = 67.0
-texture = ExtResource("4_eir0s")
+[ext_resource type="Texture2D" uid="uid://cth88ycbummir" path="res://assets/visual/paused_ui/resume_en.png" id="6_2uduj"]
+[ext_resource type="Texture2D" uid="uid://cohlgkddpn4dk" path="res://assets/visual/paused_ui/resumehover_en.png" id="7_m20o5"]
+[ext_resource type="Texture2D" uid="uid://cc1gf34g2lpht" path="res://assets/visual/paused_ui/setting.png" id="10_1xqgb"]
+[ext_resource type="Texture2D" uid="uid://cnm15shh3ed1" path="res://assets/visual/paused_ui/settinghover.png" id="11_rj2bp"]
+[ext_resource type="Texture2D" uid="uid://cmtryav8lxth0" path="res://assets/visual/paused_ui/quit.png" id="12_l35yb"]
+[ext_resource type="Texture2D" uid="uid://r5m4u368iem8" path="res://assets/visual/paused_ui/quithover.png" id="13_b03e4"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=799539979]
 process_mode = 3
@@ -111,57 +61,33 @@ theme_override_font_sizes/font_size = 140
 text = "PAUSED_TITLE"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Overlay" unique_id=1439815423]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Overlay" unique_id=958267782]
 layout_mode = 0
-offset_left = 300.0
-offset_top = 593.0
-offset_right = 4891.0
-offset_bottom = 1248.0
+offset_left = 281.0
+offset_top = 597.0
+offset_right = 5073.3496
+offset_bottom = 1417.0
 scale = Vector2(0.183, 0.183)
 theme_override_constants/separation = 50
 
-[node name="ResumeBtn" type="Button" parent="Overlay/HBoxContainer" unique_id=1661059659]
+[node name="ResumeBtn" type="TextureButton" parent="Overlay/HBoxContainer2" unique_id=1330813587]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_sipkl")
-theme_override_font_sizes/font_size = 310
-theme_override_styles/normal = SubResource("StyleBoxTexture_3pfkw")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_xovtl")
-theme_override_styles/hover = SubResource("StyleBoxTexture_feba6")
-text = "BTN_RESUME"
-script = ExtResource("5_w67w4")
+texture_normal = ExtResource("6_2uduj")
+texture_pressed = ExtResource("7_m20o5")
+texture_hover = ExtResource("7_m20o5")
 
-[node name="SettingBtn" type="Button" parent="Overlay/HBoxContainer" unique_id=1859299287]
+[node name="SettingBtn" type="TextureButton" parent="Overlay/HBoxContainer2" unique_id=1339532837]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_sipkl")
-theme_override_font_sizes/font_size = 310
-theme_override_styles/normal = SubResource("StyleBoxTexture_2uduj")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_w67w4")
-theme_override_styles/hover = SubResource("StyleBoxTexture_sipkl")
-text = "Setting"
-script = ExtResource("5_w67w4")
+texture_normal = ExtResource("10_1xqgb")
+texture_pressed = ExtResource("11_rj2bp")
+texture_hover = ExtResource("11_rj2bp")
 
-[node name="QuitBtn" type="Button" parent="Overlay/HBoxContainer" unique_id=1065772888]
+[node name="QuitBtn" type="TextureButton" parent="Overlay/HBoxContainer2" unique_id=1117716606]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_sipkl")
-theme_override_font_sizes/font_size = 310
-theme_override_styles/normal = SubResource("StyleBoxTexture_m20o5")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_eir0s")
-theme_override_styles/hover = SubResource("StyleBoxTexture_exhq3")
-text = "BTN_QUIT"
-script = ExtResource("5_w67w4")
+texture_normal = ExtResource("12_l35yb")
+texture_pressed = ExtResource("13_b03e4")
+texture_hover = ExtResource("13_b03e4")
 
-[connection signal="button_down" from="Overlay/HBoxContainer/ResumeBtn" to="Overlay/HBoxContainer/ResumeBtn" method="_on_button_down"]
-[connection signal="button_up" from="Overlay/HBoxContainer/ResumeBtn" to="Overlay/HBoxContainer/ResumeBtn" method="_on_button_up"]
-[connection signal="mouse_entered" from="Overlay/HBoxContainer/ResumeBtn" to="Overlay/HBoxContainer/ResumeBtn" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Overlay/HBoxContainer/ResumeBtn" to="Overlay/HBoxContainer/ResumeBtn" method="_on_mouse_exited"]
-[connection signal="pressed" from="Overlay/HBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
-[connection signal="button_down" from="Overlay/HBoxContainer/SettingBtn" to="Overlay/HBoxContainer/SettingBtn" method="_on_button_down"]
-[connection signal="button_up" from="Overlay/HBoxContainer/SettingBtn" to="Overlay/HBoxContainer/SettingBtn" method="_on_button_up"]
-[connection signal="mouse_entered" from="Overlay/HBoxContainer/SettingBtn" to="Overlay/HBoxContainer/SettingBtn" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Overlay/HBoxContainer/SettingBtn" to="Overlay/HBoxContainer/SettingBtn" method="_on_mouse_exited"]
-[connection signal="pressed" from="Overlay/HBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
-[connection signal="button_down" from="Overlay/HBoxContainer/QuitBtn" to="Overlay/HBoxContainer/QuitBtn" method="_on_button_down"]
-[connection signal="button_up" from="Overlay/HBoxContainer/QuitBtn" to="Overlay/HBoxContainer/QuitBtn" method="_on_button_up"]
-[connection signal="mouse_entered" from="Overlay/HBoxContainer/QuitBtn" to="Overlay/HBoxContainer/QuitBtn" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Overlay/HBoxContainer/QuitBtn" to="Overlay/HBoxContainer/QuitBtn" method="_on_mouse_exited"]
-[connection signal="pressed" from="Overlay/HBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Overlay/HBoxContainer2/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Overlay/HBoxContainer2/SettingBtn" to="." method="_on_setting_btn_pressed"]
+[connection signal="pressed" from="Overlay/HBoxContainer2/QuitBtn" to="." method="_on_quit_btn_pressed"]

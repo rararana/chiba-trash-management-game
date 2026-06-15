@@ -8,24 +8,27 @@ var pages = []
 var current_page = 0
 
 func _ready():
+	GameManager.hari_berubah.connect(update_day_ui)
+	GameManager.uang_berubah.connect(update_money_ui)
+	
 	update_day_ui()
 	update_money_ui()
 	
 	pages = [cover_tex, book1_tex, book2_tex]
 	$HelpOverlay.hide()
 
-func _process(delta):
-	update_day_ui()
-	update_money_ui()
-
 func update_day_ui():
 	var day_index = GameManager.current_day_index
-	var current_day_name = GameManager.days_list[day_index]
-	$DayBox/DayLabel.text = "Day " + str(day_index + 1) + " : " + current_day_name
+	var current_day_key = GameManager.days_list[day_index]
+	$DayBox/DayLabel.text = tr("DAY") + " " + str(day_index + 1) + " : " + tr(current_day_key)
 
 func update_money_ui():
 	var current_money = GameManager.money
 	$WalletIcon/MoneyLabel.text = "¥" + str(current_money)
+
+func _notification(what):
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		update_day_ui()
 
 func update_book_visuals():
 	var tex = pages[current_page]

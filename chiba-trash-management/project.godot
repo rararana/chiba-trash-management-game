@@ -27,7 +27,20 @@ window/size/viewport_height=1024
 
 [internationalization]
 
+locale/translation_remaps={
+"res://assets/visual/book/cover.png": PackedStringArray("res://assets/indo/buku/cover_id.png:id"),
+"res://assets/visual/book/open2.png": PackedStringArray("res://assets/indo/buku/open2_id.png:id"),
+"res://assets/visual/book/opensched.png": PackedStringArray("res://assets/indo/buku/opensched_id.png:id"),
+"res://assets/visual/paused_ui/quit.png": PackedStringArray("res://assets/indo/paused_ui/quit_id.png:id"),
+"res://assets/visual/paused_ui/quithover.png": PackedStringArray("res://assets/indo/paused_ui/quithover_id.png:id"),
+"res://assets/visual/paused_ui/resume_en.png": PackedStringArray("res://assets/indo/paused_ui/resume_id.png:id"),
+"res://assets/visual/paused_ui/resumehover_en.png": PackedStringArray("res://assets/indo/paused_ui/resumehover_id.png:id"),
+"res://assets/visual/paused_ui/setting.png": PackedStringArray("res://assets/indo/paused_ui/setting_id.png:id"),
+"res://assets/visual/paused_ui/settinghover.png": PackedStringArray("res://assets/indo/paused_ui/settinghover_id.png:id")
+}
 locale/translations=PackedStringArray("res://assets/indo/kamus_ui.en.translation", "res://assets/indo/kamus_ui.id.translation")
+locale/locale_filter_mode=1
+locale/language_filter=["id"]
 
 [physics]
 
