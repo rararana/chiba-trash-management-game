@@ -1,6 +1,7 @@
 extends Node
 
 var tutorial_selesai: bool = false
+var save_path = "user://save_data_tutor.cfg"
 signal on_game_over
 signal uang_berubah
 signal hari_berubah
@@ -68,3 +69,20 @@ func try_throw_bag(bag_category: String, wrong_items_count: int = 0, right_items
 		deduct_money(total)
 	
 	return is_correct_day
+
+func _ready():
+	# Pas game baru dibuka, suruh dia nginget-nginget lagi
+	load_data()
+
+# FUNGSI BUAT NYIMPEN KE MEMORI HP/PC
+func save_data():
+	var config = ConfigFile.new()
+	config.set_value("Progress", "tutorial_selesai", tutorial_selesai)
+	config.save(save_path)
+
+# FUNGSI BUAT NGE-LOAD DARI MEMORI
+func load_data():
+	var config = ConfigFile.new()
+	if config.load(save_path) == OK:
+		# Kalau ada filenya, ambil ingatannya. Kalau gak ada, default-nya false
+		tutorial_selesai = config.get_value("Progress", "tutorial_selesai", false)

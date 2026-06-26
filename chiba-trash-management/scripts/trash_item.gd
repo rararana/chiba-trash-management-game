@@ -159,7 +159,7 @@ func receive_tool(incoming_tool_id: String, drop_pos: Vector2 = global_position)
 		_update_hitbox()
 		# flash biru tanda berhasil di-sponge
 		# TODO: adjust efek kalo kena
-		modulate = Color(0.6, 0.8, 1.0)
+		modulate = Color(0.767, 0.882, 1.0, 1.0)
 		var tween = create_tween()
 		tween.tween_interval(0.5)
 		tween.tween_property(self, "modulate", Color.WHITE, 0.3)

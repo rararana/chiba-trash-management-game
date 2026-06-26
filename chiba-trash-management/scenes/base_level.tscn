@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cnfv8ypgics5p" path="res://scenes/UI/main_ui.tscn" id="10_fal5o"]
 [ext_resource type="AudioStream" uid="uid://bygvqpwappy82" path="res://assets/audio/hitslab-game-gaming-music-295075.mp3" id="15_bvxmy"]
 [ext_resource type="PackedScene" uid="uid://dl2sl68634nky" path="res://scenes/UI/pause_menu.tscn" id="16_em7dn"]
+[ext_resource type="PackedScene" uid="uid://c6oir4mc83np2" path="res://scenes/tutorial.tscn" id="18_4so06"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1660347800]
 script = ExtResource("1_oox4p")
@@ -120,3 +121,8 @@ stream = ExtResource("15_bvxmy")
 volume_db = -3.0
 
 [node name="PauseMenu" parent="." unique_id=799539979 instance=ExtResource("16_em7dn")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1327036126]
+
+[node name="Tutorial" parent="CanvasLayer" unique_id=1887577354 instance=ExtResource("18_4so06")]
+visible = false

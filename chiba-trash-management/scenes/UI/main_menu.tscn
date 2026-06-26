@@ -103,7 +103,7 @@ layout_mode = 1
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=1448907208]
 stream = ExtResource("6_ngj32")
-volume_db = -3.0
+volume_db = -5.0
 
 [connection signal="pressed" from="MenuContainer/BtnNewGame" to="." method="_on_btn_new_game_pressed"]
 [connection signal="pressed" from="MenuContainer/BtnSetting" to="." method="_on_btn_setting_pressed"]

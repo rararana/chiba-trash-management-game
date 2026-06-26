@@ -1,6 +1,6 @@
 extends VideoStreamPlayer
 
-var save_path = "user://save_data.cfg" 
+var save_path = "user://save_data_story.cfg" 
 
 func _ready():
 	var config = ConfigFile.new()

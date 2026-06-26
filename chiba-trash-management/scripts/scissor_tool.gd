@@ -3,20 +3,18 @@ extends BaseTool
 @export var texture_closed: Texture2D
 @export var texture_open: Texture2D
 
+@onready var sfx = $AudioStreamPlayer2D 
+
 func _ready():
 	super._ready()
 	tool_id = "scissor"
 
 func apply_tool_effect(trash_item: Area2D):
-	z_index = 20  # di atas trash item
+	z_index = 20
 	input_pickable = false
-	
-	# Play sfx
-	var sfx = $AudioStreamPlayer2D
 	if sfx:
 		sfx.play()
 	
-	# Animasi buka-tutup selama ~0.6 detik, interval 0.15s
 	var flips = 4
 	for i in range(flips):
 		if texture_open and texture_closed:
@@ -25,10 +23,11 @@ func apply_tool_effect(trash_item: Area2D):
 		if not is_instance_valid(self):
 			return
 	
-	# Balik ke tutup
 	if texture_closed:
 		sprite.texture = texture_closed
-	
 	z_index = 0
 	input_pickable = true
+
+	if sfx:
+		sfx.stop()
 	_return_to_start()

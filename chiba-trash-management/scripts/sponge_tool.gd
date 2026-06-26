@@ -1,16 +1,15 @@
 extends BaseTool
 
 @export var bubble_texture: Texture2D
+@onready var sfx = $AudioStreamPlayer2D
 
 func _ready():
 	super._ready()
 	tool_id = "sponge"
 
 func apply_tool_effect(trash_item: Area2D):
-	z_index = 20  # di atas trash item
+	z_index = 20
 	input_pickable = false
-	
-	var sfx = $AudioStreamPlayer2D
 	if sfx:
 		sfx.play()
 	
@@ -22,6 +21,8 @@ func apply_tool_effect(trash_item: Area2D):
 	
 	z_index = 0
 	input_pickable = true
+	if sfx:
+		sfx.stop()	
 	_return_to_start()
 
 func _spawn_bubbles(count: int):
@@ -29,7 +30,7 @@ func _spawn_bubbles(count: int):
 		var bubble = Sprite2D.new()
 		bubble.texture = bubble_texture
 		bubble.scale = Vector2(0.25, 0.25)
-		bubble.modulate.a = 0.0  # mulai transparan
+		bubble.modulate.a = 0.0
 		
 		var offset = Vector2(30, 10)
 		bubble.position = offset

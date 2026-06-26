@@ -19,6 +19,7 @@ extends Node2D
 
 var time_passed: float = 0.0
 var is_level_ended: bool = false
+var is_game_started: bool = false
 var tying_buffer: Array[Node] = []
 var end_reason: String = ""
 const MAIN_MENU_PATH = "res://scenes/UI/main_menu.tscn"
@@ -33,10 +34,24 @@ func _ready():
 	GameManager.on_game_over.connect(_on_bankrupt)
 	if current_level:
 		setup_bags()
-		spawn_trash()
+	
+	var tutorial_node = get_node_or_null("CanvasLayer/Tutorial")
+	
+	if GameManager.tutorial_selesai == false and tutorial_node != null:
+		tutorial_node.show()
+		tutorial_node.tutorial_tamat.connect(_start_game)
+	else:
+		if tutorial_node != null:
+			tutorial_node.queue_free()
+		_start_game()
+
+func _start_game():
+	spawn_trash()
+	is_game_started = true
+	print("Tutorial selesai/di-skip, Timer mulai jalan!")
 
 func _process(delta: float):
-	if is_level_ended:
+	if not is_game_started or is_level_ended: 
 		return
 	
 	time_passed += delta
@@ -62,13 +77,11 @@ func _process(delta: float):
 		morning_sky.modulate.a = 0.0
 		afternoon_sky.modulate.a = 1.0 - t
 		evening_sky.modulate.a = t
-		
+
 func _all_trash_cleared() -> bool:
-	# Cek masih ada trash node di scene
 	if not get_tree().get_nodes_in_group("trash").is_empty():
 		return false
 	
-	# Cek semua bag sudah kosong (tidak ada yang masih nampung sampah)
 	for bag in category_bags.get_children():
 		if bag.has_method("is_trash_bag") and bag.current_amount > 0:
 			return false
@@ -77,6 +90,7 @@ func _all_trash_cleared() -> bool:
 
 func _on_level_ended():
 	is_level_ended = true
+	is_game_started = false
 	print("Level Selesai. Alasan: ", end_reason)
 	for bag in category_bags.get_children():
 		bag.process_mode = Node.PROCESS_MODE_DISABLED
@@ -102,6 +116,7 @@ func _on_summary_continued():
 		GameManager.next_day()
 		if current_level.next_level_data:
 			is_level_ended = false
+			is_game_started = true
 			end_reason = ""
 			time_passed = 0.0
 			current_level = current_level.next_level_data
