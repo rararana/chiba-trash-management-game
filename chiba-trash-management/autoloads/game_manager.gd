@@ -1,5 +1,6 @@
 extends Node
 
+var tutorial_selesai: bool = false
 signal on_game_over
 signal uang_berubah
 signal hari_berubah

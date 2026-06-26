@@ -6,6 +6,7 @@ extends CanvasLayer
 
 var pages = []
 var current_page = 0
+var is_animating = false
 
 func _ready():
 	GameManager.hari_berubah.connect(update_day_ui)
@@ -37,31 +38,75 @@ func update_book_visuals():
 	$HelpOverlay/BookDisplay.custom_minimum_size = Vector2.ZERO
 	$HelpOverlay/BookDisplay.size = tex.get_size()
 	
+	var pivot = tex.get_size() / 2.0
+	$HelpOverlay/BookDisplay.pivot_offset = pivot
+	
 	$HelpOverlay/BookDisplay.scale = Vector2(0.1823, 0.1823)
-	$HelpOverlay/BookDisplay.pivot_offset = Vector2.ZERO
 	
-	var pos_x = 188 
-	var pos_y = 84
+	var pos_x = 188.0
+	var pos_y = 84.0
 	
-	$HelpOverlay/BookDisplay.position = Vector2(pos_x, pos_y)
+	var posisi_asli = Vector2(pos_x, pos_y)
+	$HelpOverlay/BookDisplay.position = posisi_asli - pivot + (pivot * 0.1823)
 	
 	$HelpOverlay/BtnPrev.visible = (current_page > 0)
 	$HelpOverlay/BtnNext.visible = (current_page < pages.size() - 1)
 
 func _on_help_button_pressed():
+	if is_animating: return 
+	is_animating = true
+	
 	current_page = 0
 	update_book_visuals()
+	
+	$HelpOverlay.modulate.a = 1.0 
 	$HelpOverlay.show()
+	
+	var book = $HelpOverlay/BookDisplay
+	book.scale = Vector2.ZERO
+	
+	var tween = create_tween()
+	tween.tween_property(book, "scale", Vector2(0.1823, 0.1823), 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
+	await tween.finished
+	is_animating = false
 
 func _on_bg_close_button_pressed():
+	if is_animating: return
+	is_animating = true
+	
+	var book = $HelpOverlay/BookDisplay
+	
+	var tween = create_tween()
+	tween.tween_property(book, "scale", Vector2.ZERO, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	
+	await tween.finished
 	$HelpOverlay.hide()
+	is_animating = false
+
+func animate_page_turn(new_page: int):
+	if is_animating: return
+	is_animating = true
+	
+	var book = $HelpOverlay/BookDisplay
+	
+	var tween_out = create_tween()
+	tween_out.tween_property(book, "modulate", Color(0.4, 0.4, 0.4, 1.0), 0.05)
+	await tween_out.finished
+	
+	current_page = new_page
+	update_book_visuals()
+	
+	var tween_in = create_tween()
+	tween_in.tween_property(book, "modulate", Color.WHITE, 0.05)
+	await tween_in.finished
+	
+	is_animating = false
 
 func _on_btn_next_pressed():
 	if current_page < pages.size() - 1:
-		current_page += 1
-		update_book_visuals()
+		animate_page_turn(current_page + 1)
 
 func _on_btn_prev_pressed():
 	if current_page > 0:
-		current_page -= 1
-		update_book_visuals()
+		animate_page_turn(current_page - 1)

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c6oir4mc83np2"]
+
+[ext_resource type="Script" uid="uid://mlyukautbns8" path="res://scenes/tutorial.gd" id="1_8ho6b"]
+[ext_resource type="Texture2D" uid="uid://dae6ts56p5g5t" path="res://assets/visual/tutorial/tutorial 8.png" id="2_ph3nu"]
+
+[node name="Tutorial" type="Control" unique_id=1887577354]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ho6b")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=810404498]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("2_ph3nu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=965654631]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5294118)
