@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://bjix83l0i6qqk"]
+
+[ext_resource type="Script" uid="uid://bcj2quaif8gsq" path="res://resources/level_data.gd" id="1_11txx"]
+[ext_resource type="Resource" uid="uid://bvyqgammhed20" path="res://resources/combustible/apel.tres" id="2_4ik7l"]
+[ext_resource type="Resource" uid="uid://c34ion8wcf0dy" path="res://resources/combustible/dirtypaper1.tres" id="3_46jtu"]
+[ext_resource type="Resource" uid="uid://ci6i2jm8c0yha" path="res://resources/combustible/kentang.tres" id="4_1k37o"]
+[ext_resource type="Resource" uid="uid://dd5as8ew07aui" path="res://resources/combustible/rautan.tres" id="5_pv52f"]
+[ext_resource type="Resource" uid="uid://cgebd41t5636x" path="res://resources/paper/milk/mmilk.tres" id="6_q4jco"]
+[ext_resource type="Resource" uid="uid://cmubfhm128t51" path="res://resources/paper/paperbag/banana.tres" id="7_nt5x8"]
+[ext_resource type="Resource" uid="uid://cabnxy661hj5e" path="res://resources/paper/milk/strawmilk.tres" id="7_q4jco"]
+[ext_resource type="Resource" uid="uid://uhu17olubpqb" path="res://resources/paper/paperbag/bread.tres" id="8_jh3mh"]
+[ext_resource type="Resource" uid="uid://dvbutf6pr6fxs" path="res://resources/paper/paperbag/ikan.tres" id="9_is6pr"]
+[ext_resource type="Resource" uid="uid://k7fybnpx0i3u" path="res://resources/paper/koran/kapal.tres" id="10_ic7k3"]
+[ext_resource type="Resource" uid="uid://dk0fu1qjyfo2o" path="res://resources/paper/koran/sepeda.tres" id="11_g7ks6"]
+[ext_resource type="Resource" uid="uid://dd0pxb7tph4rv" path="res://resources/paper/koran/sumo.tres" id="12_42q1p"]
+[ext_resource type="Resource" uid="uid://bne881qxm52xj" path="res://resources/paper/kardus/azamon.tres" id="14_nt5x8"]
+[ext_resource type="Resource" uid="uid://d0huyubvy8gbd" path="res://resources/paper/kardus/flatbox.tres" id="15_jh3mh"]
+[ext_resource type="Resource" uid="uid://dywo17ijp2etp" path="res://resources/paper/kardus/minibox.tres" id="16_is6pr"]
+
+[resource]
+script = ExtResource("1_11txx")
+level_name = "2"
+trash_data_list = Array[Resource]([ExtResource("2_4ik7l"), ExtResource("3_46jtu"), ExtResource("4_1k37o"), ExtResource("5_pv52f"), ExtResource("6_q4jco"), ExtResource("7_q4jco"), ExtResource("6_q4jco"), ExtResource("7_nt5x8"), ExtResource("8_jh3mh"), ExtResource("9_is6pr"), ExtResource("10_ic7k3"), ExtResource("11_g7ks6"), ExtResource("12_42q1p"), ExtResource("14_nt5x8"), ExtResource("15_jh3mh"), ExtResource("16_is6pr")])
+metadata/_custom_type_script = "uid://bcj2quaif8gsq"

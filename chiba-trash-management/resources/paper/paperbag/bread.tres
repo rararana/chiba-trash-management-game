@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://uhu17olubpqb"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_7kvgp"]
+[ext_resource type="Texture2D" uid="uid://ga7q2jouc8k7" path="res://assets/visual/trash_paper/bread.PNG" id="1_bt22o"]
+[ext_resource type="Resource" uid="uid://b1ckv7htud5db" path="res://resources/paper/paperbag/pb_tied.tres" id="2_y12me"]
+
+[resource]
+script = ExtResource("1_7kvgp")
+family_name = "paperbag"
+is_stackable = true
+item_name = "bread"
+item_texture = ExtResource("1_bt22o")
+required_tool = "tie"
+next_state = ExtResource("2_y12me")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

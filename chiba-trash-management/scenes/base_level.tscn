@@ -5,22 +5,26 @@
 [ext_resource type="Texture2D" uid="uid://q84rmdpe20cs" path="res://assets/visual/placement-box.PNG" id="2_0n1tn"]
 [ext_resource type="PackedScene" uid="uid://dwu8w5ihi8elj" path="res://scenes/trash_item.tscn" id="2_3aqo6"]
 [ext_resource type="Resource" uid="uid://bvrxijj843wp1" path="res://resources/level/level_1.tres" id="2_u6ue0"]
+[ext_resource type="PackedScene" uid="uid://de2nq4glukw6j" path="res://scenes/day_summary.tscn" id="4_4rhdl"]
 [ext_resource type="PackedScene" uid="uid://c54uolws7vg3d" path="res://scenes/combustible_bag.tscn" id="5_earhg"]
-[ext_resource type="Texture2D" uid="uid://ckkeq2ybymotq" path="res://assets/visual/afternoon - bg.PNG" id="5_i8j8g"]
+[ext_resource type="Texture2D" uid="uid://82noyouq8nkw" path="res://assets/visual/afternoon - bg.PNG" id="5_i8j8g"]
 [ext_resource type="PackedScene" uid="uid://b1dry7nyc1p10" path="res://scenes/storage_area.tscn" id="6_3rj88"]
-[ext_resource type="Texture2D" uid="uid://bw42vumy7cnsn" path="res://assets/visual/evening - bg.PNG" id="6_bvxmy"]
+[ext_resource type="Texture2D" uid="uid://dlqq5jmwwnt0b" path="res://assets/visual/evening - bg.PNG" id="6_bvxmy"]
 [ext_resource type="PackedScene" uid="uid://j0koflvvo0vk" path="res://scenes/scissor_tool.tscn" id="6_earhg"]
 [ext_resource type="PackedScene" uid="uid://by4websjjh2us" path="res://scenes/trash_can.tscn" id="7_b0lsh"]
 [ext_resource type="PackedScene" uid="uid://bsv52a0au17lb" path="res://scenes/tie_tool.tscn" id="7_u6ue0"]
 [ext_resource type="PackedScene" uid="uid://cmxnlsdcesqob" path="res://scenes/sponge_tool.tscn" id="8_fal5o"]
 [ext_resource type="PackedScene" uid="uid://cnfv8ypgics5p" path="res://scenes/UI/main_ui.tscn" id="10_fal5o"]
 [ext_resource type="AudioStream" uid="uid://bygvqpwappy82" path="res://assets/audio/hitslab-game-gaming-music-295075.mp3" id="15_bvxmy"]
+[ext_resource type="PackedScene" uid="uid://dl2sl68634nky" path="res://scenes/UI/pause_menu.tscn" id="16_em7dn"]
+[ext_resource type="PackedScene" uid="uid://c6oir4mc83np2" path="res://scenes/tutorial.tscn" id="18_4so06"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1660347800]
 script = ExtResource("1_oox4p")
 current_level = ExtResource("2_u6ue0")
 trash_scene = ExtResource("2_3aqo6")
-level_duration = 60.0
+day_summary_scene = ExtResource("4_4rhdl")
+level_duration = 120.0
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1792557259]
 layer = -1
@@ -115,3 +119,10 @@ visible = false
 [node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=245324885]
 stream = ExtResource("15_bvxmy")
 volume_db = -3.0
+
+[node name="PauseMenu" parent="." unique_id=799539979 instance=ExtResource("16_em7dn")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1327036126]
+
+[node name="Tutorial" parent="CanvasLayer" unique_id=1887577354 instance=ExtResource("18_4so06")]
+visible = false

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://b15hb0giwgmoc"]
+
+[ext_resource type="Texture2D" uid="uid://b13wy54yeqqcb" path="res://assets/visual/trash_paper/tamagotchi.PNG" id="1_1m1is"]
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_rds4j"]
+[ext_resource type="Resource" uid="uid://b1ckv7htud5db" path="res://resources/paper/paperbag/pb_tied.tres" id="2_vy6ee"]
+
+[resource]
+script = ExtResource("1_rds4j")
+family_name = "paperbag"
+is_stackable = true
+item_name = "tamagotchi"
+item_texture = ExtResource("1_1m1is")
+required_tool = "tie"
+next_state = ExtResource("2_vy6ee")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

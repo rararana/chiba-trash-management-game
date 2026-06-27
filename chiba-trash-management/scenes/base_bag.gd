@@ -36,12 +36,16 @@ func _ready():
 	_update_visual()
 
 func _on_area_entered(area: Area2D):
+	if is_stored_clone:
+		return
 	if is_instance_valid(area) and area.has_method("is_trash") and not is_dragging:
 		if area.get("is_dragging") == true:
 			var calc_target_scale = default_bag_scale + (Vector2(scale_increase, scale_increase) * current_ratio)
 			_animate(calc_target_scale, default_x + target_x_offset, default_sprite_x + extra_sprite_offset)
 
 func _on_area_exited(area: Area2D):
+	if is_stored_clone:
+		return
 	if (not is_instance_valid(area) or area.has_method("is_trash")) and not is_dragging:
 		_animate(default_bag_scale, default_x, default_sprite_x)
 

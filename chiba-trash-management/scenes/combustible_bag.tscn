@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://c54uolws7vg3d"]
 
 [ext_resource type="PackedScene" uid="uid://dmtdfcij1nuwm" path="res://scenes/base_bag.tscn" id="1_y00nf"]
-[ext_resource type="Texture2D" uid="uid://dwhvq311o2mxk" path="res://assets/visual/category/combustible-1.png" id="2_a2fb2"]
-[ext_resource type="Texture2D" uid="uid://bsj1mgifuwh1u" path="res://assets/visual/category/combustible-2.png" id="3_vppl3"]
-[ext_resource type="Texture2D" uid="uid://dscxsi3dc6cks" path="res://assets/visual/category/combustible-3.png" id="4_a2fb2"]
+[ext_resource type="Texture2D" uid="uid://ckq6ch6cpmshg" path="res://assets/visual/category/combustible-1.png" id="2_a2fb2"]
+[ext_resource type="Texture2D" uid="uid://bws5lya8jx5mx" path="res://assets/visual/category/combustible-2.png" id="3_vppl3"]
+[ext_resource type="Texture2D" uid="uid://b5sql3pi5jgpt" path="res://assets/visual/category/combustible-3.png" id="4_a2fb2"]
 
 [node name="CombustibleBag" unique_id=847283451 instance=ExtResource("1_y00nf")]
+bag_category = "Combustible"
 texture_normal = ExtResource("2_a2fb2")
 texture_sedang = ExtResource("3_vppl3")
 texture_full = ExtResource("4_a2fb2")

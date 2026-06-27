@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://cle3xpykjfp33"]
+
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_1sfxu"]
+[ext_resource type="Texture2D" uid="uid://bexaxhun0p4i0" path="res://assets/visual/trash_paper/strawmilk_cut.PNG" id="1_op5ey"]
+[ext_resource type="Resource" uid="uid://bb0d2vk5kefmv" path="res://resources/paper/milk/strawmilk_clean.tres" id="2_4in00"]
+
+[resource]
+script = ExtResource("1_1sfxu")
+family_name = "milk"
+item_name = "strawmilk_cut"
+item_texture = ExtResource("1_op5ey")
+required_tool = "sponge"
+next_state = ExtResource("2_4in00")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

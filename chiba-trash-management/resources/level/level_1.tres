@@ -1,18 +1,27 @@
 [gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://bvrxijj843wp1"]
 
 [ext_resource type="Script" uid="uid://bcj2quaif8gsq" path="res://resources/level_data.gd" id="1_mgrjq"]
-[ext_resource type="Resource" uid="uid://bw4120wl5nequ" path="res://resources/trash/mmilk1.tres" id="2_et6yg"]
+[ext_resource type="Resource" uid="uid://bjix83l0i6qqk" path="res://resources/level/level_2.tres" id="1_uruj2"]
 [ext_resource type="Resource" uid="uid://bvyqgammhed20" path="res://resources/combustible/apel.tres" id="3_oljre"]
-[ext_resource type="Resource" uid="uid://du3g7mm82vvoi" path="res://resources/combustible/yaruts.tres" id="4_41rx2"]
+[ext_resource type="Resource" uid="uid://cn0ciuuo1wmv2" path="res://resources/combustible/chips.tres" id="4_x24fx"]
 [ext_resource type="Resource" uid="uid://dqojyawg4bis5" path="res://resources/combustible/eggshells.tres" id="5_0a5nm"]
 [ext_resource type="Resource" uid="uid://bms7cfrv07okb" path="res://resources/combustible/kalcerpotat.tres" id="6_y0vtd"]
 [ext_resource type="Resource" uid="uid://dt6dvaisamyki" path="res://resources/combustible/makaroni.tres" id="7_q24mo"]
-[ext_resource type="Resource" uid="uid://dd5as8ew07aui" path="res://resources/combustible/rautan.tres" id="8_c8msl"]
-[ext_resource type="Resource" uid="uid://d2a6o8ib2fyfg" path="res://resources/combustible/roti.tres" id="9_t55xi"]
+[ext_resource type="Resource" uid="uid://ddv30b52ub7rm" path="res://resources/combustible/kalcer.tres" id="7_uruj2"]
+[ext_resource type="Resource" uid="uid://ci6i2jm8c0yha" path="res://resources/combustible/kentang.tres" id="9_2asrf"]
+[ext_resource type="Resource" uid="uid://c2r0ca2k1gejp" path="res://resources/combustible/kyupiramen1.tres" id="10_32xle"]
 [ext_resource type="Resource" uid="uid://dcchwg0mtgp7u" path="res://resources/combustible/bento.tres" id="10_c8msl"]
 [ext_resource type="Resource" uid="uid://c34ion8wcf0dy" path="res://resources/combustible/dirtypaper1.tres" id="11_t55xi"]
-[ext_resource type="Resource" uid="uid://cdvfkdj5y2d6a" path="res://resources/combustible/wafer.tres" id="12_oytv4"]
+[ext_resource type="Resource" uid="uid://bfh7has82mh5e" path="res://resources/combustible/kyupiramen2.tres" id="11_xgfla"]
+[ext_resource type="Resource" uid="uid://xkn13qr8xl1y" path="res://resources/combustible/nasi.tres" id="13_61sgx"]
+[ext_resource type="Resource" uid="uid://dd5as8ew07aui" path="res://resources/combustible/rautan.tres" id="14_igi2s"]
+[ext_resource type="Resource" uid="uid://d2a6o8ib2fyfg" path="res://resources/combustible/roti.tres" id="15_drxao"]
+[ext_resource type="Resource" uid="uid://cdvfkdj5y2d6a" path="res://resources/combustible/wafer.tres" id="16_wfls8"]
+[ext_resource type="Resource" uid="uid://du3g7mm82vvoi" path="res://resources/combustible/yaruts.tres" id="17_o3alc"]
 
 [resource]
 script = ExtResource("1_mgrjq")
-trash_data_list = Array[Resource]([ExtResource("2_et6yg"), ExtResource("2_et6yg"), ExtResource("3_oljre"), ExtResource("4_41rx2"), ExtResource("5_0a5nm"), ExtResource("6_y0vtd"), ExtResource("7_q24mo"), ExtResource("8_c8msl"), ExtResource("9_t55xi"), ExtResource("10_c8msl"), ExtResource("3_oljre"), ExtResource("10_c8msl"), ExtResource("11_t55xi"), ExtResource("11_t55xi"), ExtResource("4_41rx2"), ExtResource("12_oytv4")])
+level_name = "1"
+active_categories = Array[String](["Combustible"])
+trash_data_list = Array[Resource]([ExtResource("3_oljre"), ExtResource("10_c8msl"), ExtResource("4_x24fx"), ExtResource("11_t55xi"), ExtResource("5_0a5nm"), ExtResource("7_uruj2"), ExtResource("6_y0vtd"), ExtResource("9_2asrf"), ExtResource("10_32xle"), ExtResource("11_xgfla"), ExtResource("7_q24mo"), ExtResource("13_61sgx"), ExtResource("14_igi2s"), ExtResource("15_drxao"), ExtResource("16_wfls8"), ExtResource("17_o3alc")])
+next_level_data = ExtResource("1_uruj2")

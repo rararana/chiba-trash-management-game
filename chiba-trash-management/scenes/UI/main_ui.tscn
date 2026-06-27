@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://pdy1jo01236s" path="res://assets/visual/book/opensched.png" id="3_gjj8c"]
 [ext_resource type="FontFile" uid="uid://c52umg5w0skd5" path="res://assets/visual/PoetsenOne-Regular.ttf" id="4_pdhop"]
 [ext_resource type="Texture2D" uid="uid://dfnh7ebtdm1hj" path="res://assets/visual/book/open2.png" id="4_s2xo5"]
-[ext_resource type="Texture2D" uid="uid://b1w6l4n7lrmwf" path="res://assets/visual/Book.png" id="5_8occa"]
+[ext_resource type="Texture2D" uid="uid://b85njci44tvqn" path="res://assets/visual/Book.png" id="5_8occa"]
 [ext_resource type="Texture2D" uid="uid://oidj862icr5i" path="res://assets/visual/IMG_6303 1.png" id="6_c3pkt"]
+[ext_resource type="Texture2D" uid="uid://bw5bm6yedjyer" path="res://assets/visual/bookhover.png" id="9_274ti"]
 
 [node name="MainUI" type="CanvasLayer" unique_id=1200674765]
 script = ExtResource("1_hvcg1")
@@ -37,19 +38,23 @@ expand_mode = 1
 [node name="DayLabel" type="Label" parent="DayBox" unique_id=1732186802]
 layout_mode = 0
 offset_left = 26.0
-offset_top = 10.0
+offset_top = 7.0
 offset_right = 343.0
-offset_bottom = 66.0
+offset_bottom = 63.0
 theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
 theme_override_fonts/font = ExtResource("4_pdhop")
 theme_override_font_sizes/font_size = 45
 text = "Day 1 : Monday"
+horizontal_alignment = 1
 
 [node name="HelpButton" type="TextureButton" parent="." unique_id=157640497]
 offset_left = 488.0
+offset_top = -17.0
 offset_right = 635.0
 offset_bottom = 91.0
 texture_normal = ExtResource("5_8occa")
+texture_pressed = ExtResource("9_274ti")
+texture_hover = ExtResource("9_274ti")
 ignore_texture_size = true
 stretch_mode = 0
 

@@ -66,7 +66,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_tfcbk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_e2p27")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ngj32")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bm8t2")
-text = "New Game"
+text = "BTN_NEW_GAME"
 
 [node name="BtnSetting" type="Button" parent="MenuContainer" unique_id=1686728392]
 layout_mode = 2
@@ -81,8 +81,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_tfcbk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_e2p27")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ngj32")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bm8t2")
-text = "Setting
-"
+text = "BTN_SETTING"
 
 [node name="BtnQuit" type="Button" parent="MenuContainer" unique_id=1457262027]
 layout_mode = 2
@@ -97,14 +96,14 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_tfcbk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_e2p27")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ngj32")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bm8t2")
-text = "Quit"
+text = "BTN_QUIT"
 
 [node name="SettingMenu" parent="." unique_id=1607295974 instance=ExtResource("5_e2p27")]
 layout_mode = 1
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=1448907208]
 stream = ExtResource("6_ngj32")
-volume_db = -3.0
+volume_db = -5.0
 
 [connection signal="pressed" from="MenuContainer/BtnNewGame" to="." method="_on_btn_new_game_pressed"]
 [connection signal="pressed" from="MenuContainer/BtnSetting" to="." method="_on_btn_setting_pressed"]

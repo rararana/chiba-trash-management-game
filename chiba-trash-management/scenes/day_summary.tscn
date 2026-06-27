@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://de2nq4glukw6j"]
+
+[ext_resource type="Script" uid="uid://ijhpyswv42pu" path="res://scenes/day_summary.gd" id="1_m7grt"]
+[ext_resource type="Texture2D" uid="uid://dg81mxb2juu7y" path="res://assets/visual/creme bg.png" id="1_scm47"]
+[ext_resource type="Texture2D" uid="uid://c6v8mvpakpyc" path="res://assets/visual/back envelope opened.PNG" id="2_ggjo7"]
+[ext_resource type="Texture2D" uid="uid://b2krhkx8ykh0o" path="res://assets/visual/front envelope opened.PNG" id="3_bhupk"]
+[ext_resource type="Texture2D" uid="uid://bemg51e7mkmwl" path="res://assets/visual/summary paper.PNG" id="4_bhupk"]
+[ext_resource type="Texture2D" uid="uid://37y6twgtlq17" path="res://assets/visual/closed envelope.PNG" id="5_v8x1d"]
+[ext_resource type="FontFile" uid="uid://bqks0up2ulp8h" path="res://assets/visual/Nunito-Regular.ttf" id="7_v8x1d"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_t0c00"]
+color = Color(0.5529412, 0.15294118, 0, 1)
+thickness = 3
+
+[node name="DaySummary" type="CanvasLayer" unique_id=1624596363]
+script = ExtResource("1_m7grt")
+envelope_closed_texture = ExtResource("5_v8x1d")
+envelope_open_texture = ExtResource("3_bhupk")
+
+[node name="Control" type="Control" parent="." unique_id=206382616]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBG" type="TextureRect" parent="Control" unique_id=2001918218]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -479.0
+offset_top = -135.0
+offset_right = 6058.0
+offset_bottom = 3047.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_scm47")
+
+[node name="EnvelopeRoot" type="Control" parent="Control" unique_id=1316537812]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnvelopeBack" type="TextureRect" parent="Control/EnvelopeRoot" unique_id=843736983]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -198.0
+offset_right = -647.755
+offset_bottom = -158.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(25, 25)
+texture = ExtResource("2_ggjo7")
+expand_mode = 3
+
+[node name="Letter" type="Control" parent="Control/EnvelopeRoot" unique_id=547027467]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -260.0
+offset_right = 160.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LetterBG" type="TextureRect" parent="Control/EnvelopeRoot/Letter" unique_id=1458127353]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -327.0
+offset_top = -256.0
+offset_right = -327.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("4_bhupk")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ContentVBox" type="VBoxContainer" parent="Control/EnvelopeRoot/Letter" unique_id=1291891492]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.5
+offset_top = -155.5
+offset_right = -19.5
+offset_bottom = 133.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DayLabel" type="Label" parent="Control/EnvelopeRoot/Letter/ContentVBox" unique_id=519907513]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
+theme_override_fonts/font = ExtResource("7_v8x1d")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="Control/EnvelopeRoot/Letter/ContentVBox" unique_id=1011312564]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="Rows" type="GridContainer" parent="Control/EnvelopeRoot/Letter/ContentVBox" unique_id=1805880064]
+layout_mode = 2
+theme_override_constants/h_separation = 180
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="Label" type="Label" parent="Control/EnvelopeRoot/Letter/ContentVBox/Rows" unique_id=335044316]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
+theme_override_fonts/font = ExtResource("7_v8x1d")
+theme_override_font_sizes/font_size = 54
+text = "SV"
+
+[node name="SavingsValue" type="Label" parent="Control/EnvelopeRoot/Letter/ContentVBox/Rows" unique_id=602064732]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
+theme_override_fonts/font = ExtResource("7_v8x1d")
+theme_override_font_sizes/font_size = 54
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Control/EnvelopeRoot/Letter/ContentVBox/Rows" unique_id=958026439]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
+theme_override_fonts/font = ExtResource("7_v8x1d")
+theme_override_font_sizes/font_size = 54
+text = "SL"
+
+[node name="SalaryValue" type="Label" parent="Control/EnvelopeRoot/Letter/ContentVBox/Rows" unique_id=1329094625]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
+theme_override_fonts/font = ExtResource("7_v8x1d")
+theme_override_font_sizes/font_size = 54
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/EnvelopeRoot/Letter/ContentVBox/Rows" unique_id=155884828]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
+theme_override_fonts/font = ExtResource("7_v8x1d")
+theme_override_font_sizes/font_size = 54
+text = "FN"
+
+[node name="FinedValue" type="Label" parent="Control/EnvelopeRoot/Letter/ContentVBox/Rows" unique_id=1103387806]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
+theme_override_fonts/font = ExtResource("7_v8x1d")
+theme_override_font_sizes/font_size = 54
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="Control/EnvelopeRoot/Letter/ContentVBox" unique_id=43158312]
+layout_mode = 2
+theme_override_constants/separation = 38
+theme_override_styles/separator = SubResource("StyleBoxLine_t0c00")
+
+[node name="TotalRows" type="GridContainer" parent="Control/EnvelopeRoot/Letter/ContentVBox" unique_id=85134992]
+layout_mode = 2
+theme_override_constants/h_separation = 180
+columns = 2
+
+[node name="Label4" type="Label" parent="Control/EnvelopeRoot/Letter/ContentVBox/TotalRows" unique_id=2106286147]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
+theme_override_fonts/font = ExtResource("7_v8x1d")
+theme_override_font_sizes/font_size = 54
+text = "Total"
+
+[node name="TotalValue" type="Label" parent="Control/EnvelopeRoot/Letter/ContentVBox/TotalRows" unique_id=2094825944]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5529412, 0.15294118, 0, 1)
+theme_override_fonts/font = ExtResource("7_v8x1d")
+theme_override_font_sizes/font_size = 54
+horizontal_alignment = 2
+
+[node name="EnvelopeFront" type="TextureRect" parent="Control/EnvelopeRoot" unique_id=1331298642]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -690.0001
+offset_top = -173.0
+offset_right = 2438.0
+offset_bottom = 2040.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_v8x1d")

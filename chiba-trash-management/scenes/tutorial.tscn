@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://c6oir4mc83np2"]
+
+[ext_resource type="Script" uid="uid://mlyukautbns8" path="res://scenes/tutorial.gd" id="1_8ho6b"]
+[ext_resource type="Texture2D" uid="uid://d0wuf1tdd833w" path="res://assets/visual/tutorial/tutorial 13.png" id="2_0hilk"]
+[ext_resource type="Texture2D" uid="uid://dhr02ap7iipfi" path="res://assets/visual/tutorial/tutor 1.png" id="3_ph3nu"]
+[ext_resource type="Shader" uid="uid://hp3m2qjrglep" path="res://scenes/tutorial.gdshader" id="3_wr8iv"]
+[ext_resource type="Texture2D" uid="uid://ubbc5gwatuym" path="res://assets/visual/tutorial/tutor 2.png" id="4_wr8iv"]
+[ext_resource type="Texture2D" uid="uid://ckq6ch6cpmshg" path="res://assets/visual/category/combustible-1.PNG" id="5_e13mp"]
+[ext_resource type="Texture2D" uid="uid://tdsnn3x1byqn" path="res://assets/visual/trash_combustible/chips.PNG" id="6_vrdqu"]
+[ext_resource type="Texture2D" uid="uid://bfbyqxfccs8jg" path="res://assets/visual/tutorial/IMG_6359.PNG" id="7_cmspm"]
+[ext_resource type="Texture2D" uid="uid://dhpo2y5kyjiuy" path="res://assets/visual/tutorial/tutor 3.png" id="8_ikfo1"]
+[ext_resource type="Texture2D" uid="uid://b5sql3pi5jgpt" path="res://assets/visual/category/combustible-3.PNG" id="9_dwom6"]
+[ext_resource type="Texture2D" uid="uid://cfeasrwemanrg" path="res://assets/visual/tutorial/tutor 4.png" id="10_bl2xa"]
+[ext_resource type="Texture2D" uid="uid://crr72hlfeyp2u" path="res://assets/visual/tutorial/tutor 5.png" id="11_15kfc"]
+[ext_resource type="Texture2D" uid="uid://ddfbe6lwg5myk" path="res://assets/visual/tutorial/tutor 6.png" id="12_7a100"]
+[ext_resource type="Texture2D" uid="uid://c361esbx3qhih" path="res://assets/visual/tutorial/tutor 7.png" id="13_feaue"]
+[ext_resource type="Texture2D" uid="uid://bbjcmvf44qkjf" path="res://assets/visual/tutorial/IMG_6360.PNG" id="14_210s6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e13mp"]
+shader = ExtResource("3_wr8iv")
+shader_parameter/screen_size = Vector2(1920, 1080)
+shader_parameter/center = Vector2(960, 540)
+shader_parameter/radius = 0.0
+shader_parameter/aspect = Vector2(1, 1)
+shader_parameter/bg_color = Vector4(0, 0, 0, 0.6)
+
+[node name="Tutorial" type="Control" unique_id=1887577354]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ho6b")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=810404498]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("2_0hilk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=965654631]
+material = SubResource("ShaderMaterial_e13mp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tutor1" type="TextureRect" parent="." unique_id=1793603577]
+visible = false
+layout_mode = 0
+offset_left = 249.0
+offset_top = 300.0
+offset_right = 5558.0
+offset_bottom = 2802.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("3_ph3nu")
+
+[node name="Tutor2" type="TextureRect" parent="." unique_id=758210472]
+visible = false
+layout_mode = 0
+offset_left = 480.00003
+offset_top = 111.0
+offset_right = 5700.0
+offset_bottom = 1953.0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("4_wr8iv")
+
+[node name="TextureRect" type="TextureRect" parent="Tutor2" unique_id=361542304]
+layout_mode = 0
+offset_left = -3535.484
+offset_top = 740.56067
+offset_right = -3077.484
+offset_bottom = 1198.5608
+scale = Vector2(5, 5)
+texture = ExtResource("5_e13mp")
+
+[node name="TextureRect2" type="TextureRect" parent="Tutor2" unique_id=1926386088]
+layout_mode = 0
+offset_left = -2490.3203
+offset_top = 1224.4316
+offset_right = -442.3203
+offset_bottom = 3272.4316
+rotation = 0.15882497
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_vrdqu")
+
+[node name="TextureRect3" type="TextureRect" parent="Tutor2" unique_id=1024279257]
+layout_mode = 0
+offset_left = -619.3545
+offset_top = 4295.3994
+offset_right = 2548.6455
+offset_bottom = 6548.3994
+rotation = -2.268928
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_cmspm")
+
+[node name="Tutor3" type="TextureRect" parent="." unique_id=384548943]
+visible = false
+layout_mode = 0
+offset_left = 480.0
+offset_top = 448.0
+offset_right = 5722.0
+offset_bottom = 2545.0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("8_ikfo1")
+
+[node name="TextureRect" type="TextureRect" parent="Tutor3" unique_id=508841411]
+layout_mode = 0
+offset_left = -1922.5806
+offset_top = 1006.45154
+offset_right = 427.41943
+offset_bottom = 3356.4517
+texture = ExtResource("9_dwom6")
+
+[node name="TextureRect4" type="TextureRect" parent="Tutor3" unique_id=2025026873]
+layout_mode = 0
+offset_left = 341.9355
+offset_top = 4116.129
+offset_right = 3509.9355
+offset_bottom = 6369.129
+rotation = -2.268928
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_cmspm")
+
+[node name="Tutor4" type="TextureRect" parent="." unique_id=1706409436]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 374.0
+offset_right = 5584.0
+offset_bottom = 2221.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("10_bl2xa")
+
+[node name="TextureRect5" type="TextureRect" parent="Tutor4" unique_id=464763099]
+layout_mode = 0
+offset_left = -60.109303
+offset_top = -306.01102
+offset_right = 3107.8906
+offset_bottom = 1946.989
+rotation = -1.0541788
+texture = ExtResource("7_cmspm")
+
+[node name="Tutor5" type="TextureRect" parent="." unique_id=1726054109]
+visible = false
+layout_mode = 0
+offset_left = 250.00002
+offset_top = 370.0
+offset_right = 5671.0
+offset_bottom = 2167.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("11_15kfc")
+
+[node name="TextureRect6" type="TextureRect" parent="Tutor5" unique_id=486689304]
+layout_mode = 0
+offset_left = 5338.796
+offset_top = 4289.619
+offset_right = 8506.796
+offset_bottom = 6542.619
+rotation = -2.3195426
+texture = ExtResource("7_cmspm")
+
+[node name="Tutor6" type="TextureRect" parent="." unique_id=76626060]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 372.0
+offset_right = 5436.0
+offset_bottom = 2168.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("12_7a100")
+
+[node name="Tutor7" type="TextureRect" parent="." unique_id=2117793049]
+visible = false
+layout_mode = 0
+offset_left = 258.0
+offset_top = 352.0
+offset_right = 5633.0
+offset_bottom = 2383.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("13_feaue")
+
+[node name="ThumbsUp" type="TextureRect" parent="Tutor7" unique_id=930113008]
+layout_mode = 0
+offset_left = -409.83606
+offset_top = -519.1257
+offset_right = 2758.164
+offset_bottom = 1733.8743
+rotation = -0.2635447
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(1783.5629, 780.1572)
+texture = ExtResource("14_210s6")
+flip_h = true
+
+[node name="TextureRect7" type="TextureRect" parent="Tutor7" unique_id=238670952]
+layout_mode = 0
+offset_left = 754.0984
+offset_top = -344.26233
+offset_right = 3922.0984
+offset_bottom = 1908.7377
+rotation = -1.0524335
+texture = ExtResource("7_cmspm")

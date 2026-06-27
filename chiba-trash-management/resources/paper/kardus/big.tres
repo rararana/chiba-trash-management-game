@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://bkim3l2d2s6q8"]
+
+[ext_resource type="Texture2D" uid="uid://b8d1muxqgewvm" path="res://assets/visual/trash_paper/big.PNG" id="1_0itxy"]
+[ext_resource type="Script" uid="uid://cackhoc3pbn2k" path="res://resources/scripts/trash_data.gd" id="1_vrk0y"]
+[ext_resource type="Resource" uid="uid://dnqhhhf15l35b" path="res://resources/paper/kardus/big_cut.tres" id="2_fd88j"]
+
+[resource]
+script = ExtResource("1_vrk0y")
+family_name = "kardus"
+item_name = "big"
+item_texture = ExtResource("1_0itxy")
+required_tool = "scissor"
+next_state = ExtResource("2_fd88j")
+metadata/_custom_type_script = "uid://cackhoc3pbn2k"

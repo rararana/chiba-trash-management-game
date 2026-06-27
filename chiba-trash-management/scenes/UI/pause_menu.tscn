@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dl2sl68634nky"]
+
+[ext_resource type="Texture2D" uid="uid://x7j8chsjr70u" path="res://assets/visual/pausedmockup.jpg" id="1_feath"]
+[ext_resource type="Script" uid="uid://bb1q72xah5rqn" path="res://scenes/UI/pause_menu.gd" id="1_sipkl"]
+[ext_resource type="PackedScene" uid="uid://duwoof2c1wwcf" path="res://scenes/UI/setting_menu.tscn" id="2_eir0s"]
+[ext_resource type="Texture2D" uid="uid://bi7fmirl04r83" path="res://assets/visual/papanpaused.png" id="2_w67w4"]
+[ext_resource type="FontFile" uid="uid://c52umg5w0skd5" path="res://assets/visual/PoetsenOne-Regular.ttf" id="3_sipkl"]
+[ext_resource type="Texture2D" uid="uid://cth88ycbummir" path="res://assets/visual/paused_ui/resume_en.png" id="6_2uduj"]
+[ext_resource type="Texture2D" uid="uid://cohlgkddpn4dk" path="res://assets/visual/paused_ui/resumehover_en.png" id="7_m20o5"]
+[ext_resource type="Texture2D" uid="uid://cc1gf34g2lpht" path="res://assets/visual/paused_ui/setting.png" id="10_1xqgb"]
+[ext_resource type="Texture2D" uid="uid://cnm15shh3ed1" path="res://assets/visual/paused_ui/settinghover.png" id="11_rj2bp"]
+[ext_resource type="Texture2D" uid="uid://cmtryav8lxth0" path="res://assets/visual/paused_ui/quit.png" id="12_l35yb"]
+[ext_resource type="Texture2D" uid="uid://r5m4u368iem8" path="res://assets/visual/paused_ui/quithover.png" id="13_b03e4"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=799539979]
+process_mode = 3
+script = ExtResource("1_sipkl")
+setting_menu = ExtResource("2_eir0s")
+
+[node name="Mockup" type="TextureRect" parent="." unique_id=1522857880]
+visible = false
+modulate = Color(1, 1, 1, 0.30588236)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("1_feath")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=652923241]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5294118)
+
+[node name="PapanPaused" type="TextureRect" parent="Overlay" unique_id=1879760888]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 141.2
+offset_right = 6352.0
+offset_bottom = 4549.2
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("2_w67w4")
+
+[node name="PausedText" type="Label" parent="Overlay" unique_id=2109747643]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -449.5
+offset_top = -182.0
+offset_right = 449.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9647059, 0.9137255, 0.8, 1)
+theme_override_fonts/font = ExtResource("3_sipkl")
+theme_override_font_sizes/font_size = 140
+text = "PAUSED_TITLE"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Overlay" unique_id=958267782]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 597.0
+offset_right = 5073.3496
+offset_bottom = 1417.0
+scale = Vector2(0.183, 0.183)
+theme_override_constants/separation = 50
+
+[node name="ResumeBtn" type="TextureButton" parent="Overlay/HBoxContainer2" unique_id=1330813587]
+layout_mode = 2
+texture_normal = ExtResource("6_2uduj")
+texture_pressed = ExtResource("7_m20o5")
+texture_hover = ExtResource("7_m20o5")
+
+[node name="SettingBtn" type="TextureButton" parent="Overlay/HBoxContainer2" unique_id=1339532837]
+layout_mode = 2
+texture_normal = ExtResource("10_1xqgb")
+texture_pressed = ExtResource("11_rj2bp")
+texture_hover = ExtResource("11_rj2bp")
+
+[node name="QuitBtn" type="TextureButton" parent="Overlay/HBoxContainer2" unique_id=1117716606]
+layout_mode = 2
+texture_normal = ExtResource("12_l35yb")
+texture_pressed = ExtResource("13_b03e4")
+texture_hover = ExtResource("13_b03e4")
+
+[connection signal="pressed" from="Overlay/HBoxContainer2/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Overlay/HBoxContainer2/SettingBtn" to="." method="_on_setting_btn_pressed"]
+[connection signal="pressed" from="Overlay/HBoxContainer2/QuitBtn" to="." method="_on_quit_btn_pressed"]
