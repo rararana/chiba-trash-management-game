@@ -28,6 +28,8 @@ var is_dragging: bool = false
 var current_ratio: Vector2 = Vector2(1.0, 1.0)
 var stored_items: Array[Resource] = []
 var is_stored_clone: bool = false
+var hint_tween: Tween
+var is_hinting: bool = false
 
 func _ready():
 	area_entered.connect(_on_area_entered)
@@ -95,6 +97,7 @@ func is_trash_bag() -> bool:
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			stop_hint()
 			if current_amount > 0 or is_stored_clone:
 				start_global_pos = global_position
 				is_dragging = true
@@ -161,3 +164,27 @@ func check_bag_drop_zone():
 		global_position = start_global_pos
 		if is_instance_valid(bar_sprite):
 			bar_sprite.position = default_bar_pos
+
+func start_hint():
+	if is_hinting:
+		return
+	is_hinting = true
+	_loop_hint()
+
+func _loop_hint():
+	if not is_hinting:
+		return
+	if hint_tween and hint_tween.is_valid():
+		hint_tween.kill()
+	hint_tween = create_tween()
+	hint_tween.tween_property(sprite, "rotation_degrees", 5.0, 0.1).set_trans(Tween.TRANS_SINE)
+	hint_tween.tween_property(sprite, "rotation_degrees", -5.0, 0.2).set_trans(Tween.TRANS_SINE)
+	hint_tween.tween_property(sprite, "rotation_degrees", 0.0, 0.1).set_trans(Tween.TRANS_SINE)
+	hint_tween.tween_interval(0.5)
+	hint_tween.tween_callback(_loop_hint)
+
+func stop_hint():
+	is_hinting = false
+	if hint_tween and hint_tween.is_valid():
+		hint_tween.kill()
+	sprite.rotation_degrees = 0.0

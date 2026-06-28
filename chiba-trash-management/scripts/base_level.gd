@@ -25,6 +25,9 @@ var is_level_ended: bool = false
 var is_game_started: bool = false
 var tying_buffer: Array[Node] = []
 var end_reason: String = ""
+var inactive_timer: float = 0.0
+var last_mouse_pos: Vector2 = Vector2.ZERO
+const INACTIVE_THRESHOLD: float = 10.0
 const MAIN_MENU_PATH = "res://scenes/UI/main_menu.tscn"
 
 func _ready():
@@ -81,6 +84,24 @@ func _process(delta: float):
 		morning_sky.modulate.a = 0.0
 		afternoon_sky.modulate.a = 1.0 - t
 		evening_sky.modulate.a = t
+		
+	var mouse_pos = get_global_mouse_position()
+	if mouse_pos.distance_to(last_mouse_pos) > 5.0:
+		inactive_timer = 0.0
+		last_mouse_pos = mouse_pos
+		#_stop_bag_hints()
+	else:
+		inactive_timer += delta
+		if inactive_timer >= INACTIVE_THRESHOLD:
+			_check_and_hint_bags()
+			
+func _check_and_hint_bags():
+	if not get_tree().get_nodes_in_group("trash").is_empty():
+		return
+	for bag in category_bags.get_children():
+		if bag.has_method("is_trash_bag") and bag.current_amount > 0:
+			if bag.has_method("start_hint"):
+				bag.start_hint()
 
 func _all_trash_cleared() -> bool:
 	if not get_tree().get_nodes_in_group("trash").is_empty():
