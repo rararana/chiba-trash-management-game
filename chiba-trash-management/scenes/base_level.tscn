@@ -101,16 +101,16 @@ scale = Vector2(0.2, 0.2)
 [node name="Tools" type="Node2D" parent="." unique_id=54998351]
 
 [node name="ScissorTool" parent="Tools" unique_id=384508719 instance=ExtResource("6_earhg")]
-position = Vector2(1435, 769.99994)
+position = Vector2(1413, 769.99994)
 scale = Vector2(0.25, 0.25)
 
 [node name="TieTool" parent="Tools" unique_id=1947184718 instance=ExtResource("7_u6ue0")]
-position = Vector2(1415, 598)
+position = Vector2(1403, 598.00006)
 rotation = 1.4137167
 scale = Vector2(0.23, 0.23)
 
 [node name="SpongeTool" parent="Tools" unique_id=106498173 instance=ExtResource("8_fal5o")]
-position = Vector2(1417, 436)
+position = Vector2(1399, 436)
 rotation = 1.3962634
 scale = Vector2(0.23, 0.23)
 
@@ -141,4 +141,4 @@ stream = ExtResource("20_oe2xo")
 
 [node name="TrashToBin" type="AudioStreamPlayer2D" parent="." unique_id=2034589038]
 stream = ExtResource("21_dm0v0")
-volume_db = 10.0
+volume_db = 8.0

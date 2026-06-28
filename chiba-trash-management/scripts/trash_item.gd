@@ -145,7 +145,7 @@ func receive_tool(incoming_tool_id: String, drop_pos: Vector2 = global_position)
 			print("[TrashItem] GAGAL — level tidak ditemukan")
 			return false
 		print("[TrashItem] Trigger tie di posisi tool: ", drop_pos)
-		level.try_tie_at_position(drop_pos, 300.0)
+		level.try_tie_at_position(drop_pos, 150.0) # TODO: adjust TIE radius
 		return true
 	
 	var next = item_data.get("next_state")
