@@ -16,6 +16,9 @@ extends Node2D
 @onready var afternoon_sky: TextureRect = $BackgroundLayer/AfternoonSky
 @onready var evening_sky: TextureRect = $BackgroundLayer/EveningSky
 @onready var BGM = $BGM
+@onready var sfx_bag_drop: AudioStreamPlayer2D = $BagDrop
+@onready var sfx_bag_to_bin: AudioStreamPlayer2D = $BagToBin
+@onready var sfx_trash_to_bin: AudioStreamPlayer2D = $TrashToBin
 
 var time_passed: float = 0.0
 var is_level_ended: bool = false
@@ -26,7 +29,7 @@ const MAIN_MENU_PATH = "res://scenes/UI/main_menu.tscn"
 
 func _ready():
 	add_to_group("level")
-	BGM.play()
+	#BGM.play()
 	morning_sky.modulate.a = 1.0
 	afternoon_sky.modulate.a = 0.0
 	evening_sky.modulate.a = 0.0
@@ -47,6 +50,7 @@ func _ready():
 
 func _start_game():
 	spawn_trash()
+	BGM.play()
 	is_game_started = true
 	print("Tutorial selesai/di-skip, Timer mulai jalan!")
 
@@ -200,3 +204,15 @@ func try_tie_at_position(drop_pos: Vector2, radius: float = 80.0) -> void:
 				group[i]._shrink_and_free()
 		else:
 			print("[TyingBuffer] GAGAL — kurang item, butuh ", STACK_SIZE, " punya ", group.size())
+
+func play_sfx_bag_drop():
+	sfx_bag_drop.play(0.1)
+	get_tree().create_timer(0.15).timeout.connect(func(): sfx_bag_drop.stop())
+
+func play_sfx_bag_to_bin():
+	sfx_bag_to_bin.play()
+	get_tree().create_timer(0.3).timeout.connect(func(): sfx_bag_to_bin.stop())
+
+func play_sfx_trash_to_bin():
+	sfx_trash_to_bin.play(0.002)
+	get_tree().create_timer(0.3).timeout.connect(func(): sfx_trash_to_bin.stop())

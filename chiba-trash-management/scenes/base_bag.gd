@@ -69,6 +69,11 @@ func receive_trash(incoming_data: Resource) -> bool:
 	current_amount += 1
 	_update_visual()
 	_animate(default_bag_scale, default_x, default_sprite_x)
+	
+	var level = get_tree().get_first_node_in_group("level")
+	if level and level.has_method("play_sfx_bag_drop"):
+		level.play_sfx_bag_drop()
+		
 	return true
 
 func _update_visual():

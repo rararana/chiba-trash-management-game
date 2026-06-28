@@ -17,6 +17,7 @@ signal on_continue
 @onready var salary_value: Label = $Control/EnvelopeRoot/Letter/ContentVBox/Rows/SalaryValue
 @onready var fined_value: Label = $Control/EnvelopeRoot/Letter/ContentVBox/Rows/FinedValue
 @onready var total_value: Label = $Control/EnvelopeRoot/Letter/ContentVBox/TotalRows/TotalValue
+@onready var sfx_letter_slide: AudioStreamPlayer2D = $Control/LetterSlide
 
 var is_ready_to_continue: bool = false
 
@@ -64,12 +65,14 @@ func _play_open_animation():
 
 	await get_tree().create_timer(0.15).timeout
 	
+	sfx_letter_slide.play()
 	letter.modulate.a = 1.0
 	var tween_letter = create_tween()
 	tween_letter.tween_property(letter, "position:y", LETTER_SHOWN_OFFSET_Y, 0.6)\
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	
+
 	await tween_letter.finished
+	sfx_letter_slide.stop()
 	is_ready_to_continue = true
 
 func _input(event: InputEvent):

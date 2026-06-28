@@ -38,6 +38,11 @@ func receive_dropped_object(obj: Area2D) -> bool:
 		else:
 			GameManager.deduct_money(-total_money_change)
 		_bounce()
+		
+		var level = get_tree().get_first_node_in_group("level")
+		if level and level.has_method("play_sfx_bag_to_bin"):
+			level.play_sfx_bag_to_bin()
+		
 		return true
 		
 	elif obj.has_method("is_trash"):
@@ -62,6 +67,11 @@ func receive_dropped_object(obj: Area2D) -> bool:
 		else:
 			GameManager.deduct_money(-total_money_change)
 		_bounce()
+		
+		var level = get_tree().get_first_node_in_group("level")
+		if level and level.has_method("play_sfx_trash_to_bin"):
+			level.play_sfx_trash_to_bin()
+		
 		return true
 		
 	return false
