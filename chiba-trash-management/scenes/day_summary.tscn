@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://de2nq4glukw6j"]
 
 [ext_resource type="Script" uid="uid://ijhpyswv42pu" path="res://scenes/day_summary.gd" id="1_m7grt"]
-[ext_resource type="Texture2D" uid="uid://box15dsxyqkx1" path="res://assets/visual/creme bg.png" id="1_scm47"]
+[ext_resource type="Texture2D" uid="uid://dg81mxb2juu7y" path="res://assets/visual/creme bg.png" id="1_scm47"]
 [ext_resource type="Texture2D" uid="uid://c6v8mvpakpyc" path="res://assets/visual/back envelope opened.PNG" id="2_ggjo7"]
 [ext_resource type="Texture2D" uid="uid://b2krhkx8ykh0o" path="res://assets/visual/front envelope opened.PNG" id="3_bhupk"]
 [ext_resource type="Texture2D" uid="uid://bemg51e7mkmwl" path="res://assets/visual/summary paper.PNG" id="4_bhupk"]
@@ -218,3 +218,4 @@ texture = ExtResource("5_v8x1d")
 [node name="LetterSlide" type="AudioStreamPlayer2D" parent="Control" unique_id=1581716173]
 stream = ExtResource("8_ay0pj")
 volume_db = 8.0
+bus = &"SFX"

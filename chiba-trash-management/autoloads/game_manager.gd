@@ -1,16 +1,12 @@
 extends Node
 
-var tutorial_selesai: bool = false
-var save_path = "user://save_data_tutor.cfg"
 signal on_game_over
 signal uang_berubah
 signal hari_berubah
 
-func next_day():
-	current_day_index += 1
-	if current_day_index >= days_list.size():
-		current_day_index = 0
-	emit_signal("hari_berubah")
+var tutorial_selesai: bool = false
+var save_path = "user://save_data_tutor.cfg"
+var audio_save_path = "user://audio_data.cfg"
 
 var money: int = 100
 var current_day_index: int = 0
@@ -24,6 +20,16 @@ var saved_items: Array[Dictionary] = []
 var money_at_day_start: int = 100
 var salary_earned: int = 0
 var fines_incurred: int = 0
+
+func _ready():
+	load_data()
+	load_audio()
+
+func next_day():
+	current_day_index += 1
+	if current_day_index >= days_list.size():
+		current_day_index = 0
+	emit_signal("hari_berubah")
 
 func start_day():
 	money_at_day_start = money
@@ -70,19 +76,30 @@ func try_throw_bag(bag_category: String, wrong_items_count: int = 0, right_items
 	
 	return is_correct_day
 
-func _ready():
-	# Pas game baru dibuka, suruh dia nginget-nginget lagi
-	load_data()
-
-# FUNGSI BUAT NYIMPEN KE MEMORI HP/PC
 func save_data():
 	var config = ConfigFile.new()
 	config.set_value("Progress", "tutorial_selesai", tutorial_selesai)
 	config.save(save_path)
 
-# FUNGSI BUAT NGE-LOAD DARI MEMORI
 func load_data():
 	var config = ConfigFile.new()
 	if config.load(save_path) == OK:
-		# Kalau ada filenya, ambil ingatannya. Kalau gak ada, default-nya false
 		tutorial_selesai = config.get_value("Progress", "tutorial_selesai", false)
+
+func save_audio():
+	var config = ConfigFile.new()
+	config.set_value("Audio", "bgm", db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("BGM"))))
+	config.set_value("Audio", "sfx", db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))))
+	config.save(audio_save_path)
+
+func load_audio():
+	var config = ConfigFile.new()
+	if config.load(audio_save_path) == OK:
+		var master_vol = config.get_value("Audio", "bgm", 0.5) 
+		var sfx_vol = config.get_value("Audio", "sfx", 0.5) 
+		
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BGM"), linear_to_db(master_vol))
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(sfx_vol))
+	else:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BGM"), linear_to_db(0.5))
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(0.5))
