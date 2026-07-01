@@ -223,6 +223,7 @@ flat = true
 
 [connection signal="gui_input" from="SettingOverlay" to="." method="_on_setting_overlay_gui_input"]
 [connection signal="value_changed" from="SettingOverlay/MenuAudio/HBoxMusic/TextureRect/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="SettingOverlay/MenuAudio/HBoxSound/TextureRect/HSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="SettingOverlay/MenuAudio/HBoxLang/TextureButton" to="." method="_on_tombol_garis_3_pressed"]
 [connection signal="pressed" from="SettingOverlay/MenuLanguage/Eng" to="." method="_on_tombol_english_pressed"]
 [connection signal="pressed" from="SettingOverlay/MenuLanguage/Ind" to="." method="_on_tombol_indonesia_pressed"]

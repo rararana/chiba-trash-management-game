@@ -124,6 +124,7 @@ visible = false
 [node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=245324885]
 stream = ExtResource("15_bvxmy")
 volume_db = -5.0
+bus = &"BGM"
 
 [node name="PauseMenu" parent="." unique_id=799539979 instance=ExtResource("16_em7dn")]
 
@@ -135,10 +136,13 @@ visible = false
 [node name="BagDrop" type="AudioStreamPlayer2D" parent="." unique_id=1608008132]
 stream = SubResource("AudioStreamMP3_oe2xo")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="BagToBin" type="AudioStreamPlayer2D" parent="." unique_id=1911614843]
 stream = ExtResource("20_oe2xo")
+bus = &"SFX"
 
 [node name="TrashToBin" type="AudioStreamPlayer2D" parent="." unique_id=2034589038]
 stream = ExtResource("21_dm0v0")
 volume_db = 8.0
+bus = &"SFX"
