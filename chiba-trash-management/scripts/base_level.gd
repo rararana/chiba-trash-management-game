@@ -19,6 +19,7 @@ extends Node2D
 @onready var sfx_bag_drop: AudioStreamPlayer2D = $BagDrop
 @onready var sfx_bag_to_bin: AudioStreamPlayer2D = $BagToBin
 @onready var sfx_trash_to_bin: AudioStreamPlayer2D = $TrashToBin
+@onready var tools: Node2D = $Tools
 
 var time_passed: float = 0.0
 var is_level_ended: bool = false
@@ -50,6 +51,11 @@ func _ready():
 		if tutorial_node != null:
 			tutorial_node.queue_free()
 		_start_game()
+	
+	if current_level.hide_tools:
+		tools.hide()
+	else:
+		tools.show()
 
 func _start_game():
 	spawn_trash()
@@ -140,6 +146,10 @@ func _on_summary_continued():
 	else:
 		GameManager.next_day()
 		if current_level.next_level_data:
+			if current_level.next_level_data.hide_tools:
+				tools.hide()
+			else:
+				tools.show()
 			is_level_ended = false
 			is_game_started = true
 			end_reason = ""
