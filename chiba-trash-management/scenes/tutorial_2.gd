@@ -24,18 +24,28 @@ var layar_x = 1920.0
 var layar_y = 1080.0
 
 var daftar_bolongan = [
-	{"pos": Vector2(960, 540), "radius": 0.0, "aspect": Vector2(1.0, 1.0)},   # Tutor 1
-	{"pos": Vector2(940, 670), "radius": 0.0, "aspect": Vector2(1.0, 1.0)}, # Tutor 2
-	{"pos": Vector2(940, 690), "radius": 150.0, "aspect": Vector2(1.0, 1.5)}, # Tutor 3
-	{"pos": Vector2(990, 680), "radius": 200.0, "aspect": Vector2(1.5, 1.0)}, # Tutor 4
-	{"pos": Vector2(990, 660), "radius": 200.0, "aspect": Vector2(1.5, 1.0)},# Tutor 5
-	{"pos": Vector2(490, 850), "radius": 230.0, "aspect": Vector2(1.5, 1.0)} # Tutor 6
+	{"pos": Vector2(960, 540), "radius": 0.0, "aspect": Vector2(1.0, 1.0)},
+	{"pos": Vector2(940, 670), "radius": 0.0, "aspect": Vector2(1.0, 1.0)},
+	{"pos": Vector2(940, 690), "radius": 150.0, "aspect": Vector2(1.0, 1.5)},
+	{"pos": Vector2(990, 680), "radius": 200.0, "aspect": Vector2(1.5, 1.0)},
+	{"pos": Vector2(990, 660), "radius": 200.0, "aspect": Vector2(1.5, 1.0)},
+	{"pos": Vector2(490, 850), "radius": 230.0, "aspect": Vector2(1.5, 1.0)}
 ]
 
 var step_sekarang = 0
+var tekstur_asli_en = []
 
 func _ready():
 	hide()
+	
+	for node in daftar_tutor:
+		if node.get_class() == "TextureRect":
+			tekstur_asli_en.append(node.texture)
+		elif node.has_node("TextureRect"):
+			tekstur_asli_en.append(node.get_node("TextureRect").texture)
+		else:
+			tekstur_asli_en.append(null)
+
 	_apply_language()
 
 	var material = bg.material as ShaderMaterial
@@ -49,23 +59,30 @@ func _ready():
 		daftar_tutor[0].show()
 		update_bolongan(0)
 
+func _notification(what):
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		_apply_language()
+
 func _apply_language() -> void:
-	if TranslationServer.get_locale() != "id":
+	if daftar_tutor == null:
 		return
-	
+		
 	var id_textures = [
 		tex_tutor1_id, tex_tutor2_id, tex_tutor3_id,
 		tex_tutor4_id, tex_tutor5_id, tex_tutor6_id
 	]
 	
+	var is_indo = (TranslationServer.get_locale() == "id")
+	
 	for i in daftar_tutor.size():
-		if i < id_textures.size() and id_textures[i] != null:
-			var node_tutor = daftar_tutor[i]
-			
+		var node_tutor = daftar_tutor[i]
+		var tekstur_terpilih = id_textures[i] if is_indo else tekstur_asli_en[i]
+		
+		if tekstur_terpilih != null:
 			if node_tutor.get_class() == "TextureRect":
-				node_tutor.texture = id_textures[i]
+				node_tutor.texture = tekstur_terpilih
 			elif node_tutor.has_node("TextureRect"):
-				node_tutor.get_node("TextureRect").texture = id_textures[i]
+				node_tutor.get_node("TextureRect").texture = tekstur_terpilih
 
 func _input(event):
 	if not visible:
@@ -84,7 +101,8 @@ func lanjutkan_tutorial():
 			
 	else:
 		GameManager.tutorial2_selesai = true
-		GameManager.save_data2()
+		if GameManager.has_method("save_data2"):
+			GameManager.save_data2()
 		
 		tutorial2_tamat.emit() 
 		queue_free()

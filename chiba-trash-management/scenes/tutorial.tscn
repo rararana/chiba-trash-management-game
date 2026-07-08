@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dv3syaqhrdgru" path="res://assets/visual/tutorial/indo/tutor 6.png" id="7_qbchm"]
 [ext_resource type="Texture2D" uid="uid://bovrlf1x7j15a" path="res://assets/visual/tutorial/indo/tutor 7.png" id="8_gxgfo"]
 [ext_resource type="Texture2D" uid="uid://dhpo2y5kyjiuy" path="res://assets/visual/tutorial/tutor 3.png" id="8_ikfo1"]
+[ext_resource type="Texture2D" uid="uid://cf4usray7phka" path="res://assets/visual/tutorial/indo/tutor 14.png" id="9_7a100"]
 [ext_resource type="Texture2D" uid="uid://b5sql3pi5jgpt" path="res://assets/visual/category/combustible-3.PNG" id="9_dwom6"]
 [ext_resource type="Texture2D" uid="uid://cfeasrwemanrg" path="res://assets/visual/tutorial/tutor 4.png" id="10_bl2xa"]
 [ext_resource type="Texture2D" uid="uid://crr72hlfeyp2u" path="res://assets/visual/tutorial/tutor 5.png" id="11_15kfc"]
@@ -46,6 +47,7 @@ tex_tutor4_id = ExtResource("5_210s6")
 tex_tutor5_id = ExtResource("6_5qvs7")
 tex_tutor6_id = ExtResource("7_qbchm")
 tex_tutor7_id = ExtResource("8_gxgfo")
+tex_tutor8_id = ExtResource("9_7a100")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=965654631]
 material = SubResource("ShaderMaterial_e13mp")
