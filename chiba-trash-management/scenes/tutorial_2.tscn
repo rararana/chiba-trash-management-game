@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bj1qd4kd00vs8"]
 
-[ext_resource type="Texture2D" uid="uid://bgs8pem5b1v2y" path="res://assets/visual/tutorial2/tutorial 22.png" id="1_4w7fl"]
+[ext_resource type="Texture2D" uid="uid://drkebjayxkbry" path="res://assets/visual/tutorial2/tutorial 22.png" id="1_4w7fl"]
 [ext_resource type="Script" uid="uid://bmwqqcbl7cmxf" path="res://scenes/tutorial_2.gd" id="1_j2i6x"]
 [ext_resource type="Shader" uid="uid://hp3m2qjrglep" path="res://scenes/tutorial.gdshader" id="2_iudek"]
 [ext_resource type="Texture2D" uid="uid://b717bxcnn5j2p" path="res://assets/visual/tutorial2/tutor 9.png" id="3_ryn22"]

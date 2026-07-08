@@ -25,11 +25,11 @@ var layar_y = 1080.0
 
 var daftar_bolongan = [
 	{"pos": Vector2(960, 540), "radius": 0.0, "aspect": Vector2(1.0, 1.0)},   # Tutor 1
-	{"pos": Vector2(940, 690), "radius": 0.0, "aspect": Vector2(1.0, 1.0)}, # Tutor 2
+	{"pos": Vector2(940, 670), "radius": 0.0, "aspect": Vector2(1.0, 1.0)}, # Tutor 2
 	{"pos": Vector2(940, 690), "radius": 150.0, "aspect": Vector2(1.0, 1.5)}, # Tutor 3
-	{"pos": Vector2(940, 710), "radius": 200.0, "aspect": Vector2(1.0, 1.0)}, # Tutor 4
-	{"pos": Vector2(1200, 900), "radius": 180.0, "aspect": Vector2(3.0, 1.0)},# Tutor 5
-	{"pos": Vector2(1700, 150), "radius": 100.0, "aspect": Vector2(1.5, 1.0)} # Tutor 6
+	{"pos": Vector2(990, 680), "radius": 200.0, "aspect": Vector2(1.5, 1.0)}, # Tutor 4
+	{"pos": Vector2(990, 660), "radius": 200.0, "aspect": Vector2(1.5, 1.0)},# Tutor 5
+	{"pos": Vector2(490, 850), "radius": 230.0, "aspect": Vector2(1.5, 1.0)} # Tutor 6
 ]
 
 var step_sekarang = 0
