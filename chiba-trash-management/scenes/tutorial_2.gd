@@ -35,6 +35,7 @@ var daftar_bolongan = [
 var step_sekarang = 0
 
 func _ready():
+	hide()
 	_apply_language()
 
 	var material = bg.material as ShaderMaterial
@@ -67,6 +68,9 @@ func _apply_language() -> void:
 				node_tutor.get_node("TextureRect").texture = id_textures[i]
 
 func _input(event):
+	if not visible:
+		return
+		
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		lanjutkan_tutorial()
 

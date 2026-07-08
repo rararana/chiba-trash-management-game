@@ -160,7 +160,6 @@ func _on_summary_continued():
 			else:
 				tools.show()
 			is_level_ended = false
-			is_game_started = true
 			end_reason = ""
 			time_passed = 0.0
 			current_level = current_level.next_level_data

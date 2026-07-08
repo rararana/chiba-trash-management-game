@@ -32,6 +32,7 @@ grow_vertical = 2
 script = ExtResource("1_j2i6x")
 
 [node name="mockup" type="TextureRect" parent="." unique_id=297798182]
+visible = false
 modulate = Color(1, 1, 1, 0.3529412)
 layout_mode = 0
 offset_right = 40.0
