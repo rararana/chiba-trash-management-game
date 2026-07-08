@@ -80,8 +80,7 @@ func lanjutkan_tutorial():
 			
 	else:
 		GameManager.tutorial2_selesai = true
-		if GameManager.has_method("save_data"):
-			GameManager.save_data()
+		GameManager.save_data2()
 		
 		tutorial2_tamat.emit() 
 		queue_free()

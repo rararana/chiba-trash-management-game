@@ -5,7 +5,9 @@ signal uang_berubah
 signal hari_berubah
 
 var tutorial_selesai: bool = false
+var tutorial2_selesai: bool = false
 var save_path = "user://save_data_tutor.cfg"
+var save_path2 = "user://save_data_tutor2.cfg"
 var audio_save_path = "user://audio_data.cfg"
 
 var money: int = 100
@@ -23,6 +25,7 @@ var fines_incurred: int = 0
 
 func _ready():
 	load_data()
+	load_data2()
 	load_audio()
 
 func next_day():
@@ -85,6 +88,16 @@ func load_data():
 	var config = ConfigFile.new()
 	if config.load(save_path) == OK:
 		tutorial_selesai = config.get_value("Progress", "tutorial_selesai", false)
+
+func save_data2():
+	var config = ConfigFile.new()
+	config.set_value("Progress", "tutorial2_selesai", tutorial2_selesai)
+	config.save(save_path2)
+
+func load_data2():
+	var config = ConfigFile.new()
+	if config.load(save_path2) == OK:
+		tutorial2_selesai = config.get_value("Progress", "tutorial2_selesai", false)
 
 func save_audio():
 	var config = ConfigFile.new()

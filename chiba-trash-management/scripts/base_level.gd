@@ -28,6 +28,7 @@ var tying_buffer: Array[Node] = []
 var end_reason: String = ""
 var inactive_timer: float = 0.0
 var last_mouse_pos: Vector2 = Vector2.ZERO
+var tutorial_check_count: int = 0
 const INACTIVE_THRESHOLD: float = 10.0
 const MAIN_MENU_PATH = "res://scenes/UI/main_menu.tscn"
 
@@ -42,20 +43,28 @@ func _ready():
 	if current_level:
 		setup_bags()
 	
-	var tutorial_node = get_node_or_null("CanvasLayer/Tutorial")
-	
-	if GameManager.tutorial_selesai == false and tutorial_node != null:
-		tutorial_node.show()
-		tutorial_node.tutorial_tamat.connect(_start_game)
-	else:
-		if tutorial_node != null:
-			tutorial_node.queue_free()
-		_start_game()
+	_check_tutorial()
 	
 	if current_level.hide_tools:
 		tools.hide()
 	else:
 		tools.show()
+
+func _check_tutorial():
+	tutorial_check_count += 1
+	var tutorial_node = get_node_or_null("CanvasLayer/Tutorial")
+	var tutorial2_node = get_node_or_null("CanvasLayer/Tutorial2")
+	
+	print("[DEBUG] check_count: ", tutorial_check_count, " | tutorial2_node: ", tutorial2_node, " | tutorial2_selesai: ", GameManager.tutorial2_selesai)
+	
+	if tutorial_check_count == 1 and GameManager.tutorial_selesai == false and tutorial_node != null:
+		tutorial_node.show()
+		tutorial_node.tutorial_tamat.connect(_start_game)
+	elif tutorial_check_count == 2 and GameManager.tutorial2_selesai == false and tutorial2_node != null:
+		tutorial2_node.show()
+		tutorial2_node.tutorial2_tamat.connect(_start_game)
+	else:
+		_start_game()
 
 func _start_game():
 	spawn_trash()
@@ -164,8 +173,7 @@ func _on_summary_continued():
 				trash.queue_free()
 			
 			setup_bags()
-			spawn_trash()
-			BGM.play()
+			_check_tutorial()
 		else:
 			get_tree().change_scene_to_file(MAIN_MENU_PATH)
 

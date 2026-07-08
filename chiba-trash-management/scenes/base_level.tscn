@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://bygvqpwappy82" path="res://assets/audio/hitslab-game-gaming-music-295075.mp3" id="15_bvxmy"]
 [ext_resource type="PackedScene" uid="uid://dl2sl68634nky" path="res://scenes/UI/pause_menu.tscn" id="16_em7dn"]
 [ext_resource type="PackedScene" uid="uid://c6oir4mc83np2" path="res://scenes/tutorial.tscn" id="18_4so06"]
+[ext_resource type="PackedScene" uid="uid://bj1qd4kd00vs8" path="res://scenes/tutorial_2.tscn" id="19_dm0v0"]
 [ext_resource type="AudioStream" uid="uid://c7ps2i0r1b7hy" path="res://assets/audio/throws-trash (mp3cut.net).mp3" id="20_oe2xo"]
 [ext_resource type="AudioStream" uid="uid://cye3nhe5sf5gh" path="res://assets/audio/freesound_community-thud_me-70412 (mp3cut.net).mp3" id="21_dm0v0"]
 
@@ -131,6 +132,9 @@ bus = &"BGM"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1327036126]
 
 [node name="Tutorial" parent="CanvasLayer" unique_id=1887577354 instance=ExtResource("18_4so06")]
+visible = false
+
+[node name="Tutorial2" parent="CanvasLayer" unique_id=629906461 instance=ExtResource("19_dm0v0")]
 visible = false
 
 [node name="BagDrop" type="AudioStreamPlayer2D" parent="." unique_id=1608008132]
