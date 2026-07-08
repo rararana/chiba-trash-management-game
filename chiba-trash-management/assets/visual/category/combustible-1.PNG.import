@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckq6ch6cpmshg"
-path="res://.godot/imported/combustible-1.png-08ecfcbe18e7d2c729e2601bc630cd65.ctex"
+path="res://.godot/imported/combustible-1.PNG-fcc54c5828c5e86c2ec460a8ffb70656.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/visual/category/combustible-1.png"
-dest_files=["res://.godot/imported/combustible-1.png-08ecfcbe18e7d2c729e2601bc630cd65.ctex"]
+source_file="res://assets/visual/category/combustible-1.PNG"
+dest_files=["res://.godot/imported/combustible-1.PNG-fcc54c5828c5e86c2ec460a8ffb70656.ctex"]
 
 [params]
 

@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://c6oir4mc83np2"]
 
 [ext_resource type="Script" uid="uid://mlyukautbns8" path="res://scenes/tutorial.gd" id="1_8ho6b"]
-[ext_resource type="Texture2D" uid="uid://d0wuf1tdd833w" path="res://assets/visual/tutorial/tutorial 13.png" id="2_0hilk"]
 [ext_resource type="Texture2D" uid="uid://bumoryuo7410g" path="res://assets/visual/tutorial/indo/tutroial 1.png" id="2_15kfc"]
 [ext_resource type="Texture2D" uid="uid://dfux6mi78m7eq" path="res://assets/visual/tutorial/indo/tutor 2.png" id="3_7a100"]
 [ext_resource type="Texture2D" uid="uid://dhr02ap7iipfi" path="res://assets/visual/tutorial/tutor 1.png" id="3_ph3nu"]
-[ext_resource type="Shader" path="res://scenes/tutorial.gdshader" id="3_wr8iv"]
+[ext_resource type="Shader" uid="uid://hp3m2qjrglep" path="res://scenes/tutorial.gdshader" id="3_wr8iv"]
 [ext_resource type="Texture2D" uid="uid://b3kcvh2hx2ihk" path="res://assets/visual/tutorial/indo/tutor 3.png" id="4_feaue"]
 [ext_resource type="Texture2D" uid="uid://ubbc5gwatuym" path="res://assets/visual/tutorial/tutor 2.png" id="4_wr8iv"]
 [ext_resource type="Texture2D" uid="uid://b74fuoen5lijc" path="res://assets/visual/tutorial/indo/tutor 4.png" id="5_210s6"]
-[ext_resource type="Texture2D" uid="uid://ckq6ch6cpmshg" path="res://assets/visual/category/combustible-1.png" id="5_e13mp"]
+[ext_resource type="Texture2D" uid="uid://ckq6ch6cpmshg" path="res://assets/visual/category/combustible-1.PNG" id="5_e13mp"]
 [ext_resource type="Texture2D" uid="uid://d0ubqwb6eeq3e" path="res://assets/visual/tutorial/indo/tutor 5.png" id="6_5qvs7"]
 [ext_resource type="Texture2D" uid="uid://tdsnn3x1byqn" path="res://assets/visual/trash_combustible/chips.PNG" id="6_vrdqu"]
 [ext_resource type="Texture2D" uid="uid://bfbyqxfccs8jg" path="res://assets/visual/tutorial/IMG_6359.PNG" id="7_cmspm"]
 [ext_resource type="Texture2D" uid="uid://dv3syaqhrdgru" path="res://assets/visual/tutorial/indo/tutor 6.png" id="7_qbchm"]
 [ext_resource type="Texture2D" uid="uid://bovrlf1x7j15a" path="res://assets/visual/tutorial/indo/tutor 7.png" id="8_gxgfo"]
 [ext_resource type="Texture2D" uid="uid://dhpo2y5kyjiuy" path="res://assets/visual/tutorial/tutor 3.png" id="8_ikfo1"]
-[ext_resource type="Texture2D" uid="uid://b5sql3pi5jgpt" path="res://assets/visual/category/combustible-3.png" id="9_dwom6"]
+[ext_resource type="Texture2D" uid="uid://b5sql3pi5jgpt" path="res://assets/visual/category/combustible-3.PNG" id="9_dwom6"]
 [ext_resource type="Texture2D" uid="uid://cfeasrwemanrg" path="res://assets/visual/tutorial/tutor 4.png" id="10_bl2xa"]
 [ext_resource type="Texture2D" uid="uid://crr72hlfeyp2u" path="res://assets/visual/tutorial/tutor 5.png" id="11_15kfc"]
 [ext_resource type="Texture2D" uid="uid://ddfbe6lwg5myk" path="res://assets/visual/tutorial/tutor 6.png" id="12_7a100"]
 [ext_resource type="Texture2D" uid="uid://c361esbx3qhih" path="res://assets/visual/tutorial/tutor 7.png" id="13_feaue"]
 [ext_resource type="Texture2D" uid="uid://bbjcmvf44qkjf" path="res://assets/visual/tutorial/IMG_6360.PNG" id="14_210s6"]
+[ext_resource type="Texture2D" uid="uid://bcxg47wp8lnuf" path="res://assets/visual/tutorial/tutor 8.png" id="22_15kfc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e13mp"]
 shader = ExtResource("3_wr8iv")
@@ -47,14 +47,6 @@ tex_tutor5_id = ExtResource("6_5qvs7")
 tex_tutor6_id = ExtResource("7_qbchm")
 tex_tutor7_id = ExtResource("8_gxgfo")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=810404498]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.183, 0.183)
-texture = ExtResource("2_0hilk")
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=965654631]
 material = SubResource("ShaderMaterial_e13mp")
 layout_mode = 1
@@ -65,7 +57,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Tutor1" type="TextureRect" parent="." unique_id=1793603577]
-visible = false
 layout_mode = 0
 offset_left = 249.0
 offset_top = 300.0
@@ -142,6 +133,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("7_cmspm")
 
 [node name="Tutor4" type="TextureRect" parent="." unique_id=1706409436]
+visible = false
 layout_mode = 0
 offset_left = 253.0
 offset_top = 374.0
@@ -179,6 +171,7 @@ rotation = -2.3195426
 texture = ExtResource("7_cmspm")
 
 [node name="Tutor6" type="TextureRect" parent="." unique_id=76626060]
+visible = false
 layout_mode = 0
 offset_left = 278.0
 offset_top = 372.0
@@ -217,3 +210,13 @@ offset_right = 3922.0984
 offset_bottom = 1908.7377
 rotation = -1.0524335
 texture = ExtResource("7_cmspm")
+
+[node name="Tutor8" type="TextureRect" parent="." unique_id=2050764903]
+visible = false
+layout_mode = 0
+offset_left = 249.0
+offset_top = 300.0
+offset_right = 5624.0
+offset_bottom = 2331.0
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("22_15kfc")

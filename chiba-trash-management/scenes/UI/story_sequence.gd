@@ -17,6 +17,6 @@ func _on_finished():
 	config.set_value("Story", "udah_nonton_intro", true)
 	config.save(save_path)
 	
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	
 	TransitionScreen.transition_to("res://scenes/UI/loading_screen.tscn")

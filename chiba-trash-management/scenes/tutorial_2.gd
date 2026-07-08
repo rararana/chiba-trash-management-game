@@ -1,6 +1,6 @@
 extends Control
 
-signal tutorial_tamat
+signal tutorial2_tamat
 
 @export_group("Indonesian Textures")
 @export var tex_tutor1_id: Texture2D
@@ -9,8 +9,6 @@ signal tutorial_tamat
 @export var tex_tutor4_id: Texture2D
 @export var tex_tutor5_id: Texture2D
 @export var tex_tutor6_id: Texture2D
-@export var tex_tutor7_id: Texture2D
-@export var tex_tutor8_id: Texture2D
 
 @onready var bg = $ColorRect
 @onready var daftar_tutor = [
@@ -19,24 +17,21 @@ signal tutorial_tamat
 	$Tutor3,
 	$Tutor4,
 	$Tutor5,
-	$Tutor6,
-	$Tutor7,
-	$Tutor8
+	$Tutor6
 ]
-@onready var jempol = $Tutor7/ThumbsUp
 
 var layar_x = 1920.0
 var layar_y = 1080.0
+
 var daftar_bolongan = [
-	{"pos": Vector2(0, 350), "radius": 0.0, "aspect": Vector2(1.0, 1.0)}, # Tutor 1
-	{"pos": Vector2(150, 430), "radius": 250.0, "aspect": Vector2(1.0, 1.0)}, # Tutor 2
-	{"pos": Vector2(490, 870), "radius": 250.0, "aspect": Vector2(1.0, 1.0)}, # Tutor 3
-	{"pos": Vector2(400, 50), "radius": 100.0, "aspect": Vector2(3.0, 1.0)}, # Tutor 4
-	{"pos": Vector2(1200, 1000), "radius": 170.0, "aspect": Vector2(3.0, 1.0)}, # Tutor 5
-	{"pos": Vector2(1785, 100), "radius": 90.0, "aspect": Vector2(1.5, 1.0)}, # Tutor 6
-	{"pos": Vector2(750, 40), "radius": 80.0, "aspect": Vector2(1.5, 1.0)}, # Tutor 7
-	{"pos": Vector2(750, 40), "radius": 0.0, "aspect": Vector2(1.0, 1.0)} # Tutor 8
+	{"pos": Vector2(960, 540), "radius": 0.0, "aspect": Vector2(1.0, 1.0)},   # Tutor 1
+	{"pos": Vector2(940, 670), "radius": 0.0, "aspect": Vector2(1.0, 1.0)}, # Tutor 2
+	{"pos": Vector2(940, 690), "radius": 150.0, "aspect": Vector2(1.0, 1.5)}, # Tutor 3
+	{"pos": Vector2(990, 680), "radius": 200.0, "aspect": Vector2(1.5, 1.0)}, # Tutor 4
+	{"pos": Vector2(990, 660), "radius": 200.0, "aspect": Vector2(1.5, 1.0)},# Tutor 5
+	{"pos": Vector2(490, 850), "radius": 230.0, "aspect": Vector2(1.5, 1.0)} # Tutor 6
 ]
+
 var step_sekarang = 0
 
 func _ready():
@@ -57,15 +52,19 @@ func _apply_language() -> void:
 	if TranslationServer.get_locale() != "id":
 		return
 	
-	# FIX: tex_tutor8_id udah masuk geng biar gak crash
 	var id_textures = [
 		tex_tutor1_id, tex_tutor2_id, tex_tutor3_id,
-		tex_tutor4_id, tex_tutor5_id, tex_tutor6_id, tex_tutor7_id, tex_tutor8_id
+		tex_tutor4_id, tex_tutor5_id, tex_tutor6_id
 	]
 	
 	for i in daftar_tutor.size():
 		if i < id_textures.size() and id_textures[i] != null:
-			daftar_tutor[i].texture = id_textures[i]
+			var node_tutor = daftar_tutor[i]
+			
+			if node_tutor.get_class() == "TextureRect":
+				node_tutor.texture = id_textures[i]
+			elif node_tutor.has_node("TextureRect"):
+				node_tutor.get_node("TextureRect").texture = id_textures[i]
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -78,16 +77,13 @@ func lanjutkan_tutorial():
 		step_sekarang += 1
 		daftar_tutor[step_sekarang].show()
 		update_bolongan(step_sekarang)
-		
-		if step_sekarang == 6: 
-			animasi_pop_jempol()
 			
 	else:
-		GameManager.tutorial_selesai = true
-		GameManager.save_data()
+		GameManager.tutorial2_selesai = true
+		if GameManager.has_method("save_data"):
+			GameManager.save_data()
 		
-		tutorial_tamat.emit() 
-		
+		tutorial2_tamat.emit() 
 		queue_free()
 
 func update_bolongan(index: int):
@@ -99,9 +95,3 @@ func update_bolongan(index: int):
 		tween.tween_property(material, "shader_parameter/center", data["pos"], 0.4).set_trans(Tween.TRANS_SINE)
 		tween.tween_property(material, "shader_parameter/radius", data["radius"], 0.4).set_trans(Tween.TRANS_SINE)
 		tween.tween_property(material, "shader_parameter/aspect", data["aspect"], 0.4).set_trans(Tween.TRANS_SINE)
-
-func animasi_pop_jempol():
-	if jempol != null:
-		jempol.scale = Vector2(0, 0)
-		var tween = create_tween()
-		tween.tween_property(jempol, "scale", Vector2(1, 1), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

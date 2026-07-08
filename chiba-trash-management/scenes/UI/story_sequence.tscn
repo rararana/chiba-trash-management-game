@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7530ancg2mvt"]
 
-[ext_resource type="VideoStream" uid="uid://bgcbvsq03vfhx" path="res://assets/visual/story.ogv" id="1_jblqq"]
+[ext_resource type="VideoStream" uid="uid://brjbja672wmci" path="res://assets/visual/story_new.ogv" id="1_jblqq"]
 [ext_resource type="Script" uid="uid://dncq1wtqbs8gd" path="res://scenes/UI/story_sequence.gd" id="2_p12lv"]
 
 [node name="StorySequence" type="VideoStreamPlayer" unique_id=904770047]

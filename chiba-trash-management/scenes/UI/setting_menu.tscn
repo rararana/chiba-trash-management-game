@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://x2ql43bbdt8w" path="res://scenes/UI/setting_menu.gd" id="1_yfshn"]
 [ext_resource type="Texture2D" uid="uid://dbbk8rgexymwr" path="res://assets/visual/settingasset.png" id="2_qvvka"]
-[ext_resource type="Texture2D" uid="uid://cpkhwdmtx2ooh" path="res://assets/visual/Setting language.png" id="2_tl0ui"]
 [ext_resource type="FontFile" uid="uid://bqks0up2ulp8h" path="res://assets/visual/Nunito-Regular.ttf" id="3_yfshn"]
 [ext_resource type="Texture2D" uid="uid://bkadtcb268501" path="res://assets/visual/sliderkosong.png" id="5_2nt72"]
 [ext_resource type="Texture2D" uid="uid://bgkcn8jk6rkhf" path="res://assets/visual/setlang_normal.png" id="6_2nt72"]
@@ -43,15 +42,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yfshn")
-
-[node name="uimockup" type="TextureRect" parent="." unique_id=1625043217]
-visible = false
-self_modulate = Color(1, 1, 1, 0.41568628)
-layout_mode = 1
-offset_right = 7869.0
-offset_bottom = 5596.0
-scale = Vector2(0.183, 0.183)
-texture = ExtResource("2_tl0ui")
 
 [node name="SettingOverlay" type="ColorRect" parent="." unique_id=1308362840]
 layout_mode = 1
